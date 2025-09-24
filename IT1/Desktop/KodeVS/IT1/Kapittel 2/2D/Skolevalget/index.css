@@ -1,0 +1,38 @@
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.wrapper {
+  width: 100%;
+  margin: auto;
+  text-align: left;
+}
+
+table {
+  width: 100%;
+  border: 1px solid #000;
+  border-collapse: collapse;
+  margin: 1em 0;
+}
+
+th, td {
+  border: 1px solid #000;
+  padding: 6px;
+}
+
+tbody tr:nth-child(odd) {
+  background: #f0f0f0;
+}
+
+.bar {
+  color: #fff;
+}
+
+/* Stolper med calc(% * 3) */
+.sv  { background: brown; width: calc(25.3% * 3); }
+.ap  { background: red;   width: calc(22.4% * 3); }
+.frp { background: blue;  width: calc(10.4% * 3); }
+.h   { background: darkcyan; width: calc(10.4% * 3); }
+.v   { background: green; width: calc(9.6% * 3); }

@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(
+        to right,
+        #70798C,
+        #F5F1ED,
+        #DAD2BC,
+        #A99985
+    );
+}
+
+.wrapper {
+    display: flex;
+    align-items: start;
+    flex-wrap: none;
+    gap: 1.5rem;
+    padding: 5rem 1.5rem 5rem 1.5rem;
+
+}
+
+.Box {
+    border: 2px solid black;
+    flex: 1;
+    max-width: 25vmax;
+    text-align: center;
+    border-radius: 2vmax;
+    transition: 0.4s;
+    color: rgb(0, 0, 0);
+}
+
+.Box:hover {
+    z-index: 2;
+    transform: scale(1.15);
+    filter: brightness(1.15);
+}
+
+.wrapper:has(.Box:hover) .Box:not(:hover) {
+    z-index: 2;
+    transform: scale(0.9);
+    filter: blur(0.25rem);
+}
+
+#BildeAmund, #BildeEmre, #BildeAfshin, #BildeNima {
+    width: 15rem;
+    height: 15rem;
+    border-radius: 1rem;
+}
+
+#TekstAmund, #TekstEmre, #TekstAfshin, #TekstNima {
+    font-style: italic;
+}
+
+#ListeEmre, #ListeAmund, #ListeAfshin, #ListeNima {
+    text-align: left;
+    display: inline-block;
+}
+
+#FargeAmund { background-color: #70798C; }
+#FargeEmre  { background-color: #F5F1ED; }
+#FargeAfshin{ background-color: #DAD2BC; }
+#FargeNima  { background-color: #A99985; }
+
+.tilbake {
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    font-size: 1rem;
+    text-decoration: none;
+    color: white;
+    background: rgba(0,0,0,0.3);
+    padding: 0.5rem 0.5rem;
+    border-radius: 0.5rem;
+    transition: 0.3s;
+}
+
+.tilbake:hover {
+    background: rgba(0,0,0,0.6);
+}
+

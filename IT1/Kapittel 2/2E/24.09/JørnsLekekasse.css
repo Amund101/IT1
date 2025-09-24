@@ -25,6 +25,7 @@ body {
     left: 50vw;
     width: 15vw;
     height: 15vw;
+    transform: translate(-50%, -50%);
     background-color: darkkhaki;
 }
 

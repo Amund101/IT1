@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="posisjonering.css">
+    <title>Position Testing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;400;500&family=Rosarivo:ital@0;1&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <!-- En sticky navbar-->
+    <nav>
+        <ul>
+            <a href="tables.html"><li>Tables</li></a>
+            <a href="lists.html"><li>Lists</li></a>
+            <a href="../2C/Testing.html"><li>2C saker</li></a>
+        </ul>
+    </nav>
+    <!-- Hoved innholdet (delt i to biter, left og right) -->
+    <div class="wrapper">
+        <!-- Inneholder bilder og et abs-element -->
+        <div class="left">
+            <!-- Viser noen av funksjonene til flex -->
+            <div class="flexImage"></div>
+
+            <!-- Eksempel på parallax effekten -->
+            <div class="parallax"></div>
+
+            <!-- position:relative element for abs-elementet -->
+            <div class="absoluteAnchor">
+                <div class="absoluteBox">
+                    <p>Det kan være litt farlig å plassere ting absolutely.<br>De kan ofte "ødelegge" hvordan siden ser ut.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Inneholder text-innholdet på siden-->
+        <div class="right">
+            <h1>Posisjonering i CSS</h1>
+            <p>Posisjonering i CSS refererer til måten du kan kontrollere og justere plasseringen av HTML-elementer på en nettside. Dette er en viktig del av webdesign som gir deg muligheten til å plassere elementer nøyaktig der du ønsker dem.</p>
+            <p class="quote">En vanlig metode for posisjonering er å bruke CSS-eiendommen "position". Denne eiendommen gir deg muligheten til å bruke verdier som "relative", "absolute", "fixed" eller "sticky" for å definere hvordan et element skal plasseres i forhold til dets opprinnelige posisjon eller andre elementer.</p>
+            <p>Når du bruker "position: relative", kan du justere plasseringen av et element relativt til sin opprinnelige posisjon, noe som gir deg en viss fleksibilitet uten å påvirke layouten til andre elementer.</p>
+            <h2>Eksempel:</h2>
+            <p>Med "position: absolute" kan du nøyaktig plassere et element hvor som helst på siden uavhengig av andre elementer. Dette kan være nyttig for å oppnå spesifikke layouteffekter.</p>        
+            <h2>Andre Posisjoneringsteknikker</h2>
+            <p>Det er flere andre teknikker for posisjonering i CSS. For eksempel kan du bruke "position: fixed" for å feste et element til en bestemt posisjon på skjermen, uavhengig av rulling. Dette er nyttig for navigasjonsmenyer og sideelementer som skal være synlige hele tiden.</p>
+            <p class="quote">"Position: sticky" er en annen interessant teknikk som kombinerer egenskapene til "relative" og "fixed". Elementet er relativt plassert til en bestemt posisjon, men blir "limt" (sticky) på skjermen når brukeren ruller til et visst punkt. Dette er nyttig for å lage klebrige overskrifter og sidekolonner.</p>
+            <p>Du kan også kontrollere plasseringen av elementer ved å bruke marginer og padding i kombinasjon med CSS-flexbox og CSS-grid-layout for komplekse layouter.</p>
+            <p>Posisjonering er en kraftig teknikk i webdesign som gir deg kontroll over hvordan innholdet ditt vises på nettsiden. Forståelse av de forskjellige posisjoneringsegenskapene i CSS vil hjelpe deg med å lage flotte og responsive nettsteder.</p>
+        </div>
+    </div>
+
+
+</body>
+</html>

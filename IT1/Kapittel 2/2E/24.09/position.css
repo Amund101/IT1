@@ -1,0 +1,24 @@
+.wrapper {
+    width: 60vw;
+    margin: auto;
+}
+
+#hero {
+    height: 100px;
+    background-color: hsl(0, 50%, 70%);
+}
+
+#headline {
+    position: absolute;
+    top: 15px;
+    left: 100px;
+    transform: rotate(3deg);
+}
+
+#CTA {
+    position: fixed;
+    top: 500px;
+    left: 0px;
+    transform: rotate(90deg);
+    
+}

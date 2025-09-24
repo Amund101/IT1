@@ -11,14 +11,30 @@
 #headline {
     position: absolute;
     top: 15px;
-    left: 100px;
+    left: 180px;
     transform: rotate(3deg);
 }
 
 #CTA {
     position: fixed;
-    top: 500px;
-    left: 0px;
-    transform: rotate(90deg);
-    
+    margin: 0;
+    padding: 0;
+    top: 200px;
+    left: 50px;
+    transform: rotate(90deg) translate(0, 300%);
+}
+
+#color {
+    height: 30px;
+    background-color: hsl(66, 50%, 70%);
+    border: 2px solid hsl(66, 50%, 30%);
+}
+
+#popout {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 0px;
+    left: 50px;
+    width: 100vw;
 }

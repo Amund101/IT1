@@ -1,0 +1,47 @@
+body {
+    height: 500vh;
+}
+
+.fixed {
+    position: fixed;
+    top: 80vh;
+    left: 10vw;
+    width: 15vw;
+    height: 15vw;
+    background-color: bisque;
+}
+
+.relative {
+    position: relative;
+    left: 20vw;
+    width: 15vw;
+    height: 15vw;
+    background-color: aquamarine;
+}
+
+.absolute {
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    width: 15vw;
+    height: 15vw;
+    background-color: darkkhaki;
+}
+
+.static {
+    display: block;
+    position: static;
+    width: 15vw;
+    height: 15vw;
+    background-color: lightpink;
+}
+
+.sticky {
+    position: sticky;
+    top: 10vh;
+    right: 10vw;
+    width: 15vw;
+    height: 15vw;
+    background-color: lightgreen;
+}
+

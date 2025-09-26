@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex Info</title>
+  <link rel="stylesheet" href="test.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="brand">Flex 101</div>
+    <nav class="links" aria-label="Primær">
+      <a href="#justify">Justify</a>
+      <a href="#align-items">Align Items</a>
+      <a href="#align-content">Align Content</a>
+      <a href="#grow">Flex (grow/basis/shrink)</a>
+    </nav>
+  </header>
+
+  <!-- Wrapper holder alle seksjoner -->
+  <main class="wrapper">
+    <!-- Seksjon 3: Justify Content -->
+    <section id="justify">
+      <h3>justify-content</h3>
+      <span class="badge">main axis</span>
+
+      <div class="demo-row start">
+        <div class="box">1</div><div class="box">2</div><div class="box">3</div>
+      </div>
+      <div class="demo-row center">
+        <div class="box">1</div><div class="box">2</div><div class="box">3</div>
+      </div>
+      <div class="demo-row end">
+        <div class="box">1</div><div class="box">2</div><div class="box">3</div>
+      </div>
+      <div class="demo-row space-between">
+        <div class="box">1</div><div class="box">2</div><div class="box">3</div>
+      </div>
+      <div class="demo-row space-around">
+        <div class="box">1</div><div class="box">2</div><div class="box">3</div>
+      </div>
+      <div class="demo-row space-evenly">
+        <div class="box">1</div><div class="box">2</div><div class="box">3</div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

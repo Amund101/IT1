@@ -1,0 +1,110 @@
+/* Global */
+body {
+  background-color: hsl(2, 12%, 3%);
+  color: azure;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: sticky;
+  top: 0;
+  border: 1px solid gray;
+  padding: 0.5rem 1rem;
+  background-color: hsl(2, 12%, 3%);
+}
+
+.navbar .links {
+  margin-left: auto;
+  display: flex;
+  gap: 1rem;
+}
+
+/* Wrapper */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Demo-rader */
+.demo-row {
+  display: flex;
+  border: 1px dashed gray;
+  padding: 10px;
+  background: rgba(255,255,255,0.05);
+  min-height: 100px;
+  margin-bottom: 1rem;
+}
+
+/* Justify Content varianter */
+.demo-row.start { justify-content: flex-start; }
+.demo-row.center { justify-content: center; }
+.demo-row.end { justify-content: flex-end; }
+.demo-row.space-between { justify-content: space-between; }
+.demo-row.space-around { justify-content: space-around; }
+.demo-row.space-evenly { justify-content: space-evenly; }
+
+/* Align Items varianter */
+.demo-row.ai-start { align-items: flex-start; }
+.demo-row.ai-center { align-items: center; }
+.demo-row.ai-end { align-items: flex-end; }
+.demo-row.ai-stretch { align-items: stretch; }
+
+/* Flex på barna */
+.demo-row.grow .box {
+  flex-basis: 120px;
+}
+.grow0 { flex-grow: 0; }
+.grow1 { flex-grow: 1; }
+.grow2 { flex-grow: 2; }
+
+.demo-row.basis .box {
+  flex-basis: 120px;
+}
+.demo-row.basis .basis200 {
+  flex-basis: 200px;
+  flex-grow: 1;
+}
+
+.demo-row.shrink .box {
+  flex-basis: 200px;
+}
+.noshrink {
+  flex-shrink: 0;
+}
+
+/* Bokser */
+.box {
+  background: teal;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+  border-radius: 8px;
+  min-width: 50px;
+}
+
+/* Høyder til align-items-demo */
+.short { height: 40px; }
+.tall { height: 80px; }
+.taller { height: 120px; }
+
+/* Badge */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background: darkorange;
+  color: black;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}

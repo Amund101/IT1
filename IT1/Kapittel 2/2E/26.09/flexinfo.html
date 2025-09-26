@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Info</title>
+    <link rel="stylesheet" href="flexinfo.css">
+</head>
+<body>
+    <header class="navbar">
+    <div class="brand">Flex 101</div>
+    <nav class="links" aria-label="Primær">
+        <a href="#justify">Justify</a>
+        <a href="#align-items">Align Items</a>
+        <a href="#align-content">Align Content</a>
+        <a href="#grow">Flex (grow/basis/shrink)</a>
+    </nav>
+    </header>
+
+    <main class="wrapper">
+        <section class="panel" id="justify">
+        <h2>justify-content (langs <em>main axis</em>)</h2>
+        <p>Justify-content fordeler <em>ledig plass</em> mellom/ rundt elementene langs hovedaksen. I flex-direction: row er dette horisontalt</p>
+
+        <h3>Flex start</h3>
+        <div class="badge"><b>Container</b>: display:flex; justify-content:flex-start; gap:.75rem</div>
+        <div class="demo-row start">
+            <div class="box">A</div>
+            <div class="box">B</div>
+            <div class="box">C</div>
+        </div>
+
+        <h3>Flex end</h3>
+        <div class="badge"><b>Container</b>: justify-content:flex-end;</div>
+        <div class="demo-row center">
+            <div class="box">A</div>
+            <div class="box">B</div>
+            <div class="box">C</div>
+        </div>
+
+        <h3>Center</h3>
+        <div class="badge"><b>Container</b>: justify-content:flex-end;</div>
+        <div class="demo-row end">
+            <div class="box">A</div>
+            <div class="box">B</div>
+            <div class="box">C</div>
+        </div>
+
+        <h3>Space-Between / Around / Evenly</h3>
+        <div class="badge"><b>Container</b>: space-between</div>
+        <div class="demo-row space-between">
+            <div class="box">A</div>
+            <div class="box">B</div>
+            <div class="box">C</div>
+        </div>
+        <div class="badge"><b>Container</b>: space-around</div>
+        <div class="demo-row space-around">
+            <div class="box">A</div>
+            <div class="box">B</div>
+            <div class="box">C</div>
+        </div>
+        <div class="badge"><b>Container</b>: space-evenly</div>
+        <div class="demo-row space-evenly">
+            <div class="box">A</div>
+            <div class="box">B</div>
+            <div class="box">C</div>
+        </div>
+    </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    padding: 0;
+
+}
+
+.mainContainer {
+    padding: 1rem;
+}
+
+#subContainer1 {
+    width: 200px;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 3fr 1fr;
+    gap: 1rem;
+    border: 1px solid black;
+
+}
+
+.gridItem {
+    background-color: aquamarine;
+    border-radius: 0.2rem;
+    border: 1px solid black;
+    padding: 1rem;
+
+}
+
+#subContainer5 {
+    width: 200px;
+    padding: 1rem;
+    gap: 1rem;
+    border: 1px solid black;
+    display: grid;
+    grid-template-areas: 
+    "top top"
+    "left right"
+    "bottom bottom";
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: repeat(3, 1fr);
+
+}
+
+#sakpatoppen {
+    grid-area: top;
+}
+
+#tilvenstre {
+    grid-area: left;
+}
+
+#tilhoyre {
+    grid-area: right;
+}
+
+#bunnen {
+    grid-area: bottom;
+}
+
+#subContainer9 {
+    width: 200px;
+    padding: 1rem;
+    gap: 1rem;
+    border: 1px solid black;
+    display: grid;
+    grid-template-areas: 
+    "left top top top "
+    "left  middle middle right"
+    "bottom1 bottom bottom bottom";
+    grid-template-columns: repeat(3, 1fr) 2fr;
+    grid-template-rows: repeat(3, 1fr);
+}
+
+#en {
+    grid-area: left;
+}
+
+#to {
+    grid-area: bottom1;
+}

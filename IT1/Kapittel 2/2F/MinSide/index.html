@@ -9,25 +9,26 @@
 <body>
     <div class="wrapper">
         <div class="box" id="logo"></div>
-        <div class="box" id="title"> </div>
+        <div class="box" id="title"></div>
         <div class="box" id="image1"></div>
         <div class="box" id="image2"></div>
         <div class="box" id="info"></div>
+
         <div class="box" id="side">
-            
             <div class="meny">
-            <button class="menyNavn">Kolleksjoner</button>
-            <ul class="underMeny">
-                <li>Portrett</li>
-                <li>Natur</li>
-                <li>Byfoto</li>
-                <li>Produkter</li>
-            </ul>
+                <input type="checkbox" id="coll-toggle" hidden>
+                <label for="coll-toggle" class="menyNavn ekspanderbar">Kolleksjoner<img></label>
+                <ul class="underMeny">
+                    <li>Portrett</li>
+                    <li>Natur</li>
+                    <li>Byfoto</li>
+                    <li>Produkter</li>
+                </ul>
             </div>
-        
 
             <div class="meny">
-                <button class="menyNavn">Utstyr</button>
+                <input type="checkbox" id="gear-toggle" hidden>
+                <label for="gear-toggle" class="menyNavn ekspanderbar">Utstyr</label>
                 <ul class="underMeny">
                     <li>Kamera</li>
                     <li>Linser</li>
@@ -35,18 +36,18 @@
                 </ul>
             </div>
 
-            <div class="menu">
-                <button class="menyNavn">Om meg</button>
+            <div class="meny">
+                <span class="menyNavn">Om meg</span>
             </div>
 
             <div class="meny">
-                <button class="menyNavn">Kontakt</button>
+                <span class="menyNavn">Kontakt</span>
             </div>
         </div>
+
         <div class="box" id="main"></div>
         <div class="box" id="bottom"></div>
         <div class="box" id="reklame"><p>✕</p></div>
-    </div>
     </div>
 </body>
 </html>

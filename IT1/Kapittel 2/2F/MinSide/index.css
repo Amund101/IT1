@@ -1,3 +1,59 @@
 body {
-    
+    background-color: #000;
+    display: grid;
+    place-items: center;
 }
+
+.wrapper {
+    width: 70vw;
+    height: 80vh;
+    display: grid;
+    gap: 10px;
+    grid-template-areas: 
+    "logo  title  title main"
+    "aside image1 info  main"
+    "aside image2 info  main";
+    grid-template-columns: repeat(4, minmax(150px, 1fr));
+    grid-template-rows: repeat(3, 1fr);
+}
+@media(max-width: 630px) {
+    .gridContainer {
+        width: 100vw;
+        grid-template-areas: 
+        "logo   title"
+        "aside  aside"
+        "image1  info"
+        "image2 info"
+        "main  main";
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+    }
+}
+
+@media(max-width: 400px) {
+    .gridContainer {
+        width: 100vw;
+        grid-template-areas: 
+        "title"
+        "aside"
+        "image1"
+        "info"
+        "image2"
+        "main";
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(6, minmax(50px, 1fr));
+    }
+}
+
+.box { 
+    background-color: #888;
+}
+
+/* Setter grid-areas på id'ene */
+#logo {grid-area: logo;}
+#title {grid-area: title;}
+#image1 {grid-area: image1;}
+#image2 {grid-area: image2;}
+#info {grid-area: info;}
+#aside {grid-area: aside;}
+#main {grid-area: main;}

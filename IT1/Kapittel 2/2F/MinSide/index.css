@@ -50,9 +50,18 @@ a { color: inherit; text-decoration: none; }
     grid-area: logo;
     background: url('Bilder/logo.webp') center/contain no-repeat;
 }
-#tittel { grid-area: tittel; display: flex; flex-direction: column; justify-content: center; gap: 6px; }
-#info { grid-area: info; }
-#side { grid-area: side; padding: 12px; }
+#tittel {
+    grid-area: tittel;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px; }
+#info {
+    grid-area: info;
+}
+#side {
+    grid-area: side;
+    padding: 12px; }
 #hoved { 
     grid-area: hoved; 
     padding: 16px; 
@@ -95,7 +104,13 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* Sidebar */
-.menyNavn { display: block; padding: 8px 10px; background: #eee6dc; border-radius: 6px; font-weight: 700; cursor: pointer; }
+.menyNavn { display: block; 
+    padding: 8px 10px;
+    background: #eee6dc;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+}
 .menyNavn:hover { background: #e3d9c9; }
 .underMeny {
     list-style: none;
@@ -105,10 +120,20 @@ a { color: inherit; text-decoration: none; }
     overflow: hidden;
     transition: max-height .24s ease;
 }
-.meny:hover .underMeny { max-height: 400px; }
-.underMeny li { margin: 6px 0; }
-.underMeny a { font-weight: 600; text-decoration: none; color: #1c1c1c; }
-.underMeny a:hover { text-decoration: underline; }
+.meny:hover .underMeny {
+    max-height: 400px;
+}
+.underMeny li {
+    margin: 6px 0; 
+}
+.underMeny a {
+    font-weight: 600;
+    text-decoration: none;
+    color: #1c1c1c;
+}
+.underMeny a:hover {
+    text-decoration: underline;
+}
 
 /* Utvalgte bilder */
 .utvalgteBilder {

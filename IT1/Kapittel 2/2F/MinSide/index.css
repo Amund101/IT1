@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    overflow-x: hidden;
 }
 
 h1 {
@@ -87,15 +88,6 @@ a:hover {
     padding: 12px;
 }
 
-#hoved { 
-    grid-area: hoved; 
-    padding: 16px; 
-    background: #fcfbf9; 
-    display: flex; 
-    flex-direction: column; 
-    gap: 12px;
-}
-
 #bunn { 
     grid-area: bunn; 
     display: flex; 
@@ -104,6 +96,18 @@ a:hover {
     padding: 12px 16px; 
     background: #efe8db; 
     font-size: 14px; 
+    border-top: 1px solid rgba(0,0,0,0.1);
+    gap: 10px;
+    flex-wrap: wrap; 
+}
+
+#hoved { 
+    grid-area: hoved; 
+    padding: 16px; 
+    background: #fcfbf9; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 12px;
 }
 
 /* Reklame */
@@ -114,9 +118,7 @@ a:hover {
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
-    display: flex;
     justify-content: center;
-    align-items: center;
     border-radius: 8px;
     min-height: 120px;
 }
@@ -174,7 +176,7 @@ a:hover {
     padding-left: 14px;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s;
+    transition: 0.3s;
 }
 
 .meny:hover .underMeny {
@@ -225,11 +227,6 @@ a:hover {
     color: #444444;
 }
 
-.bildeMeta {
-    padding: 10px;
-    color: #e7e7e7;
-}
-
 .bildeTekst {
     font-size: 13px;
     color: #d6cfc3;
@@ -269,19 +266,6 @@ tbody td:last-child, thead th:last-child {
 }
 
 /* Bunntekst */
-#bunn { 
-    grid-area: bunn; 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    padding: 12px 16px; 
-    background: #efe8db; 
-    font-size: 14px; 
-    border-top: 1px solid rgba(0,0,0,0.1);
-    gap: 10px;
-    flex-wrap: wrap; 
-}
-
 .footer-right a {
     color: #111111;
     font-weight: bold;

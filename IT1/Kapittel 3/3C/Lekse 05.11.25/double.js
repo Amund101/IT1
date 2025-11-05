@@ -10,10 +10,10 @@ console.log(a + ' * ' + b + ' = ' + a*b)
 
 // Oppgave Oppgave 5 - Fibonacci
 
-let c=1
+let c=0
 let d=1
 
-while(c<=1000) {
+for(let f=1; f<=10; f++) {
     console.log(c)
     let e=c+d;
     c=d;
@@ -24,7 +24,7 @@ while(c<=1000) {
 // Oppgave 16
 
 let tag =''
-for(let e=1; e<=4; e++) {
+for(let g=1; e<=4; g++) {
     tag+='#';
     console.log(tag);
 }

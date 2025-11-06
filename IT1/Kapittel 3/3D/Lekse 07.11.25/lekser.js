@@ -60,4 +60,16 @@ function flereKatter(antall) {
 }
 
 // 10
-// Jeg klarte ikke oppgave 10
+function navneskilt(navnet) {
+    let lengde = navnet.length + 8;
+
+    let oppeNede = "";
+    for (let i = 0; i < lengde; i++) {
+        oppeNede += "*";
+    }
+    console.log(oppeNede);
+
+    console.log("*   " + navnet + "   *");
+
+    console.log(oppeNede);
+}

@@ -53,8 +53,8 @@ function katt() {
 }
 
 // 9 - skriver ut katter så lenge antallet er større enn i
-function flereKatter(antall) {
-    for(let i=0; i<antall; i++) {
+function flereKatter(katter) {
+    for(let i=0; i<katter; i++) {
         console.log("=^.^=");
     }
 }

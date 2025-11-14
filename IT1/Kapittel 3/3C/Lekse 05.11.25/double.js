@@ -28,3 +28,24 @@ for(let g=1; e<=4; g++) {
     tag+='#';
     console.log(tag);
 }
+
+
+// Nested loop
+let primes = []; // Array
+
+for (let m = 2; m<10000000; m++) {
+    let isPrime = True
+    
+    for (let n = 2; n<m; n++) {
+        if(m%n == 0){
+            // Den er ikke primtall
+            isPrime = false
+        }
+    }
+
+    if(isPrime){
+        primes.push(m); // Dytter m inn i arrayet
+    }
+}
+
+console.log(primes[499])

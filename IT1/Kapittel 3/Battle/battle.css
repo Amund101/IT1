@@ -1,0 +1,48 @@
+:root {
+    --breakout-background: #4040E0;
+    --breakout-color: #E0E0FF;
+
+    --full-width-background: #222;
+    --full-width-color: #EEE;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns:
+    [full-width-start] 4rem 
+    [breakout-start] minmax(2rem, 100px)
+    [content-start] auto [content-end]
+    minmax(2rem, 100px) [breakout-end]
+    4rem [full-width-end];
+}
+
+.grid-container>* {
+    grid-column: content;
+}
+
+.grid-container>.breakout {
+    grid-column: breakout;
+    background-color: var(--breakout-background);
+    color: var(var(--breakout-color));
+    font-size: large;
+    padding: 4rem;
+}
+
+.grid-container>.full-width {
+    grid-column: full-width;
+    background-color: var(--full-width-background);
+    color: var(--full-width-color);
+    font-size: xx-large;
+    padding: 4rem;
+    text-align: center;
+    margin-top: 0;
+}   

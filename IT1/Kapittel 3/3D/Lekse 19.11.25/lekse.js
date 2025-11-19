@@ -64,9 +64,9 @@ function treLike() {
 
     antallForsok++;
 
-    let terning1 = terning3();
-    let terning2 = terning3();
-    let terning3verdi = terning3();
+    let terning1 = treTerninger();
+    let terning2 = treTerninger();
+    let terning3verdi = treTerninger();
 
     let sum = terning1 + terning2 + terning3verdi;
 
@@ -126,13 +126,13 @@ console.log(tallTest);
 
 // 4
 // a
-// Aner ikke
+// Jeg tror ikke det kommer til å funke, ettersom arrayet ikke har forekomster av tallet "10".
 
 // b
 console.log(tallTest.indexOf(10));
 console.log(tallTest.lastIndexOf(10));
-// Det betyr at tallet 10 ikke finnes i arrayen, derfor får vi -1
+// Det betyr at tallet 10 ikke finnes i arrayen, og derfor mottas -1 som rsultat
 
 // c
 // indexOf leter etter verdien i arrayen og gir oss indeksen hvis den finnes
-// Siden 10 ikke er i arrayen, returnerer den -1
+// Siden "10" ikke er i arrayet, returnerer den -1

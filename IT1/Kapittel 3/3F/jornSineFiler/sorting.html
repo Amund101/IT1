@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sorting.css">
+    <title>Sort</title>
+</head>
+<body>
+    <div class="wrapper">
+
+        <div id="inputs">
+            <label for="name" >Navn:</label>
+            <input type="text" id="name">
+            
+            <label for="price">Pris:</label>
+            <input type="number" id="price">
+
+            <label>Kategori:</label>
+            <select id="category">
+                <option value="mat">mat</option>
+                <option value="leker">leker</option>
+                <option value="huskeliste">huskeliste</option>
+            </select>
+
+            <button id="leggTil">Legg til</button>
+        </div>
+
+        <div>
+            <button id="sortName">Navn</button>
+            <button id="sortPrice">Pris</button>
+            <button id="sortCategory">Kategori</button>
+        </div>
+
+        <div id="container">
+            <!-- Denne blir fylt med info. -->
+        </div>
+
+    </div>
+</body>
+<script src="sorting.js"></script>
+</html>

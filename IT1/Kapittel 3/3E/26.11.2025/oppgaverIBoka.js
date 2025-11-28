@@ -36,58 +36,18 @@ for (let verdieneEgenskaper in inf1) {
 // a
 let filmer = [
     // Har sett
-    {
-        tittel: "The Game",
-        regissor: "David Fincher",
-        harJegSett: true
-    },
-    {
-        tittel: "The Da Vinci Code",
-        regissor: "Ron Howard",
-        harJegSett: true
-    },
-    {
-        tittel: "The Emoji Movie",
-        regissor: "Tony Leondis",
-        harJegSett: true
-    },
-    {
-        tittel: "Monsters vs Aliens",
-        regissor: "Rob Letterman & Conrad Vernon",
-        harJegSett: true
-    },
-    {
-        tittel: "Paul Blart: Mall Cop",
-        regissor: "Steve Carr",
-        harJegSett: true
-    },
+    {tittel: "The Game", regissor: "David Fincher", harJegSett: true},
+    {tittel: "The Da Vinci Code", regissor: "Ron Howard",harJegSett: true},
+    {tittel: "The Emoji Movie", regissor: "Tony Leondis",harJegSett: true},
+    {tittel: "Monsters vs Aliens", regissor: "Rob Letterman & Conrad Vernon",harJegSett: true},
+    {tittel: "Paul Blart: Mall Cop", regissor: "Steve Carr", harJegSett: true},
 
     // Har ikke sett
-    {
-        tittel: "Jingle Bell Heist",
-        regissor: "Michael Fimognari",
-        harJegSett: false
-    },
-    {
-        tittel: "Freaky Friday",
-        regissor: "Mark Waters",
-        harJegSett: false
-    },
-    {
-        tittel: "The Threesome",
-        regissor: "Nathalie Biancheri",
-        harJegSett: false
-    },
-    {
-        tittel: "Da xiang xi di er zuo",
-        regissor: "Hu Bo",
-        harJegSett: false
-    },
-    {
-        tittel: "Meng long guo jiang",
-        regissor: "Bruce Lee",
-        harJegSett: false
-    }
+    {tittel: "Jingle Bell Heist",regissor: "Michael Fimognari",harJegSett: false},
+    {tittel: "Freaky Friday",regissor: "Mark Waters",harJegSett: false},
+    {tittel: "The Threesome",regissor: "Nathalie Biancheri",harJegSett: false},
+    {tittel: "Da xiang xi di er zuo",regissor: "Hu Bo",harJegSett: false},
+    {tittel: "Meng long guo jiang",regissor: "Bruce Lee",harJegSett: false}
 ];
 
 // b

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="listeSide.css">
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <!-- Inputs -->
+        <div id="inputs">
+            <label for="name">Navn:</label>
+            <input type="text" id="name">
+
+            <label for="price">Pris (nok):</label>
+            <input type="number" id="price">
+
+            <label for="category">Kategori:</label>
+            <select id="category">
+                <option value="superviktig">superviktig</option>
+                <option value="viktig">viktig</option>
+                <option value="ikke-viktig">ikke viktig</option>
+            </select>
+
+            <button id="leggTil">Legg til</button>
+        </div>
+
+        <!-- Sorteringsknapper -->
+        <div id="sortButtons">
+            <button id="sortName">Navn</button>
+            <button id="sortPrice">Pris (nok)</button>
+            <button id="sortCategory">Kategori</button>
+        </div>
+
+        <!-- Liste-container -->
+        <div id="container">
+
+            <!-- Listme-element-->
+            <div class="listItem">
+
+                <p id="listTitle">tittel på listepunktet</p>
+
+                <p id="listDateTime">15.10 12:14</p>
+
+                <p id="listCategory">superviktig</p>
+
+                <p id="listContent">teksten i listepunktet</p>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+<script src="listeSide.js"></script>
+</html>

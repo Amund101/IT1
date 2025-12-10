@@ -1,13 +1,12 @@
 // Listen
 let list = [
-    { navn: "filler", pris: "1", kategori: "ikke-viktig", dato: "dd.mm yyyy"},
+    { navn: "filler", pris: "1", kategori: "ikke-viktig", dato: "dd.mm.yyyy"},
 ];
 
 // Inputs
 const inputNameEl = document.querySelector("#name");
 const inputPriceEl = document.querySelector("#price");
 const inputCategoryEl = document.querySelector("#category");
-const inputDateEl = document.querySelector("#Date");
 
 // Containeren som skal holde listepunktene
 const containerEl = document.querySelector("#container");
@@ -19,6 +18,7 @@ let liEl1;
 let liEl2;
 let liEl3;
 
+const date = new Date();
 // Viser hele lista
 function showList() {
     // jeg tømmer containeren før jeg viser alt på nytt
@@ -45,7 +45,7 @@ function showList() {
 
         let contentEl = document.createElement("p");
         contentEl.id = "listContent";
-        contentEl.textContent = (`${o.pris} kr;-;`)
+        contentEl.textContent = (`${o.pris} kr;-`)
 
         let deleteBtn = document.createElement("button");
         deleteBtn.textContent = "X";
@@ -69,12 +69,14 @@ function addToList() {
     let nameValue = inputNameEl.value;
     let priceValue = Number(inputPriceEl.value);
     let categoryValue = inputCategoryEl.value;
+    let dateValue = Date.value;
 
     // jeg lager objektet slik som i lista
     let newItem = {
         navn: nameValue,
         pris: priceValue,
-        kategori: categoryValue
+        kategori: categoryValue,
+        dato: dateValue
     };
 
     // jeg legger det til
@@ -96,7 +98,6 @@ function removeFromList(e) {
 }
 
 // Sortering  
-const date = new Date();
 
 // viser lista når siden starter
 showList();

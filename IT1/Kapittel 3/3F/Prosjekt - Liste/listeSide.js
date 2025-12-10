@@ -19,10 +19,6 @@ let liEl1;
 let liEl2;
 let liEl3;
 
-// Sortering  
-const date = new Date();
-
-
 // Viser hele lista
 function showList() {
     // jeg tømmer containeren før jeg viser alt på nytt
@@ -71,7 +67,7 @@ function showList() {
 function addToList() {
     // jeg henter verdiene fra input
     let nameValue = inputNameEl.value;
-    let priceValue = inputPriceEl.value;
+    let priceValue = Number(inputPriceEl.value);
     let categoryValue = inputCategoryEl.value;
 
     // jeg lager objektet slik som i lista
@@ -99,6 +95,8 @@ function removeFromList(e) {
     showList();
 }
 
+// Sortering  
+const date = new Date();
 
 // viser lista når siden starter
 showList();

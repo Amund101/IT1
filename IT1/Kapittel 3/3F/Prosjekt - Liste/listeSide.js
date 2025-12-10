@@ -52,11 +52,17 @@ function showList() {
         deleteBtn.id = i;
         deleteBtn.addEventListener("click", removeFromList);
 
+        let navnBtn = document.createElement("button");
+        navnBtn.id = "sortNavn";
+        navnBtn.textContent = "Navn";
+        navnBtn.addEventListener("click", sortByName);
+
         divEl.appendChild(titleEl);
         divEl.appendChild(categoryEl);
         divEl.appendChild(contentEl);
         divEl.appendChild(dateEl);
         divEl.appendChild(deleteBtn);
+        divEl.appendChild(navnBtn)
 
         containerEl.appendChild(divEl);
     }
@@ -69,7 +75,7 @@ function addToList() {
     let nameValue = inputNameEl.value;
     let priceValue = Number(inputPriceEl.value);
     let categoryValue = inputCategoryEl.value;
-    let dateValue = Date.value;
+    let dateValue = new Date().toLocaleDateString();
 
     // jeg lager objektet slik som i lista
     let newItem = {
@@ -97,7 +103,47 @@ function removeFromList(e) {
     showList();
 }
 
-// Sortering  
+// Sortering 
+// ------------------------------------------
+function sortByPrice(){
+    list.sort(comparePrice);
+    showList();
+}
+
+function comparePrice(a, b) {
+    return a.pris - b.pris;
+}
+
+function compareName(a, b) {
+    return a.navn.localeCompare(b.navn);
+}
+
+// jørn sin flip-metode
+let sortNameFlip = true;
+function sortByName() {
+    list.sort(compareName)
+    if(sortNameFlip) {
+        list.reverse();
+    }
+    sortNameFlip = !sortNameFlip;
+    showList();
+}
+
+function compareCategory(a, b) {
+    return a.kategori.localeCompare(b.kategori);
+}
+
+// sortNameFlip omgjort
+let sortCategoryFlip = true;
+function sortByCategory(){
+    list.sort(compareCategory);
+    if (sortCategoryFlip){
+        list.reverse();
+    }
+    sortCategoryFlip = !sortCategoryFlip;
+    showList();
+}
+// ------------------------------------------
 
 // viser lista når siden starter
 showList();

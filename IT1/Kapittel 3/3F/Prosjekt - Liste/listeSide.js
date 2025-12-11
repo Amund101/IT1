@@ -118,7 +118,7 @@ function sortByName(flip = true) {
     if (flip) sortNameFlip = !sortNameFlip;
     if (sortNameFlip) list.reverse();
 
-    navnBtn.textContent = sortNameFlip ? "↓ navn" : "↑ navn";
+    navnBtn.textContent = sortNameFlip ? "↑ navn" : "↓ navn";
     showList();
 }
 

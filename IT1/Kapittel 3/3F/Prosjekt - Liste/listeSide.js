@@ -1,15 +1,14 @@
 // Listen
 let list = [
-    { navn: "Månelandingen", pris: "1", kategori: "Vitenskap", dato: "20.07.1969", innhold: "Apollo 11 lander på månen, Neil Armstrong blir det første mennesket på månen." },
-    { navn: "Fall av Berlinmuren", pris: "1", kategori: "Politikk", dato: "09.11.1989", innhold: "Berlinmuren faller, som symboliserer slutten på den kalde krigen." },
-    { navn: "Oppfinnelsen av Internett", pris: "1", kategori: "Teknologi", dato: "29.10.1969", innhold: "ARPANET, forgjengeren til internett, sender sin første melding." }
+    { navn: "Månelandingen", kategori: "Vitenskap", dato: "20.07.1969", innhold: "Apollo 11 lander på månen, Neil Armstrong blir det første mennesket på månen." },
+    { navn: "Fall av Berlinmuren", kategori: "Politikk", dato: "09.11.1989", innhold: "Berlinmuren faller, som symboliserer slutten på den kalde krigen." },
+    { navn: "Oppfinnelsen av Internett", kategori: "Teknologi", dato: "29.10.1969", innhold: "ARPANET, forgjengeren til internett, sender sin første melding." }
 ];
 
 // Inputs
 const inputNameEl = document.querySelector("#name");
-const inputPriceEl = document.querySelector("#price");
 const inputCategoryEl = document.querySelector("#category");
-const inputContentEl = document.querySelector("#content"); // nytt input-felt
+const inputContentEl = document.querySelector("#content");
 
 // Containeren som holder listepunktene
 const containerEl = document.querySelector("#container");
@@ -24,6 +23,7 @@ let activeSort = null;
 // Flip for sortering
 let sortNameFlip = true;
 let sortCategoryFlip = true;
+
 
 // Viser listen
 function showList() {
@@ -41,7 +41,7 @@ function showList() {
 
         const dateEl = document.createElement("p");
         dateEl.id = "listDateTime";
-        dateEl.textContent = `Lagt til ${o.dato}`;
+        dateEl.textContent = "Lagt til " + o.dato;
 
         const categoryEl = document.createElement("p");
         categoryEl.id = "listCategory";
@@ -66,17 +66,18 @@ function showList() {
     }
 }
 
+
 // Legger til et element
 function addToList() {
     const nameValue = inputNameEl.value;
-    const priceValue = Number(inputPriceEl.value);
     const categoryValue = inputCategoryEl.value;
     const contentValue = inputContentEl.value;
+
+    // DITT system - IKKE rørt
     const dateValue = new Date().toLocaleDateString();
 
     const newItem = {
         navn: nameValue,
-        pris: priceValue,
         kategori: categoryValue,
         dato: dateValue,
         innhold: contentValue
@@ -86,28 +87,23 @@ function addToList() {
 
     if (activeSort === "navn") sortByName(false);
     else if (activeSort === "kategori") sortByCategory();
-    else if (activeSort === "pris") sortByPrice();
     else showList();
 }
 
 addToListEl.addEventListener("click", addToList);
+document.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+        addToList();
+    }
+});
 
-// Fjerner et element
+
+
+// Slette funksjon
 function removeFromList(e) {
     const index = e.target.id;
     list.splice(index, 1);
     showList();
-}
-
-// Sortering på pris
-function sortByPrice() {
-    activeSort = "pris";
-    list.sort(comparePrice);
-    showList();
-}
-
-function comparePrice(a, b) {
-    return a.pris - b.pris;
 }
 
 // Sortering på navn
@@ -115,16 +111,28 @@ function sortByName(flip = true) {
     activeSort = "navn";
     list.sort(compareName);
 
-    if (flip) sortNameFlip = !sortNameFlip;
-    if (sortNameFlip) list.reverse();
+    if (flip) {
+        sortNameFlip = !sortNameFlip;
+    }
 
-    navnBtn.textContent = sortNameFlip ? "↑ navn" : "↓ navn";
+    if (sortNameFlip) {
+        list.reverse();
+    }
+
+    if (sortNameFlip) {
+        navnBtn.textContent = "A-Å";
+    } else {
+        navnBtn.textContent = "Å-A";
+    }
+
     showList();
 }
+
 
 function compareName(a, b) {
     return a.navn.localeCompare(b.navn);
 }
+
 
 // Sortering på kategori
 function sortByCategory() {
@@ -141,9 +149,11 @@ function compareCategory(a, b) {
     return a.kategori.localeCompare(b.kategori);
 }
 
-// Navn-knapp
-navnBtn.textContent = "navn";
+
+// Knapp tekst ved start
+navnBtn.textContent = "A-Å";
 navnBtn.addEventListener("click", sortByName);
+
 
 // Viser listen ved start
 showList();

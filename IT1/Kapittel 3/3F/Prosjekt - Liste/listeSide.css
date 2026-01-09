@@ -1,115 +1,245 @@
-/* Reset */
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    font-family: Arial;
-    background-color: lightgray;
-    padding: 20px;
+    /* Palett: #E0FBFC (Lightest), #C2DFE3, #9DB4C0, #5C6B73, #253237 (Darkest) */
+    background-color: #E0FBFC;
+    color: #253237;
+    display: flex;
+    /* Krav: Bruk av display: flex eller grid */
+    min-height: 100vh;
 }
 
-.wrapper {
-    max-width: 700px;
-    margin: auto;
-    background-color: white;
+/* Navbar på venstre side */
+.navbar {
+    width: 250px;
+    background-color: #253237;
+    color: #E0FBFC;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-shrink: 0;
 }
 
-/* Input-delen */
-#inputs {
-    background-color: #f5f5f5;
-    padding: 15px;
+.navbar h2 {
     margin-bottom: 20px;
+    font-size: 24px;
+    border-bottom: 2px solid #5C6B73;
+    padding-bottom: 10px;
+}
+
+.nav-btn {
+    padding: 15px;
+    background-color: #5C6B73;
+    color: #E0FBFC;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav-btn:hover {
+    background-color: #9DB4C0;
+    color: #253237;
+}
+
+/* Hovedinnhold */
+.main-content {
+    flex-grow: 1;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+.side {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.side h1 {
+    color: #253237;
+    margin-bottom: 30px;
+    font-size: 32px;
+}
+
+/* Input-delen (Legg til side) */
+#inputs {
+    background-color: #C2DFE3;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 #inputs label {
     display: block;
-    margin-top: 10px;
+    margin-top: 15px;
+    color: #253237;
+    font-weight: bold;
 }
 
 #inputs input,
 #inputs select {
     width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid gray;
+    padding: 12px;
+    margin-top: 8px;
+    border: 1px solid #9DB4C0;
+    border-radius: 5px;
+    background-color: #E0FBFC;
+    font-size: 16px;
 }
 
 #inputs button {
     width: 100%;
-    padding: 10px;
-    margin-top: 15px;
-    background-color: green;
-    color: white;
+    padding: 15px;
+    margin-top: 25px;
+    background-color: #253237;
+    color: #E0FBFC;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: opacity 0.3s;
 }
 
 #inputs button:hover {
-    background-color: darkgreen;
+    opacity: 0.9;
 }
 
 /* Sorteringsknapper */
 #sortButtons {
     margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
 }
 
 #sortButtons button {
     padding: 10px 20px;
-    margin-right: 10px;
-    background-color: blue;
+    background-color: #5C6B73;
     color: white;
     border: none;
+    border-radius: 20px;
     cursor: pointer;
+    transition: background-color 0.2s;
 }
 
 #sortButtons button:hover {
-    background-color: darkblue;
+    background-color: #253237;
 }
 
 /* Listepunkter */
+#container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
 .listItem {
-    border: 1px solid #ccc;
-    padding: 15px;
-    margin-bottom: 10px;
-    background-color: #fafafa;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #C2DFE3;
+    /* Standard farge */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: relative;
+    /* For slette-knapp plassering */
+}
+
+
+.listItem:nth-child(even) {
+    background-color: #9DB4C0;
+    /* Mørkere variant for annenhver */
 }
 
 #listTitle {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
+    color: #253237;
     margin-bottom: 5px;
 }
 
-#listCategory {
-    background-color: orange;
-    color: white;
-    padding: 3px 8px;
-    display: inline-block;
+#listDateTime {
+    color: #5C6B73;
+    font-size: 14px;
+    font-style: italic;
     margin-bottom: 10px;
+}
+
+#listCategory {
+    display: inline-block;
+    padding: 4px 12px;
+    background-color: #253237;
+    color: #E0FBFC;
+    font-size: 12px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 #listContent {
-    color: #333;
-    margin-bottom: 10px;
-}
-
-#listDateTime {
-    color: #888;
-    font-size: 14px;
+    color: #253237;
+    line-height: 1.5;
 }
 
 .listItem button {
-    background-color: red;
-    color: white;
-    padding: 5px 10px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: transparent;
+    color: #253237;
+    font-weight: bold;
+    font-size: 18px;
     border: none;
     cursor: pointer;
-    float: right;
+    padding: 5px;
 }
 
 .listItem button:hover {
-    background-color: darkred;
+    color: #b00;
+}
+
+/* Responsiv Design (Mobil) */
+/* Krav: Siden fungerer i mobilversjon og på pc */
+@media (max-width: 600px) {
+    body {
+        flex-direction: column;
+    }
+
+    .navbar {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #253237;
+        position: relative;
+        /* Ikke fixed på mobil for enkelthet */
+    }
+
+    .navbar h2 {
+        display: none;
+        /* Skjul tittel på mobil for å spare plass */
+    }
+
+    .nav-btn {
+        margin: 0;
+        padding: 10px;
+        text-align: center;
+        font-size: 14px;
+        flex: 1;
+        margin: 0 5px;
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 20px;
+    }
 }

@@ -1,58 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Liste Prosjekt</title>
     <link rel="stylesheet" href="listeSide.css">
 </head>
+
 <body>
 
-    <div class="wrapper">
+    <!-- Navbar på venstre side -->
+    <nav class="navbar">
+        <h2>Meny</h2>
+        <button id="visListeBtn" class="nav-btn">Se liste</button>
+        <button id="visLeggTilBtn" class="nav-btn">Legg til innlegg</button>
+    </nav>
 
-        <!-- Inputs -->
-        <div id="inputs">
-            <label for="name">Navn:</label>
-            <input type="text" id="name" required>
+    <!-- Hovedinnhold -->
+    <main class="main-content">
 
-            <label for="category">Kategori:</label>
-            <select id="category">
-                <option value="superviktig">superviktig</option>
-                <option value="viktig">viktig</option>
-                <option value="ikke-viktig">ikke viktig</option>
-            </select>
+        <!-- Side 1: Legg til innlegg -->
+        <section id="leggTilSide" class="side">
+            <h1>Legg til nytt innlegg</h1>
 
-            <label for="content">Innhold:</label>
-            <input type="text" id="content" required>
+            <form id="inputs">
+                <label for="name">Navn:</label>
+                <input type="text" id="name" required>
 
-            <button id="leggTil">Legg til</button>
-        </div>
+                <label for="category">Kategori:</label>
+                <select id="category" required>
+                    <option value="Vitenskap">Vitenskap</option>
+                    <option value="Politikk">Politikk</option>
+                    <option value="Teknologi">Teknologi</option>
+                </select>
 
-        <!-- Sorteringsknapper -->
-        <div id="sortButtons">
-            <button id="sortNavn" alt="Navn"></button>
-            <button id="sortCategory">Kategori</button>
-        </div>
+                <label for="content">Innhold:</label>
+                <input type="text" id="content" required>
 
-        <!-- Liste-container -->
-        <div id="container">
+                <button type="submit" id="leggTil">Legg til</button>
+            </form>
+        </section>
 
-            <!-- Listme-element-->
-            <div class="listItem">
+        <!-- Side 2: Vis liste -->
+        <section id="listeSide" class="side" style="display: none;">
+            <h1>Mine innlegg</h1>
 
-                <p id="listTitle">tittel på listepunktet</p>
-
-                <p id="listDateTime">15.10 12:14</p>
-
-                <p id="listCategory">superviktig</p>
-
-                <p id="listContent">teksten i listepunktet</p>
-
+            <!-- Sorteringsknapper -->
+            <div id="sortButtons">
+                <button id="sortNavn"></button>
+                <button id="sortDato">Dato</button>
+                <button id="sortKategori">Kategori</button>
             </div>
 
-        </div>
-    </div>
+            <!-- Liste-container -->
+            <article id="container"></article>
+        </section>
 
+    </main>
+
+    <script src="listeSide.js"></script>
 </body>
-<script src="listeSide.js"></script>
+
 </html>

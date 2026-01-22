@@ -1,7 +1,6 @@
 {
   "hosting": {
-    "site": "prosjekt-1-4f037",
-    "public": "IT1",
+    "public": "public",
     "ignore": [
       "firebase.json",
       "**/.*",

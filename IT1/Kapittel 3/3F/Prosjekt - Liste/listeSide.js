@@ -1,21 +1,21 @@
-  console.log("listeSide.js loaded");
+console.log("listeSide.js loaded");
 
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
+import { getFirestore, collection, addDoc, deleteDoc, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
 
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
+// Your web app's Firebase configuration
+const firebaseConfig = {
     apiKey: "AIzaSyApXFO2sVagrm4LYwA9dcui6DMUdRKH4Vk",
     authDomain: "prosjekt-1-4f037.firebaseapp.com",
     projectId: "prosjekt-1-4f037",
     storageBucket: "prosjekt-1-4f037.firebasestorage.app",
     messagingSenderId: "619968747857",
     appId: "1:619968747857:web:814a97191fe8204f789b70"
-  };
+};
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
 
 // Bytte mellom "sider"
@@ -31,24 +31,24 @@ function visLeggTil() {
 
 
 // Sjekk om data finnes i localStorage
-let list;
+let list = [];
 
-if (localStorage.info) {
-    list = JSON.parse(localStorage.info);
-} else {
-    // Standard data hvis ingen localStorage finnes
-    list = [
-        { navn: "Månelandingen", kategori: "Vitenskap", dato: "1969-07-20", innhold: "Apollo 11 lander på månen, Neil Armstrong blir det første mennesket på månen." },
-        { navn: "Fall av Berlinmuren", kategori: "Politikk", dato: "1989-11-09", innhold: "Berlinmuren faller, som symboliserer slutten på den kalde krigen." },
-        { navn: "Oppfinnelsen av Internett", kategori: "Teknologi", dato: "1969-10-29", innhold: "ARPANET, forgjengeren til internett, sender sin første melding." },
-        { navn: "iPhone lansering", kategori: "Teknologi", dato: "2007-01-09", innhold: "Apple lanserer den første iPhone, som revolusjonerer smarttelefonmarkedet." },
-        { navn: "Oppdagelsen av DNA", kategori: "Vitenskap", dato: "1953-04-25", innhold: "Watson og Crick publiserer strukturen til DNA, en milepæl i biologien." },
-        { navn: "Norges grunnlov", kategori: "Politikk", dato: "1814-05-17", innhold: "Grunnloven vedtas på Eidsvoll, Norge får sin egen grunnlov." },
-        { navn: "Første PC", kategori: "Teknologi", dato: "1981-08-12", innhold: "IBM lanserer sin første personlige datamaskin, IBM PC 5150." }
-    ];
-    // Lagre standardlisten
-    localStorage.info = JSON.stringify(list);
-}
+// Koble til Firestore og lytt etter endringer i sanntid
+onSnapshot(collection(db, "innlegg"), (snapshot) => {
+    // Tøm listen og fyll den med data fra databasen
+    list = snapshot.docs.map(doc => {
+        return {
+            id: doc.id,   // Vi trenger ID-en for å kunne slette senere
+            ...doc.data() // Resten av dataene (navn, kategori, osv.)
+        };
+    });
+
+    // Oppdater visningen på nettsiden
+    if (activeSort === "navn") sortByName(false);
+    else if (activeSort === "dato") sortByDate(false);
+    else if (activeSort === "kategori") sortByCategory(false);
+    else showList();
+});
 
 
 
@@ -140,7 +140,7 @@ function showList() {
         // Sletteknapp
         const deleteBtn = document.createElement("button");
         deleteBtn.textContent = "X";
-        deleteBtn.id = i;
+        deleteBtn.id = o.id; // Bruker database-ID i stedet for indeks
         deleteBtn.addEventListener("click", removeFromList);
 
         // Legg til elementene i RIKTIG rekkefølge (Tittel, Dato, Kategori, Innhold)
@@ -184,18 +184,12 @@ function addToList() {
     };
 
 
-    list.push(newItem);
-    localStorage.info = JSON.stringify(list);
+    // Last opp til Firebase (vi trenger ikke pushe til arrayet manuelt)
+    addDoc(collection(db, "innlegg"), newItem);
 
-
-    // Oppdater sortering hvis aktiv
-    if (activeSort === "navn") sortByName(false);
-    else if (activeSort === "dato") sortByDate(false); // Behold sortering hvis aktiv
-    else if (activeSort === "kategori") sortByCategory(false);
-    else showList();
-
+    // Nullstill input
     inputNameEl.value = "";
-    // inputCategoryEl.value = ""; // Beholder kategori for enklere input av flere i samme kategori
+    // inputCategoryEl.value = ""; 
     inputContentEl.value = "";
 }
 
@@ -207,13 +201,10 @@ formEl.addEventListener("submit", function (e) {
 });
 
 
-//Fjerner innlegg fra listen
-
+// Fjerner innlegg fra databasen
 function removeFromList(e) {
-    const index = e.target.id;
-    list.splice(index, 1);
-    localStorage.info = JSON.stringify(list);
-    showList();
+    const id = e.target.id;
+    deleteDoc(doc(db, "innlegg", id));
 }
 
 

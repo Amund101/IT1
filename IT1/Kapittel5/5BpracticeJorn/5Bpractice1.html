@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello World</title>
+  <link rel="stylesheet" href="5Bpractice1.css">
+</head>
+
+<body>
+  <h1>Huskeliste</h1>
+
+  <h2>Legg til</h2>
+  <div>
+    <label for="husketekst">Husketekst:</label>
+    <input id="husketekst" type="text" required />
+
+    <label for="kategori">Kategori:</label>
+    <input id="kategori" type="text" placeholder="handel" />
+
+    <label for="viktighet">Viktighet:</label>
+    <select id="viktighet">
+      <option value="low">low</option>
+      <option value="mid" selected>mid</option>
+      <option value="high">high</option>
+    </select>
+
+    <label for="ferdig">Ferdig:
+      <input id="ferdig" type="checkbox" />
+
+      <button id="add">Legg til</button>
+  </div>
+
+  <h2>Liste</h2>
+  <ul id="items"></ul>
+
+  <script type="module" src="5Bpractice1.js"></script>
+</body>
+
+</html>

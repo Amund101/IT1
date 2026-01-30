@@ -11,10 +11,42 @@
 <body>
     <div class="wrapper">
         <h1>Mine Innlegg</h1>
-        <main id="collection" class="collection">
-            <!-- posts blir lagt inn her -->
-        </main>
-    </div>
+        <button id="btShowRegister">Registrer deg</button>
+        <button id="btShowLogin">Logg inn</button>
+        <button id="btShowLeggTil">Legg til</button>
+        <section id="postFormSide">
+            <form id="addPostForm">
+                <input type="text" id="headerInput" placeholder="Overskrift" required>
+                <input type="text" id="contentInput" placeholder="Innhold" required>
+                <button type="submit">Legg til</button>
+            </form>
+
+            <main id="collection" class="collection">
+                <!-- posts her  -->
+            </main>
+        </section>
+        <div class="authContainer">
+            <div id="signInContainer">
+                <!-- username login ting -->
+                <label for="signInEmailInput">Email:</label>
+                <input type="email" id="signInEmailInput" placeholder="your@email.com">
+                <hr>
+                <label for="signInPasswordInput">Password:</label>
+                <input type="password" id="signInPasswordInput" placeholder="******">
+                <hr>
+                <button id="signInButton">Sign in</button>
+            </div>
+            <div id="registerContainer">
+                <!-- username login ting -->
+                <label for="registerEmailInput">Register Email:</label>
+                <input type="email" id="registerEmailInput" placeholder="your@email.com">
+                <hr>
+                <label for="registerPasswordInput">Register Password:</label>
+                <input type="password" id="registerPasswordInput" placeholder="******">
+                <hr>
+                <button id="registerButton">register</button>
+            </div>
+        </div>
 </body>
 <script type="module" src="index.js"></script>
 

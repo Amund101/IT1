@@ -1,0 +1,70 @@
+/* Enkel, stygg CSS som bedt om */
+body {
+    background-color: white;
+    font-family: "Times New Roman", serif;
+}
+
+.wrapper {
+    width: 80%;
+    margin: 0;
+    border: 2px solid black;
+    padding: 10px;
+}
+
+h1 {
+    text-align: left;
+    text-decoration: underline;
+}
+
+#addPostForm {
+    border-bottom: 5px solid black;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+input {
+    display: block;
+    margin: 5px 0;
+    width: 300px;
+    border: 1px solid black;
+}
+
+button {
+    background-color: lightgray;
+    border: 1px solid black;
+    color: black;
+    cursor: pointer;
+}
+
+.post-container {
+    border: 1px solid black;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+.post-header {
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #eee;
+    padding: 5px;
+}
+
+.post-header:hover {
+    background-color: #ccc;
+}
+
+.post-content-area {
+    display: none;
+    /* Skjult som standard */
+    padding: 10px;
+    border-top: 1px dashed black;
+}
+
+.replies-section {
+    display: none;
+    /* Skjult som standard */
+    margin-top: 10px;
+    border: 1px dotted red;
+    padding: 5px;
+    background-color: #fff0f0;
+}

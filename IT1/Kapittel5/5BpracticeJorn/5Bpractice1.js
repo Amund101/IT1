@@ -21,11 +21,6 @@ let addBtnEl = document.querySelector("#add");
 // Containers
 let itemsContainerEl = document.querySelector("#items");
 
-// Inputs
-let husketekstInputEl = document.querySelector("#husketekst");
-let kategoriInputEl = document.querySelector("#kategori");
-let viktighetInputEl = document.querySelector("#viktighet");
-let ferdigInputEl = document.querySelector("#ferdig");
 //#endregion
 
 async function renderList() {

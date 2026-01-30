@@ -1,107 +1,226 @@
-/*
+//#region imports and connection to firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs, query, orderBy, where, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, getDocs, deleteDoc, updateDoc, doc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-auth.js";
 
 const firebaseConfig = {
-    // ... din config her
+    apiKey: "AIzaSyBWfmhPhiJ2WFy8mFUtahPy2TuHHgrLhqg",
+    authDomain: "prosjekt4it1.firebaseapp.com",
+    projectId: "prosjekt4it1",
+    storageBucket: "prosjekt4it1.firebasestorage.app",
+    messagingSenderId: "7856184393",
+    appId: "1:7856184393:web:3030e5efb0f76abfbb3398"
 };
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-*/
+const auth = getAuth(app);
+//#endregion
 
-// DUMMY DATA FOR SKETCH
-const posts = [
-    {
-        id: "1",
-        title: "Hvordan lære JavaScript raskt?",
-        content: "Jeg sliter litt med å forstå funksjoner og loops. Noen tips?",
-        replies: [
-            "Start med små prosjekter!",
-            "Se videoer på YouTube, f.eks. Net Ninja."
-        ]
-    },
-    {
-        id: "2",
-        title: "Beste VS Code extensions?",
-        content: "Hva bruker dere til webutvikling? Jeg har Prettier og Live Server.",
-        replies: [
-            "ES7 React snippets er bra hvis du bruker React.",
-            "Color Highlight er nyttig for CSS."    
-        ]
-    },
-    {
-        id: "3",
-        title: "Er HTML et programmeringsspråk?",
-        content: "Diskuter!",
-        replies: [
-            "Nei, det er et markupspråk.",
-            "Teknisk sett nei, men det er koding."
-        ]
+
+
+//#region QuerySelectors
+const collectionContainer = document.querySelector("#collection");
+const form = document.querySelector("#addPostForm");
+
+// Inputs
+const headerInput = document.querySelector("#headerInput");
+// User input fjernet, lager random string i stedet
+const contentInput = document.querySelector("#contentInput");
+//#endregion
+
+function visSignIn() {
+    document.getElementById("signInContainer").style.display = "block";
+    document.getElementById("registerContainer").style.display = "none";
+    document.getElementById("postFormSide").style.display = "none";
+}
+
+function visRegister() {
+    document.getElementById("registerContainer").style.display = "block";
+    document.getElementById("signInContainer").style.display = "none";
+    document.getElementById("postFormSide").style.display = "none";
+}
+
+function visLeggTil() {
+    document.getElementById("postFormSide").style.display = "block";
+    document.getElementById("registerContainer").style.display = "none";
+    document.getElementById("signInContainer").style.display = "none";
+}
+
+if (btShowRegister) btShowRegister.addEventListener("click", visRegister);
+if (btShowLogin) btShowLogin.addEventListener("click", visSignIn);
+if (btShowLeggTil) btShowLeggTil.addEventListener("click", visLeggTil);
+//#region AUTH  
+// Sign in
+const signInEmailInputEl = document.querySelector("#signInEmailInput");
+const signInPasswordInputEl = document.querySelector("#signInPasswordInput");
+const signInButtonEl = document.querySelector("#signInButton");
+if (signInButtonEl) signInButtonEl.addEventListener("click", signInUser);
+
+// Register
+const registerEmailInputEl = document.querySelector("#registerEmailInput");
+const registerPasswordInputEl = document.querySelector("#registerPasswordInput");
+const registerButtonEl = document.querySelector("#registerButton");
+if (registerButtonEl) registerButtonEl.addEventListener("click", registerNewUser);
+
+
+// SignInUser
+function signInUser() {
+    let email = signInEmailInputEl.value;
+    let password = signInPasswordInputEl.value;
+
+    if (email === "" || password === "") {
+        alert("Please fill in all fields");
+        return;
     }
-];
+    signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            visLeggTil();
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode + ": " + errorMessage);
+            alert("Feil ved innlogging: " + errorMessage);
+        })
+}
 
-const collectionContainerEl = document.querySelector("#collection");
+// RegisterNewUser
+function registerNewUser() {
+    let email = registerEmailInputEl.value;
+    let password = registerPasswordInputEl.value;
 
-function renderList() {
-    collectionContainerEl.innerHTML = "";
-
-    posts.forEach((post) => {
-        // Create Post Container
-        const postEl = document.createElement("div");
-        postEl.classList.add("post");
-
-        // Create Header (Title + Toggle Icon)
-        const headerEl = document.createElement("div");
-        headerEl.classList.add("post-header");
-        headerEl.innerHTML = `
-            <h3 class="post-title">${post.title}</h3>
-            <span class="toggle-icon">▼</span>
-        `;
-
-        // Click event to expand/collapse
-        headerEl.addEventListener("click", () => {
-            postEl.classList.toggle("expanded");
+    if (email === "" || password === "") {
+        alert("Please fill in all fields");
+        return;
+    }
+    createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            console.log("User registered:", userCredential.user);
+            alert("User registered!");
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode + ": " + errorMessage);
+            alert(errorMessage);
         });
+}
+//#endregion
 
-        // Create Body (Content + Replies)
-        const bodyEl = document.createElement("div");
-        bodyEl.classList.add("post-body");
+async function renderList() {
+    collectionContainer.innerHTML = "";
 
-        // Replies HTML generation
-        const repliesHtml = post.replies.map(reply => `<li class="reply">${reply}</li>`).join("");
+    // Henter dokumenter
+    let querySnapshot = await getDocs(collection(db, "Posts"));
 
-        bodyEl.innerHTML = `
-            <div class="content-text">
-                <p>${post.content}</p>
-                
-                <div class="replies-container">
-                    <button class="show-replies-btn">Se replies (${post.replies.length})</button>
-                    <ul class="replies-list">
-                        ${repliesHtml}
-                    </ul>
-                </div>
+    querySnapshot.forEach((docInfo) => {
+        let post = docInfo.data();
+        let id = docInfo.id;
+
+        let container = document.createElement("div");
+        container.className = "post-container";
+
+        // Overskrift
+        let headerDiv = document.createElement("div");
+        headerDiv.className = "post-header";
+        headerDiv.innerHTML = "► <b>" + (post.header || "Ingen tittel") + "</b>";
+
+        // Innhold (skjult start)
+        let contentDiv = document.createElement("div");
+        contentDiv.className = "post-content-area";
+        contentDiv.style.display = "none";
+
+        // Dato håndtering
+        let datoTekst = "Ukjent";
+        if (post.createdAt && post.createdAt.toDate) {
+            datoTekst = post.createdAt.toDate().toLocaleString();
+        }
+
+        contentDiv.innerHTML = `
+            <p>Av: ${post.user}</p>
+            <p>Tid: ${datoTekst}</p>
+            <hr>
+            <p>${post.content}</p>
+            <div style="margin: 10px 0;">
+                <button class="like-btn">👍 ${post.likes || 0}</button>
+                <button class="dislike-btn">👎 ${post.dislikes || 0}</button>
             </div>
+            <br>
+            <button class="slett-btn" style="background:red; color:white;">SLETT</button>
         `;
 
-        // Handle "Se replies" button click
-        const showRepliesBtn = bodyEl.querySelector(".show-replies-btn");
-        const repliesList = bodyEl.querySelector(".replies-list");
-
-        showRepliesBtn.addEventListener("click", (e) => {
-            e.stopPropagation(); // Prevent ensuring parent post collapse
-            repliesList.classList.toggle("visible");
-            showRepliesBtn.textContent = repliesList.classList.contains("visible")
-                ? "Skjul replies"
-                : `Se replies (${post.replies.length})`;
+        // Klikk for å åpne
+        headerDiv.addEventListener("click", () => {
+            if (contentDiv.style.display === "none") {
+                contentDiv.style.display = "block";
+                headerDiv.innerHTML = "▼ <b>" + (post.header || "Ingen tittel") + "</b>";
+            } else {
+                contentDiv.style.display = "none";
+                headerDiv.innerHTML = "► <b>" + (post.header || "Ingen tittel") + "</b>";
+            }
         });
 
-        // Assemble
-        postEl.appendChild(headerEl);
-        postEl.appendChild(bodyEl);
-        collectionContainerEl.appendChild(postEl);
+        // Like-knapp
+        let likeBtn = contentDiv.querySelector(".like-btn");
+        likeBtn.addEventListener("click", async () => {
+            await updateDoc(doc(db, "Posts", id), {
+                likes: (post.likes || 0) + 1
+            });
+            renderList();
+        });
+
+        // Dislike-knapp
+        let dislikeBtn = contentDiv.querySelector(".dislike-btn");
+        dislikeBtn.addEventListener("click", async () => {
+            await updateDoc(doc(db, "Posts", id), {
+                dislikes: (post.dislikes || 0) + 1
+            });
+            renderList();
+        });
+
+        // Slett-knapp
+        let slettBtn = contentDiv.querySelector(".slett-btn");
+        slettBtn.addEventListener("click", async () => {
+            await deleteDoc(doc(db, "Posts", id));
+            renderList();
+        });
+
+        container.appendChild(headerDiv);
+        container.appendChild(contentDiv);
+        collectionContainer.appendChild(container);
     });
 }
 
-// Start the render
 renderList();
+visSignIn();
+
+// Legger til dataen jeg putter i input
+form.addEventListener("submit", addToDatabase);
+
+async function addToDatabase(e) {
+    e.preventDefault();
+
+    const user = auth.currentUser;
+    if (!user) {
+        alert("Du må være logget inn for å legge ut innlegg!");
+        return;
+    }
+
+    let newDoc = {
+        header: headerInput.value,
+        user: user.email,
+        content: contentInput.value,
+        createdAt: serverTimestamp(),
+        likes: 0,
+        dislikes: 0
+    };
+
+    await addDoc(collection(db, "Posts"), newDoc);
+
+    // Tøm input
+    headerInput.value = "";
+    contentInput.value = "";
+
+    renderList();
+}

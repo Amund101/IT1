@@ -1,45 +1,157 @@
+/* CSS - "The Human Amateur" Theme */
+
 body {
-    font-family: sans-serif;
+    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', sans-serif;
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: #fffef0;
+    /* Post-it yellow-ish white */
+    background-image: radial-gradient(#d0d0d0 1px, transparent 1px);
+    background-size: 20px 20px;
+    /* Dot grid */
+    color: #000;
 }
 
 h1,
-h2 {
-    color: #444;
+h2,
+h3 {
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: -1px;
+    text-shadow: 3px 3px 0px #ff00ff;
+    /* Magenta shadow */
+    transform: rotate(-2deg);
+    display: inline-block;
+    background: #fff;
+    padding: 5px 10px;
+    border: 3px solid black;
+    box-shadow: 5px 5px 0px 0px #000;
+    margin-bottom: 25px;
 }
 
+/* Containers (like paper scraps) */
 div {
-    margin-top: 10px;
-    padding: 15px;
-    background-color: white;
-    border: 1px solid #ccc;
-    max-width: 400px;
+    margin-top: 15px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 3px solid black;
+    max-width: 450px;
+    box-shadow: 8px 8px 0px 0px #000;
+    transform: rotate(1deg);
+    /* Slight tilt */
 }
 
+/* Inputs & Selects */
 input,
 select {
     display: block;
-    margin-bottom: 10px;
-    padding: 5px;
+    margin-bottom: 15px;
+    padding: 10px;
     width: 90%;
+    border: 3px solid black;
+    background: #e0f7fa;
+    /* Light cyan */
+    font-family: 'Courier New', Courier, monospace;
+    /* Code/Typewriter font */
+    font-weight: bold;
+    font-size: 1.1em;
+    box-shadow: 3px 3px 0px 0px #000;
+    outline: none;
+    transition: all 0.1s;
 }
 
+input:focus,
+select:focus {
+    background: #fff;
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0px 0px #000;
+}
+
+/* Buttons */
 button {
-    padding: 5px 15px;
+    padding: 10px 20px;
+    font-family: 'Comic Sans MS', sans-serif;
+    /* Consistent with body */
+    font-weight: bold;
+    font-size: 1em;
     cursor: pointer;
-    background-color: #ddd;
-    border: 1px solid #999;
+    background-color: #ffcc00;
+    /* Deep yellow */
+    border: 3px solid black;
+    box-shadow: 4px 4px 0px 0px #000;
+    text-transform: uppercase;
+    transition: all 0.1s;
+    margin-right: 5px;
 }
 
 button:hover {
-    background-color: #ccc;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px 0px #000;
+    background-color: #ffe600;
 }
 
+button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px 0px #000;
+}
+
+/* Special Buttons */
+#add {
+    background-color: #00ff00;
+    /* Lime Green */
+    width: 100%;
+}
+
+button[style*="background-color: #ff4444"] {
+    /* Delete buttons */
+    background-color: #ff4444 !important;
+    color: white;
+}
+
+/* The List */
 ul {
-    padding-left: 20px;
+    padding-left: 0;
+    list-style: none;
 }
 
 li {
-    margin-bottom: 5px;
+    margin-bottom: 15px;
+    padding: 15px;
+    background: #fff;
+    border: 3px solid black;
+    box-shadow: 5px 5px 0px 0px #000;
+    font-size: 1.1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Random-ish tilts would be ideal, but let's stick to one consistent messy tilt */
+    transform: rotate(-0.5deg);
+}
+
+li:nth-child(even) {
+    transform: rotate(1deg);
+    background-color: #fce4ec;
+    /* Pinkish */
+}
+
+li:nth-child(odd) {
+    background-color: #e8f5e9;
+    /* Greenish */
+}
+
+li strong {
+    font-size: 1.2em;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-decoration-color: #000;
+}
+
+/* Update Container (The Popup) */
+#updateContainer {
+    z-index: 1000;
+    transform: translate(-50%, -50%) rotate(2deg) !important;
+    /* Overwrite standard centering with a tilt */
+    background-color: #e1bee7 !important;
+    /* Purpleish */
+    border: 4px solid black !important;
+    box-shadow: 15px 15px 0px 0px rgba(0, 0, 0, 1) !important;
 }

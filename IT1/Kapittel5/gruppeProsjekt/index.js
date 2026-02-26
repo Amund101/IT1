@@ -1,7 +1,9 @@
-//#region importer og tilkobling til firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs, deleteDoc, updateDoc, doc, serverTimestamp, onSnapshot } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, deleteDoc, updateDoc, doc, serverTimestamp, onSnapshot } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-auth.js";
+
+
+//#region Firebase oppsett
 
 const firebaseConfig = {
     apiKey: "AIzaSyBWfmhPhiJ2WFy8mFUtahPy2TuHHgrLhqg",
@@ -15,392 +17,265 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
+
 //#endregion
 
 
-//#region ELEMENTER
-// Modal elementer
-const modal = document.getElementById("authModal");
-const closeModalBtn = document.querySelector(".close-modal");
-const loginSection = document.getElementById("loginSection");
-const registerSection = document.getElementById("registerSection");
-const linkToRegister = document.getElementById("linkToRegister");
-const linkToLogin = document.getElementById("linkToLogin");
+//#region Åpne og lukke vinduer
 
-// Knapper og inputs
-const btShowLogin = document.getElementById("btShowLogin");
-const btLogout = document.getElementById("btLogout");
-const signInEmailInput = document.getElementById("signInEmailInput");
-const signInPasswordInput = document.getElementById("signInPasswordInput");
-const signInButton = document.getElementById("signInButton");
-const registerEmailInput = document.getElementById("registerEmailInput");
-const registerPasswordInput = document.getElementById("registerPasswordInput");
-const registerButton = document.getElementById("registerButton");
+// Åpner innloggings-popupen
+document.getElementById("btShowLogin").addEventListener("click", function () {
+    document.getElementById("loginPopup").style.display = "flex";
+    document.getElementById("loginSection").style.display = "block";
+    document.getElementById("registerSection").style.display = "none";
+});
 
-// Innleggs-elementer
-const collectionContainer = document.getElementById("collection");
-const postFormSection = document.getElementById("postFormSection"); // Updated ID
-const addPostForm = document.getElementById("addPostForm");
-const headerInput = document.getElementById("headerInput");
-const contentInput = document.getElementById("contentInput");
-//#endregion
+// X-knappen i hjørnet lukker vinduet
+document.querySelector(".lukk-knapp").addEventListener("click", function () {
+    document.getElementById("loginPopup").style.display = "none";
+});
 
-
-//#region MODAL LOGIKK
-// Åpne modal
-if (btShowLogin) {
-    btShowLogin.addEventListener("click", () => {
-        modal.style.display = "flex";
-        loginSection.style.display = "block";
-        registerSection.style.display = "none";
-    });
-}
-
-// Lukke modal
-if (closeModalBtn) {
-    closeModalBtn.addEventListener("click", () => {
-        modal.style.display = "none";
-    });
-}
-
-window.addEventListener("click", (e) => {
-    if (e.target == modal) {
-        modal.style.display = "none";
+// Lukker vinduet hvis man klikker på utsiden av det
+window.addEventListener("click", function (e) {
+    if (e.target == document.getElementById("loginPopup")) {
+        document.getElementById("loginPopup").style.display = "none";
+    }
+    if (e.target == document.getElementById("redigerPopup")) {
+        document.getElementById("redigerPopup").style.display = "none";
     }
 });
 
-// Bytte mellom login og registrer
-if (linkToRegister) {
-    linkToRegister.addEventListener("click", (e) => {
-        e.preventDefault(); // Unngå hopp i siden
-        loginSection.style.display = "none";
-        registerSection.style.display = "block";
-    });
-}
-
-if (linkToLogin) {
-    linkToLogin.addEventListener("click", (e) => {
-        e.preventDefault();
-        registerSection.style.display = "none";
-        loginSection.style.display = "block";
-    });
-}
-//#endregion
-
-
-//#region AUTH LOGIKK
-
-// Logg inn
-if (signInButton) {
-    signInButton.addEventListener("click", () => {
-        let tekst = signInEmailInput.value;
-        const passord = signInPasswordInput.value;
-
-        // Hvis teksten IKKE har en krøllalfa, så legger vi på @gmail.com
-        if (tekst.includes("@") === false) {
-            tekst = tekst + "@gmail.com";
-        }
-
-        signInWithEmailAndPassword(auth, tekst, passord)
-            .then(() => {
-                modal.style.display = "none";
-                signInEmailInput.value = "";
-                signInPasswordInput.value = "";
-            })
-            .catch((error) => {
-                alert("Noe gikk galt: " + error.message);
-                showToast("Du er logget inn!", "success");
-            })
-            .catch((error) => {
-                showToast("Feil ved innlogging: " + error.message, "error");
-            });
-    });
-}
-
-// Generer tilfeldig passord
-const generatePasswordBtn = document.getElementById("generatePasswordBtn");
-if (generatePasswordBtn) {
-    generatePasswordBtn.addEventListener("click", () => {
-        const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";
-        let password = "";
-        for (let i = 0; i < 12; i++) {
-            password += chars.charAt(Math.floor(Math.random() * chars.length));
-        }
-        registerPasswordInput.value = password;
-        // Vi viser passordet i klartekst slik at brukeren kan kopiere det
-        registerPasswordInput.type = "text";
-    });
-}
-
-//#region CUSTOM UI (Toast & Confirm)
-
-// TOAST FUNKSJON
-function showToast(message, type = "success") {
-    const container = document.getElementById("toastContainer");
-    const toast = document.createElement("div");
-    toast.className = `toast ${type}`;
-    toast.innerText = message;
-
-    container.appendChild(toast);
-
-    // Fjern etter 3 sekunder
-    setTimeout(() => {
-        toast.style.animation = "fadeOut 0.5s forwards";
-        setTimeout(() => toast.remove(), 500);
-    }, 3000);
-}
-
-// CUSTOM CONFIRM MODAL
-const confirmModal = document.getElementById("confirmModal");
-const confirmYesBtn = document.getElementById("confirmYesBtn");
-const confirmCancelBtn = document.getElementById("confirmCancelBtn");
-let confirmCallback = null; // Lagrer funksjonen som skal kjøres hvis JA
-
-function showConfirm(title, message, callback) {
-    document.getElementById("confirmTitle").innerText = title;
-    document.getElementById("confirmMessage").innerText = message;
-    confirmModal.style.display = "flex";
-    confirmCallback = callback;
-}
-
-if (confirmCancelBtn) {
-    confirmCancelBtn.addEventListener("click", () => {
-        confirmModal.style.display = "none";
-        confirmCallback = null;
-    });
-}
-
-if (confirmYesBtn) {
-    confirmYesBtn.addEventListener("click", () => {
-        if (confirmCallback) confirmCallback();
-        confirmModal.style.display = "none";
-    });
-}
-
-// Lukk modal hvis man klikker utenfor
-window.addEventListener("click", (e) => {
-    if (e.target == confirmModal) {
-        confirmModal.style.display = "none";
-    }
+// Bytter fra logg inn til registrering
+document.getElementById("linkToRegister").addEventListener("click", function (e) {
+    e.preventDefault();
+    document.getElementById("loginSection").style.display = "none";
+    document.getElementById("registerSection").style.display = "block";
 });
+
+// Bytter fra registrering til logg inn
+document.getElementById("linkToLogin").addEventListener("click", function (e) {
+    e.preventDefault();
+    document.getElementById("registerSection").style.display = "none";
+    document.getElementById("loginSection").style.display = "block";
+});
+
 //#endregion
 
-//#region AUTH LOGIKK
 
-// Registrer
-if (registerButton) {
-    registerButton.addEventListener("click", () => {
-        let tekst = registerEmailInput.value;
-        const passord = registerPasswordInput.value;
+//#region Logg inn
 
-        // Lager e-post av brukernavnet hvis det mangler @
-        if (tekst.includes("@") === false) {
-            tekst = tekst + "@gmail.com";
-        }
+// Logger brukeren inn
+document.getElementById("signInButton").addEventListener("click", function () {
+    let epost = document.getElementById("signInEmailInput").value;
+    let passord = document.getElementById("signInPasswordInput").value;
 
-        createUserWithEmailAndPassword(auth, tekst, passord)
-            .then(() => {
-                modal.style.display = "none";
-                registerEmailInput.value = "";
-                registerPasswordInput.value = "";
-                showToast("Bruker opprettet! Velkommen.", "success");
-            })
-            .catch((error) => {
-                showToast("Kunne ikke lage bruker: " + error.message, "error");
-            });
-    });
-}
+    // Fikser epost hvis man glemmer @
+    if (!epost.includes("@")) {
+        epost = epost + "@gmail.com";
+    }
 
-// Logg ut
-if (btLogout) {
-    btLogout.addEventListener("click", () => {
-        signOut(auth).then(() => {
-            showToast("Du er nå logget ut.");
+    signInWithEmailAndPassword(auth, epost, passord)
+        .then(function () {
+            document.getElementById("loginPopup").style.display = "none";
+            document.getElementById("signInEmailInput").value = "";
+            document.getElementById("signInPasswordInput").value = "";
+        })
+        .catch(function () {
+            alert("Feil brukernavn eller passord!");
         });
-    });
-}
-
-// Sjekke status
-onAuthStateChanged(auth, (user) => {
-    if (user) {
-        // LOGGET INN
-        // Vis bare navnet før @ hvis det er en "jukse-mail"
-        let displayUser = user.email.split("@")[0];
-        console.log("Bruker er innlogget:", displayUser);
-        btShowLogin.style.display = "none";
-        btLogout.style.display = "block";
-        postFormSection.style.display = "block"; // Vis skjema for å poste
-    } else {
-        // LOGGET UT
-        console.log("Bruker er utlogget");
-        btShowLogin.style.display = "block";
-        btLogout.style.display = "none";
-        postFormSection.style.display = "none"; // Skjul skjema for å poste
-    }
-    // Uansett om man er logget inn eller ut, skal vi laste listen!
-    renderList();
 });
+
 //#endregion
 
 
-//#region LISTE LOGIKK
-// Bruker onSnapshot for live oppdatering
-function renderList() {
-    onSnapshot(collection(db, "Posts"), (snapshot) => {
-        collectionContainer.innerHTML = ""; // Tøm listen
+//#region Registrering
 
-        const user = auth.currentUser; // Sjekk hvem som er logget inn NÅ
+// Lager ny bruker
+document.getElementById("registerButton").addEventListener("click", function () {
+    let epost = document.getElementById("registerEmailInput").value;
+    let passord = document.getElementById("registerPasswordInput").value;
 
-        snapshot.forEach((docInfo) => {
-            let post = docInfo.data();
-            let id = docInfo.id;
+    if (!epost.includes("@")) {
+        epost = epost + "@gmail.com";
+    }
 
-            let container = document.createElement("div");
-            container.className = "post-container";
+    createUserWithEmailAndPassword(auth, epost, passord)
+        .then(function () {
+            document.getElementById("loginPopup").style.display = "none";
+            document.getElementById("registerEmailInput").value = "";
+            document.getElementById("registerPasswordInput").value = "";
+            alert("Bruker laget! Nå kan du logge inn.");
+        })
+        .catch(function () {
+            alert("Noe gikk galt med registreringen.");
+        });
+});
 
-            // KAOS: Tilfeldig rotasjon mellom -2 og 2 grader
-            const randomRotation = (Math.random() * 4) - 2;
-            container.style.transform = `rotate(${randomRotation}deg)`;
+// Lager et tilfeldig passord
+document.getElementById("generatePasswordBtn").addEventListener("click", function () {
+    let tegn = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZzÆæØøÅå1234567890!@#$%^&*()";
+    let nyttPassord = "";
 
-            // Dato
-            let datoTekst = "Ukjent";
-            if (post.createdAt && post.createdAt.toDate) {
-                datoTekst = post.createdAt.toDate().toLocaleString();
+    for (let i = 0; i < 16; i++) {
+        let tilfeldig = Math.floor(Math.random() * tegn.length);
+        nyttPassord = nyttPassord + tegn[tilfeldig];
+    }
+
+    document.getElementById("registerPasswordInput").value = nyttPassord;
+    document.getElementById("registerPasswordInput").type = "text";
+});
+
+//#endregion
+
+
+//#region Logg ut og status
+
+// Sjekker om noen er logget inn eller ikke
+onAuthStateChanged(auth, function (bruker) {
+    if (bruker) {
+        document.getElementById("btShowLogin").style.display = "none";
+        document.getElementById("btLogout").style.display = "block";
+        document.getElementById("postFormSection").style.display = "block";
+    } else {
+        document.getElementById("btShowLogin").style.display = "block";
+        document.getElementById("btLogout").style.display = "none";
+        document.getElementById("postFormSection").style.display = "none";
+    }
+
+    visInnlegg();
+});
+
+// Knapp for å logge ut
+document.getElementById("btLogout").addEventListener("click", function () {
+    signOut(auth);
+});
+
+//#endregion
+
+
+//#region Liste med innlegg
+
+// Henter og viser alle innlegg på siden
+function visInnlegg() {
+    onSnapshot(collection(db, "Posts"), function (snapshot) {
+
+        // Sletter alt som er der fra før
+        document.getElementById("collection").innerHTML = "";
+
+        snapshot.forEach(function (dokument) {
+            let data = dokument.data();
+            let id = dokument.id;
+
+            let boks = document.createElement("div");
+            boks.className = "post-container";
+
+            // Tilt boksen litt tilfeldig
+            let tilt = Math.random() * 5 - 2.5;
+            boks.style.transform = "rotate(" + tilt + "deg)";
+
+            // Fikser datoen
+            let datoPrefix = "Ukjent dato";
+            if (data.createdAt) {
+                datoPrefix = data.createdAt.toDate().toLocaleString();
             }
 
-            // HTML innhold
-            // Vi legger bare til knappene HVIS brukeren er eier av innlegget eller bare logget inn?
-            // For enkelhetens skyld: Vis knapper hvis logget inn. 
-            // Enda bedre: Vis knapper kun hvis post.user === user.email?
-            // La oss gjøre det enkelt først: Vis knapper hvis logget inn.
+            // Fikser brukernavn
+            let navn = data.user.split("@")[0];
 
-            let buttonsHtml = "";
-            if (user) {
-                buttonsHtml = `
-                    <div class="post-action-container">
-                        <button class="edit-btn">Rediger</button>
-                        <button class="slett-btn">Slett</button>
-                    </div>
-                 `;
-            }
-
-            container.innerHTML = `
-                <div class="post-header">${post.header || "Uten tittel"}</div>
-                <div class="post-info">Av: ${post.user ? post.user.split("@")[0] : "Ukjent"} | ${datoTekst}</div>
-                <div class="post-content-area">${post.content}</div>
-                ${buttonsHtml}
+            boks.innerHTML = `
+                <div class="post-header">${data.header}</div>
+                <div class="post-info">Av: ${navn} | ${datoPrefix}</div>
+                <div class="post-innhold">${data.content}</div>
             `;
 
-            // Legg til event listeners for knappene HVIS de finnes
-            if (user) {
-                const slettBtn = container.querySelector(".slett-btn");
-                if (slettBtn) {
-                    slettBtn.addEventListener("click", () => slettInnlegg(id));
-                }
+            // Legger til knapper hvis man er logget inn
+            if (auth.currentUser) {
+                let redigerKnapp = document.createElement("button");
+                redigerKnapp.innerText = "Rediger";
+                redigerKnapp.style.backgroundColor = "#74b9ff";
+                redigerKnapp.addEventListener("click", function () {
+                    aapneRedigerPopup(id, data.header, data.content);
+                });
 
-                const editBtn = container.querySelector(".edit-btn");
-                if (editBtn) {
-                    editBtn.addEventListener("click", () => redigerInnlegg(id, post.header, post.content));
-                }
+                let slettKnapp = document.createElement("button");
+                slettKnapp.innerText = "Slett";
+                slettKnapp.style.backgroundColor = "#ff4444";
+                slettKnapp.style.color = "white";
+                slettKnapp.addEventListener("click", function () {
+                    fjernInnlegg(id);
+                });
+
+                boks.appendChild(redigerKnapp);
+                boks.appendChild(slettKnapp);
             }
 
-            collectionContainer.appendChild(container); // Legg til i hovedlisten (øverst)
-            // For å få nyest øverst kan vi bruke prepend, men sortering i query er bedre.
-            // Siden vi ikke har query-sortering her, bruker vi prepend for å snu det hvis det kommer "eldst først"
-            // Eller juster i visningen. Standard forEach går gjennom dokumentene.
+            document.getElementById("collection").appendChild(boks);
         });
     });
 }
 
-async function slettInnlegg(id) {
-    // BRUKER NÅ CUSTOM CONFIRM MODAL
-    showConfirm("Slette innlegg?", "Er du sikker på at du vil slette dette?", async () => {
+//#endregion
+
+
+//#region Slett og rediger funksjoner
+
+// Sletter et innlegg
+async function fjernInnlegg(id) {
+    let sjekk = confirm("Vil du virkelig slette dette?");
+    if (sjekk) {
         await deleteDoc(doc(db, "Posts", id));
-        showToast("Innlegg slettet.", "success");
-    });
-}
-
-// CUSTOM EDIT MODAL
-const editModal = document.getElementById("editModal");
-const editHeaderInput = document.getElementById("editHeaderInput");
-const editContentInput = document.getElementById("editContentInput");
-const editSaveBtn = document.getElementById("editSaveBtn");
-const editCancelBtn = document.getElementById("editCancelBtn");
-let editCallback = null;
-
-function showEditModal(currentHeader, currentContent, callback) {
-    editHeaderInput.value = currentHeader;
-    editContentInput.value = currentContent;
-    editModal.style.display = "flex";
-    editCallback = callback;
-}
-
-if (editCancelBtn) {
-    editCancelBtn.addEventListener("click", () => {
-        editModal.style.display = "none";
-        editCallback = null;
-    });
-}
-
-if (editSaveBtn) {
-    editSaveBtn.addEventListener("click", () => {
-        if (editCallback) {
-            editCallback(editHeaderInput.value, editContentInput.value);
-        }
-        editModal.style.display = "none";
-    });
-}
-
-// Lukk også edit modal ved klikk utenfor
-window.addEventListener("click", (e) => {
-    if (e.target == editModal) {
-        editModal.style.display = "none";
     }
+}
+
+// Åpner popupen for å redigere
+function aapneRedigerPopup(id, gammelTittel, gammelTekst) {
+    document.getElementById("editHeaderInput").value = gammelTittel;
+    document.getElementById("editContentInput").value = gammelTekst;
+    document.getElementById("redigerPopup").style.display = "flex";
+
+    // Lagrer når man klikker på knappen
+    document.getElementById("editSaveBtn").onclick = async function () {
+        let nyTittel = document.getElementById("editHeaderInput").value;
+        let nyTekst = document.getElementById("editContentInput").value;
+
+        await updateDoc(doc(db, "Posts", id), {
+            header: nyTittel,
+            content: nyTekst
+        });
+
+        document.getElementById("redigerPopup").style.display = "none";
+        alert("Innlegget ble lagret!");
+    };
+
+    // Avbryt knappen
+    document.getElementById("editCancelBtn").onclick = function () {
+        document.getElementById("redigerPopup").style.display = "none";
+    };
+}
+
+//#endregion
+
+
+//#region Nytt innlegg
+
+// Poster til Firebase
+document.getElementById("addPostForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    let tittel = document.getElementById("headerInput").value;
+    let tekst = document.getElementById("contentInput").value;
+    let bruker = auth.currentUser;
+
+    await addDoc(collection(db, "Posts"), {
+        header: tittel,
+        content: tekst,
+        user: bruker.email,
+        createdAt: serverTimestamp()
+    });
+
+    // Tømmer feltene
+    document.getElementById("headerInput").value = "";
+    document.getElementById("contentInput").value = "";
 });
 
-
-async function redigerInnlegg(id, oldHeader, oldContent) {
-    showEditModal(oldHeader, oldContent, async (newHeader, newContent) => {
-        if (newHeader && newContent) {
-            await updateDoc(doc(db, "Posts", id), {
-                header: newHeader,
-                content: newContent
-            });
-            showToast("Innlegg oppdatert!", "success");
-        }
-    });
-}
-
-
-// Legge til nytt innlegg
-if (addPostForm) {
-    addPostForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        const user = auth.currentUser;
-        if (!user) {
-            showToast("Du må være logget inn!", "error");
-            return;
-        }
-
-        try {
-            await addDoc(collection(db, "Posts"), {
-                header: headerInput.value,
-                content: contentInput.value,
-                user: user.email,
-                createdAt: serverTimestamp(),
-                likes: 0,
-                dislikes: 0
-            });
-
-            // Tøm felter
-            headerInput.value = "";
-            contentInput.value = "";
-            showToast("Innlegg publisert!", "success");
-        } catch (error) {
-            console.error("Feil ved posting:", error);
-            showToast("Kunne ikke poste innlegget.", "error");
-        }
-    });
-}
 //#endregion

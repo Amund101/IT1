@@ -1,112 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Gruppeprosjekt</title>
     <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-    <!-- BAKGRUNNSEFFEKTER -->
-    <div class="background-blobs">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-    </div>
 
-    <!-- TOAST CONTAINER (For små beskjeder) -->
-    <div id="toastContainer"></div>
+    <!-- === POPUP-VINDUER === -->
 
-    <!-- CUSTOM CONFIRM MODAL -->
-    <div id="confirmModal" class="modal" style="display: none;">
-        <div class="modal-content confirm-content">
-            <h3 id="confirmTitle">Er du sikker?</h3>
-            <p id="confirmMessage">Denne handlingen kan ikke angres.</p>
-            <div class="confirm-actions">
-                <button id="confirmCancelBtn" class="btn btn-nav">Avbryt</button>
-                <button id="confirmYesBtn" class="btn btn-primary btn-danger">Slett</button>
+    <!-- Logg inn / registrer popup -->
+    <div id="loginPopup" class="popup" style="display: none;">
+        <div class="popup-innhold">
+            <button class="lukk-knapp">X</button>
+
+            <!-- Innlogging -->
+            <div id="loginSection">
+                <h2>Logg inn</h2>
+                <input type="text" id="signInEmailInput" placeholder="Brukernavn">
+                <input type="password" id="signInPasswordInput" placeholder="Passord">
+                <button id="signInButton">Logg inn</button>
+                <p>Ingen bruker? <a href="#" id="linkToRegister">Registrer deg her</a></p>
+            </div>
+
+            <!-- Registrering -->
+            <div id="registerSection" style="display: none;">
+                <h2>Ny bruker</h2>
+                <input type="text" id="registerEmailInput" placeholder="Brukernavn">
+                <input type="text" id="registerPasswordInput" placeholder="Velg et passord">
+                <button id="generatePasswordBtn">Generer tilfeldig passord</button>
+                <button id="registerButton">Registrer</button>
+                <p>Har du allerede bruker? <a href="#" id="linkToLogin">Logg inn her</a></p>
             </div>
         </div>
     </div>
 
-    <!-- CUSTOM EDIT MODAL -->
-    <div id="editModal" class="modal" style="display: none;">
-        <div class="modal-content">
+    <!-- Rediger innlegg-popup -->
+    <div id="redigerPopup" class="popup" style="display: none;">
+        <div class="popup-innhold">
             <h3>Rediger innlegg</h3>
             <input type="text" id="editHeaderInput" placeholder="Overskrift">
             <textarea id="editContentInput" rows="4" placeholder="Innhold"></textarea>
-            <div class="confirm-actions">
-                <button id="editCancelBtn" class="btn btn-nav">Avbryt</button>
-                <button id="editSaveBtn" class="btn btn-primary">Lagre</button>
+            <div class="popup-knapper">
+                <button id="editCancelBtn">Avbryt</button>
+                <button id="editSaveBtn" style="background-color: #00cc44; color: white;">Lagre</button>
             </div>
         </div>
     </div>
 
-    <!-- NY ID: "app-root" i stedet for wrapper for å signalisere ny struktur -->
-    <div id="app-root">
+    <!-- === TOPP-BAR === -->
 
-        <!-- TOP NAVIGATION BAR -->
-        <header class="top-nav">
-            <div class="nav-content">
-                <div class="logo">GroupProject</div>
-                <div class="nav-actions">
-                    <button id="btShowLogin" class="btn btn-nav">Logg inn</button>
-                    <button id="btLogout" class="btn btn-nav" style="display: none;">Logg ut</button>
-                </div>
-            </div>
-        </header>
+    <header class="topp-bar">
+        <div class="logo">Gruppeprosjekt</div>
+        <div class="nav-knapper">
+            <button id="btShowLogin">Logg inn</button>
+            <button id="btLogout" style="display: none; background-color: #ff4444; color: white;">Logg ut</button>
+        </div>
+    </header>
 
-        <!-- MAIN FEED AREA -->
-        <main class="feed-container">
+    <!-- === SKRIV NYTT INNLEGG === -->
 
-            <!-- MODAL FOR LOGG INN / REGISTRER (Flyttet ut av wrapper for renslighet, men kan ligge her) -->
-            <!-- Vi bruker en egen modalContainer i stedet -->
+    <!-- Vises bare hvis man er innlogget (styres av JS) -->
+    <section id="postFormSection" style="display: none;">
+        <form id="addPostForm">
+            <input type="text" id="headerInput" placeholder="Overskrift..." required>
+            <textarea id="contentInput" placeholder="Hva vil du skrive?" required rows="3"></textarea>
+            <button type="submit">Publiser</button>
+        </form>
+    </section>
 
-            <div id="modal" class="modal" style="display: none;">
-                <div class="modal-content">
-                    <span class="close-modal">&times;</span>
+    <!-- === INNLEGG === -->
 
-                    <!-- Log in Section -->
-                    <div id="loginSection">
-                        <h2>Logg inn</h2>
-                        <input type="text" id="signInEmailInput" placeholder="Brukernavn">
-                        <input type="password" id="signInPasswordInput" placeholder="Passord">
-                        <button id="signInButton" class="btn btn-primary">Logg inn</button>
-                        <p>Ingen bruker? <a href="#" id="linkToRegister">Registrer deg her</a></p>
-                    </div>
+    <!-- Innleggene fra Firebase havner her -->
+    <div id="collection"></div>
 
-                    <!-- Register Section -->
-                    <div id="registerSection" style="display: none;">
-                        <h2>Ny bruker</h2>
-                        <input type="text" id="registerEmailInput" placeholder="Brukernavn">
-                        <input type="text" id="registerPasswordInput" placeholder="Velg et passord">
-                        <button id="generatePasswordBtn" class="btn btn-warning">🎲 Generer tilfeldig passord</button>
-                        <button id="registerButton" class="btn btn-primary">Registrer</button>
-                        <p>Har du allerede bruker? <a href="#" id="linkToLogin">Logg inn her</a></p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SKJEMA FOR NYTT INNLEGG (Ligger øverst i feeden) -->
-            <section id="postFormSection" style="display: none;">
-                <form id="addPostForm" class="post-form">
-                    <input type="text" id="headerInput" placeholder="Overskrift..." required>
-                    <textarea id="contentInput" placeholder="Hva skjer?" required rows="3"></textarea>
-                    <div class="form-actions">
-                        <button type="submit" class="btn btn-primary">Publiser</button>
-                    </div>
-                </form>
-            </section>
-
-            <!-- SELVE LISTEN MED INNLEGG -->
-            <div id="collection" class="posts-list">
-                <!-- Innleggene genereres her -->
-            </div>
-
-        </main>
-    </div>
     <script type="module" src="index.js"></script>
+</body>
 
 </html>

@@ -1,483 +1,181 @@
-/* 
-    SLEEK DARK MODE 
-    Moderne, mørk, profesjonell.
-*/
+/* Stil for gruppeprosjektet */
 
-:root {
-    --bg-color: #121212;
-    --surface-color: #1e1e1e;
-    --surface-hover: #2d2d2d;
-    --primary-color: #bb86fc;
-    /* Lilla/Neon */
-    --secondary-color: #03dac6;
-    /* Teal */
-    --text-main: #ffffff;
-    --text-muted: #b0b0b0;
-    --border-color: #333333;
-    --glass-bg: rgba(30, 30, 30, 0.85);
-    --font-stack: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-}
+
+/* === GENERELT === */
 
 body {
-    background-color: var(--bg-color);
-    font-family: var(--font-stack);
-    color: var(--text-main);
+    font-family: 'Comic Sans MS', sans-serif;
+    background-color: #fffef0;
+    background-image: radial-gradient(#d0d0d0 1px, transparent 1px);
+    background-size: 20px 20px;
     margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    overflow-x: hidden;
-    /* Hindre scrollbar pga blobs */
-    position: relative;
+    padding: 20px;
+    color: #000;
 }
 
-/* 
-    BACKGROUND BLOBS 
-*/
-.background-blobs {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    /* Bak alt innhold */
-    pointer-events: none;
-    /* Klikk går gjennom */
-    overflow: hidden;
-}
 
-.blob {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.4;
-    animation: moveBlob 20s infinite alternate;
-}
+/* === TOPP-BAR === */
 
-.blob-1 {
-    top: -10%;
-    left: -10%;
-    width: 50vw;
-    height: 50vw;
-    background-color: #bb86fc;
-}
-
-.blob-2 {
-    bottom: -10%;
-    right: -10%;
-    width: 60vw;
-    height: 60vw;
-    background-color: #03dac6;
-    animation-delay: -5s;
-}
-
-.blob-3 {
-    top: 20%;
-    right: 20%;
-    width: 30vw;
-    height: 30vw;
-    background-color: #cf6679;
-    animation-delay: -10s;
-    opacity: 0.2;
-}
-
-@keyframes moveBlob {
-    0% {
-        transform: translate(0, 0);
-    }
-
-    100% {
-        transform: translate(30px, 30px);
-    }
-}
-
-/* 
-    TOP NAVIGATION 
-    Sticky, glassmorphism effekt.
-*/
-.top-nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background-color: var(--glass-bg);
-    backdrop-filter: blur(10px);
-    /* Glass blur */
-    border-bottom: 1px solid var(--border-color);
-    padding: 0 20px;
-}
-
-.nav-content {
-    max-width: 900px;
-    margin: 0 auto;
-    height: 60px;
+.topp-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #fff;
+    border: 3px solid black;
+    box-shadow: 6px 6px 0px black;
+    padding: 15px 25px;
+    margin-bottom: 25px;
 }
 
 .logo {
-    font-weight: 800;
-    font-size: 20px;
-    color: var(--primary-color);
-    letter-spacing: 1px;
-    text-shadow: 0 0 10px rgba(187, 134, 252, 0.5);
+    font-size: 1.5em;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0px #ff00ff;
 }
 
-/* 
-    MAIN LAYOUT 
-    Centrert feed.
-*/
-.feed-container {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 0 20px;
-    min-height: 100vh;
+.nav-knapper {
+    display: flex;
+    gap: 10px;
 }
 
-/* 
-    FORMS & INPUTS 
-*/
-.post-form {
-    background-color: var(--glass-bg);
-    /* Glass effekt her også */
+
+/* === SKJEMA FOR NYTT INNLEGG === */
+
+#postFormSection {
+    background-color: #fff;
+    border: 3px solid black;
+    box-shadow: 6px 6px 0px black;
     padding: 20px;
-    /* Mindre "perfekt" avrunding: 255px 15px 225px 15px / 15px 225px 15px 255px */
-    border-radius: 20px 5px 20px 5px;
-    margin-bottom: 30px;
-    border: 1px solid var(--border-color);
-    backdrop-filter: blur(5px);
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 25px;
 }
+
+
+/* === KNAPPER === */
+
+button {
+    padding: 10px 20px;
+    font-family: 'Comic Sans MS', sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #ffcc00;
+    border: 3px solid black;
+    box-shadow: 4px 4px 0px black;
+    text-transform: uppercase;
+    margin-right: 5px;
+}
+
+button:hover {
+    background-color: #ffe600;
+}
+
+button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px black;
+}
+
+
+/* === INPUT OG TEXTAREA === */
 
 input,
 textarea {
-    width: 100%;
-    box-sizing: border-box;
-    background-color: rgba(0, 0, 0, 0.3);
-    /* Lettere transparent */
-    border: 1px solid var(--border-color);
-    color: white;
-    padding: 12px;
-    /* Litt skjev avrunding */
-    border-radius: 5px 10px 5px 12px;
-    margin-bottom: 10px;
-    font-family: inherit;
-    font-size: 15px;
+    display: block;
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 3px solid black;
+    background: #e0f7fa;
+    font-family: 'Courier New', monospace;
+    font-size: 1em;
+    box-shadow: 3px 3px 0px black;
     outline: none;
-    transition: border-color 0.2s;
-}
-
-textarea {
-    resize: none;
-    /* VIKTIG: Ingen resizing */
+    resize: vertical;
 }
 
 input:focus,
 textarea:focus {
-    border-color: var(--primary-color);
-    background-color: rgba(0, 0, 0, 0.5);
-    /* Endrer form litt ved fokus for levende følelse */
-    border-radius: 8px;
+    background: #fff;
 }
 
-/* 
-    KNAPPER 
-    Ikke lenger pille-formet, mer "håndlaget"
-*/
-.btn {
-    padding: 10px 20px;
-    border-radius: 8px 12px 9px 11px;
-    /* Ujevn radius */
-    border: none;
-    font-weight: 600;
-    cursor: pointer;
-    font-size: 14px;
-    transition: all 0.2s;
-    letter-spacing: 0.5px;
-}
 
-.btn-nav {
-    background-color: transparent;
-    color: var(--text-main);
-    border: 1px solid var(--border-color);
-}
-
-.btn-nav:hover {
-    background-color: var(--surface-hover);
-    border-color: var(--text-main);
-    transform: rotate(-1deg);
-    /* Liten tilt */
-}
-
-.btn-primary {
-    background-color: var(--primary-color);
-    color: #000;
-    /* Sort tekst på lys lilla for kontrast */
-    box-shadow: 2px 2px 0px rgba(187, 134, 252, 0.5);
-    /* Hard skygge igjen */
-    border: 1px solid transparent;
-    /* For layout stability */
-}
-
-.btn-primary:hover {
-    filter: brightness(1.1);
-    transform: translate(-1px, -1px);
-    box-shadow: 4px 4px 0px rgba(187, 134, 252, 0.7);
-}
-
-.form-actions {
-    display: flex;
-    justify-content: flex-end;
-}
-
-/* 
-    INNLEGG LISTE 
-*/
-/* 
-    CHAOTIC HOVER & GLITCH EFFECTS 
-*/
-@keyframes glitch {
-    0% {
-        transform: translate(0)
-    }
-
-    20% {
-        transform: translate(-2px, 2px)
-    }
-
-    40% {
-        transform: translate(-2px, -2px)
-    }
-
-    60% {
-        transform: translate(2px, 2px)
-    }
-
-    80% {
-        transform: translate(2px, -2px)
-    }
-
-    100% {
-        transform: translate(0)
-    }
-}
-
-.logo:hover {
-    animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
-    color: var(--secondary-color);
-}
+/* === INNLEGG === */
 
 .post-container {
-    background-color: var(--glass-bg);
-    /* Ujevn boks */
-    border-radius: 10px 4px 12px 6px;
-    padding: 20px;
+    background-color: #fff;
+    border: 3px solid black;
+    box-shadow: 6px 6px 0px black;
     margin-bottom: 20px;
-    border: 1px solid var(--border-color);
-    backdrop-filter: blur(5px);
-    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    /* Bouncy transition */
-    /* Random rotation set in JS, but here is default */
+    padding: 20px;
 }
 
-.post-container:hover {
-    border-color: #777;
-    z-index: 10;
-    /* Bring to front */
-    transform: scale(1.02) rotate(0deg) !important;
-    /* Rett opp ved hover */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-/* .post-header er nå tittelen */
 .post-header {
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 1.3em;
+    font-weight: bold;
+    text-transform: uppercase;
     margin-bottom: 5px;
-    color: var(--text-main);
 }
 
 .post-info {
-    font-size: 13px;
-    color: var(--text-muted);
+    font-size: 0.85em;
+    color: #555;
+    margin-bottom: 12px;
+    border-bottom: 2px dashed black;
+    padding-bottom: 8px;
+}
+
+.post-innhold {
     margin-bottom: 15px;
 }
 
-.post-content-area {
-    font-size: 16px;
-    color: #ddd;
-    margin-bottom: 15px;
-}
 
-/* Små knapper (Edit/Delete) */
-.edit-btn,
-.slett-btn {
-    background: transparent;
-    padding: 5px 10px;
-    border: 1px solid var(--border-color);
-    color: var(--text-muted);
-    font-size: 12px;
-    border-radius: 5px;
-    margin-right: 10px;
-    cursor: pointer;
-}
+/* === POPUP-VINDUER === */
 
-.edit-btn:hover {
-    color: var(--secondary-color);
-    border-color: var(--secondary-color);
-}
-
-.slett-btn:hover {
-    color: #cf6679;
-    /* Rødlig */
-    border-color: #cf6679;
-}
-
-
-/* 
-    MODAL (Dark Mode w/ Glass) 
-*/
-.modal {
+.popup {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    /* Mørkere overlay */
-    backdrop-filter: blur(5px);
-    /* Blur bakgrunnen */
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
 }
 
-.modal-content {
-    background-color: var(--surface-color);
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
-    padding: 40px;
-    width: 350px;
-    text-align: center;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+.popup-innhold {
+    background-color: #fff;
+    border: 3px solid black;
+    box-shadow: 10px 10px 0px black;
+    padding: 30px;
+    min-width: 300px;
     position: relative;
 }
 
-.modal h2 {
-    margin-top: 0;
-    margin-bottom: 20px;
-    color: var(--primary-color);
-}
-
-.close-modal {
+/* Knapp i hjørnet for å lukke */
+.lukk-knapp {
     position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 28px;
-    color: var(--text-muted);
+    top: 10px;
+    right: 15px;
+    font-size: 1.5em;
     cursor: pointer;
+    font-weight: bold;
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
 }
 
-.close-modal:hover {
-    color: white;
+.lukk-knapp:hover {
+    color: red;
+    background: none;
+    box-shadow: none;
+    transform: none;
 }
 
-.modal a {
-    color: var(--secondary-color);
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.modal a:hover {
-    text-decoration: underline;
-}
-
-/* 
-    TOAST NOTIFICATION 
-*/
-#toastContainer {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
+.popup-knapper {
     display: flex;
-    flex-direction: column;
     gap: 10px;
-    z-index: 2000;
-}
-
-.toast {
-    background-color: var(--surface-color);
-    color: white;
-    padding: 15px 25px;
-    border-radius: 10px;
-    border: 1px solid var(--border-color);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    min-width: 200px;
-    animation: slideIn 0.3s ease-out;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.toast.success {
-    border-left: 4px solid var(--secondary-color);
-}
-
-.toast.error {
-    border-left: 4px solid #cf6679;
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes fadeOut {
-    to {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-}
-
-/* 
-    CUSTOM CONFIRM MODAL 
-*/
-.confirm-content {
-    border-color: #cf6679;
-}
-
-.confirm-actions {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-}
-
-/* REFACTOR: Nye klasser for å unngå inline styles */
-.btn-warning {
-    background-color: #f1c40f;
-    /* Gul */
-    color: black;
-    font-size: 12px;
-    padding: 5px 10px;
-}
-
-.btn-danger {
-    background-color: #cf6679;
-    /* Rødlig */
-    color: white;
-}
-
-.post-action-container {
     margin-top: 15px;
-    display: flex;
-    justify-content: flex-end;
 }

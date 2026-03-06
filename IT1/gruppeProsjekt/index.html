@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gruppeprosjekt</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <h1>Gruppeprosjekt</h1>
+
+    <!-- knapper oppe -->
+    <div>
+        <button id="btShowLogin">Logg inn</button>
+        <button id="btLogout" style="display: none;">Logg ut</button>
+    </div>
+
+    <br>
+
+    <!-- logg inn popup -->
+    <div id="loginPopup" class="popup-bakgrunn" style="display: none;">
+        <div class="popup-boks">
+            <h2>Logg inn</h2>
+            <input type="text" id="brukernavn" placeholder="Brukernavn"><br><br>
+            <input type="password" id="passordInput" placeholder="Passord"><br><br>
+            <button id="signInButton">Logg inn</button>
+            <button id="lukkLogin">Avbryt</button>
+            <br><br>
+            <p>Ingen bruker? <a href="#" id="gaaRegister">Registrer deg</a></p>
+        </div>
+    </div>
+
+    <!-- registrer popup -->
+    <div id="registerPopup" class="popup-bakgrunn" style="display: none;">
+        <div class="popup-boks">
+            <h2>Registrer bruker</h2>
+            <input type="text" id="regBruker" placeholder="Brukernavn"><br><br>
+            <input type="text" id="regPassord" placeholder="Passord"><br><br>
+            <button id="registerButton">Registrer</button>
+            <button id="lukkRegister">Avbryt</button>
+            <br><br>
+            <p>Har bruker? <a href="#" id="gaaLogin">Logg inn</a></p>
+        </div>
+    </div>
+
+    <!-- rediger popup -->
+    <div id="redigerPopup" class="popup-bakgrunn" style="display: none;">
+        <div class="popup-boks">
+            <h2>Rediger innlegg</h2>
+            <input type="text" id="nyTittel" placeholder="Tittel"><br><br>
+            <textarea id="nyTekst" rows="4" placeholder="Tekst"></textarea><br><br>
+            <button id="lagreEndringer">Lagre</button>
+            <button id="avbrytRediger">Avbryt</button>
+        </div>
+    </div>
+
+    <br>
+
+    <!-- skriv innlegg, bare synlig når man er logget inn -->
+    <div id="skrivInnlegg" style="display: none;">
+        <h3>Skriv nytt innlegg</h3>
+        <input type="text" id="tittelInput" placeholder="Tittel"><br>
+        <textarea id="tekstInput" rows="3" placeholder="Skriv her..."></textarea><br>
+        <button id="postKnapp">Publiser</button>
+    </div>
+
+    <br>
+    <hr>
+    <br>
+
+    <!-- her vises innleggene -->
+    <div id="innleggListe"></div>
+
+    <script type="module" src="index.js"></script>
+</body>
+
+</html>

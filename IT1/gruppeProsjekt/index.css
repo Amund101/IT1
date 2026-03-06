@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    color: #333;
+}
+
+button {
+    padding: 8px 15px;
+    margin: 3px;
+    cursor: pointer;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 6px;
+    margin-bottom: 5px;
+}
+
+/* innleggene */
+.innlegg {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.innlegg h3 {
+    margin: 0 0 5px 0;
+}
+
+.innlegg p {
+    margin: 0 0 10px 0;
+}
+
+/* slett-knappen er rod */
+.slett-knapp {
+    background-color: red;
+    color: white;
+}
+
+/* mork bakgrunn bak popupene */
+.popup-bakgrunn {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* selve boksen i popupen */
+.popup-boks {
+    background: white;
+    padding: 20px;
+    margin: 100px auto;
+    width: 300px;
+}

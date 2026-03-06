@@ -104,14 +104,14 @@ document.getElementById("registerButton").addEventListener("click", function () 
             document.getElementById("loginPopup").style.display = "none";
             document.getElementById("registerEmailInput").value = "";
             document.getElementById("registerPasswordInput").value = "";
-            alert("Bruker laget! Nå kan du logge inn.");
+            alert("Nå kan du logge inn!");
         })
         .catch(function () {
-            alert("Noe gikk galt med registreringen.");
+            alert("Noe gikk galt.");
         });
 });
 
-// Lager et tilfeldig passord
+// Lager et random passord
 document.getElementById("generatePasswordBtn").addEventListener("click", function () {
     let tegn = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZzÆæØøÅå1234567890!@#$%^&*()";
     let nyttPassord = "";

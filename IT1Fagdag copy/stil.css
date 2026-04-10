@@ -1,0 +1,257 @@
+/* ==========================================
+   POKÉDEX – Stilark
+   ========================================== */
+
+/* Grunnleggende reset og body */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0f0f1a;
+  color: #e0e0f0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =============================================
+   #region Oppgave 2 – Stil navigasjonsmenyen
+   ============================================= */
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1a1a2e;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #252545;
+}
+
+.nav-logo {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #a78bfa;
+}
+
+.nav-lenker {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.nav-lenker li {
+  /* list-elementer i rad */
+}
+
+.nav-lenker a {
+  text-decoration: none;
+  color: #aaaacc;
+  font-size: 0.95rem;
+}
+
+.nav-lenker a:hover {
+  color: #a78bfa;
+}
+
+/* #endregion */
+
+
+/* Main */
+main {
+  flex: 1;
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  width: 100%;
+}
+
+
+/* =============================================
+   #region Oppgave 3 – Rett opp statistikk-kortene
+   Rettede verdier:
+     background-color: #1a1a2e  (var #111111)
+     border-radius: 10px        (var 2px)
+     padding: 1rem 1.5rem       (var 0.3rem)
+   ============================================= */
+
+.statistikk {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.statistikk-kort {
+  background-color: #1a1a2e;   /* rettet fra #111111 */
+  border-radius: 10px;          /* rettet fra 2px */
+  padding: 1rem 1.5rem;         /* rettet fra 0.3rem */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* #endregion */
+
+
+.etikett {
+  font-size: 0.8rem;
+  color: #aaaacc;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.verdi {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #a78bfa;
+}
+
+
+/* Sorteringsknapper */
+.sortering-seksjon {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.sortering-seksjon button {
+  padding: 0.4rem 1rem;
+  background-color: transparent;
+  border: 1px solid #4c4c8a;
+  color: #aaaacc;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.sortering-seksjon button:hover {
+  background-color: #252545;
+  color: #e0e0f0;
+}
+
+.sortering-seksjon button.aktiv {
+  border-color: #a78bfa;
+  color: #a78bfa;
+}
+
+
+/* Pokémon-liste */
+#pokemon-liste {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Pokémon-kort */
+.pokemon-kort {
+  background-color: #1a1a2e;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  width: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.pokemon-kort h3 {
+  color: #c4b5fd;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.pokemon-kort img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.pokemon-kort .type {
+  font-size: 0.75rem;
+  background-color: #252545;
+  color: #e0e0f0;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+}
+
+.pokemon-kort .level {
+  font-size: 0.85rem;
+  color: #aaaacc;
+}
+
+.slett-knapp {
+  background: none;
+  border: 1px solid #7c3aed;
+  color: #c4b5fd;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+}
+
+.slett-knapp:hover {
+  background-color: #7c3aed;
+  color: white;
+}
+
+
+/* Legg-til-skjema */
+.legg-til-seksjon {
+  background-color: #1a1a2e;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.legg-til-seksjon h2 {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #c4b5fd;
+}
+
+#legg-til-skjema {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+input {
+  padding: 0.6rem 0.9rem;
+  background-color: #252545;
+  border: 1px solid #3a3a6a;
+  border-radius: 6px;
+  color: #e0e0f0;
+  font-size: 0.95rem;
+  flex: 1;
+  min-width: 130px;
+}
+
+input::placeholder { color: #6666aa; }
+
+#legg-til {
+  padding: 0.6rem 1.5rem;
+  background-color: #7c3aed;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+#legg-til:hover {
+  background-color: #6d28d9;
+}
+
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  color: #444466;
+  font-size: 0.85rem;
+  border-top: 1px solid #252545;
+}

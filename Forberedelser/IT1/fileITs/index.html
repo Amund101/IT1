@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PokéSide</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       NAVBAR
+       Inneholder: logo + navigasjonslenker
+  ════════════════════════════════════════════ -->
+  <nav class="navbar">
+    <div class="navbar__logo">PokéSide</div>
+    <ul class="navbar__links">
+      <li><a href="#hjem" class="navbar__link">Hjem</a></li>
+      <li><a href="#pokemon" class="navbar__link">Pokémon</a></li>
+      <li><a href="#om" class="navbar__link">Om</a></li>
+      <li><a href="#kontakt" class="navbar__link">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════
+       HERO / BANNER
+       Stor velkomstseksjon øverst på siden
+  ════════════════════════════════════════════ -->
+  <section id="hjem" class="hero">
+    <div class="hero__innhold">
+      <h1 class="hero__tittel">Tittel her</h1>
+      <p class="hero__tekst">Undertekst / beskrivelse her</p>
+      <a href="#pokemon" class="hero__knapp">Se Pokémon</a>
+    </div>
+    <div class="hero__bilde">
+      <!-- Bilde eller illustrasjon her -->
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       POKÉMON-SEKSJON (KORT-GRID)
+       Viser Pokémon som kort i et rutenett
+       JS fyller inn kortene dynamisk her
+  ════════════════════════════════════════════ -->
+  <section id="pokemon" class="pokemon-seksjon">
+    <h2 class="seksjon__tittel">Pokémon</h2>
+
+    <!-- Søk + filter (valgfritt) -->
+    <div class="pokemon-seksjon__kontroller">
+      <input
+        type="text"
+        id="sokFelt"
+        class="sok__input"
+        placeholder="Søk etter Pokémon..."
+      >
+      <select id="typeFelt" class="sok__select">
+        <option value="">Alle typer</option>
+        <!-- JS kan fylle inn typer her -->
+      </select>
+    </div>
+
+    <!-- Kortene legges inn her av JS -->
+    <div id="kortGrid" class="kort-grid">
+      <!-- Eksempel på ett kort (JS lager disse dynamisk):
+      <div class="kort">
+        <img class="kort__bilde" src="..." alt="...">
+        <div class="kort__info">
+          <h3 class="kort__navn">Navn</h3>
+          <span class="kort__type">Type</span>
+          <p class="kort__nummer">#001</p>
+        </div>
+      </div>
+      -->
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       OM-SEKSJON
+       Litt tekst/info om siden
+  ════════════════════════════════════════════ -->
+  <section id="om" class="om-seksjon">
+    <div class="om-seksjon__innhold">
+      <h2 class="seksjon__tittel">Om siden</h2>
+      <p class="om-seksjon__tekst">Beskrivelse av siden her.</p>
+    </div>
+    <div class="om-seksjon__bilde">
+      <!-- Bilde eller dekorativt element -->
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       KONTAKTSKJEMA
+       Brukeren kan sende inn info
+  ════════════════════════════════════════════ -->
+  <section id="kontakt" class="kontakt-seksjon">
+    <h2 class="seksjon__tittel">Kontakt</h2>
+    <div class="skjema__wrapper">
+      <div class="skjema__gruppe">
+        <label for="navnFelt" class="skjema__label">Navn</label>
+        <input type="text" id="navnFelt" class="skjema__input" placeholder="Ditt navn">
+      </div>
+      <div class="skjema__gruppe">
+        <label for="epostFelt" class="skjema__label">E-post</label>
+        <input type="email" id="epostFelt" class="skjema__input" placeholder="din@epost.no">
+      </div>
+      <div class="skjema__gruppe">
+        <label for="meldingFelt" class="skjema__label">Melding</label>
+        <textarea id="meldingFelt" class="skjema__textarea" placeholder="Skriv her..."></textarea>
+      </div>
+      <button id="sendKnapp" class="skjema__knapp">Send</button>
+      <p id="skjemaMelding" class="skjema__tilbakemelding"></p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+       Bunn av siden
+  ════════════════════════════════════════════ -->
+  <footer class="footer">
+    <p class="footer__tekst">&copy; 2025 PokéSide. Alle rettigheter reservert.</p>
+    <ul class="footer__lenker">
+      <li><a href="#hjem" class="footer__lenke">Hjem</a></li>
+      <li><a href="#pokemon" class="footer__lenke">Pokémon</a></li>
+      <li><a href="#kontakt" class="footer__lenke">Kontakt</a></li>
+    </ul>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

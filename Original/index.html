@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokédex</title>
+  <link rel="stylesheet" href="stil.css">
+</head>
+<body>
+
+  <!-- =============================================
+       Oppgave 1 del 1 – Fyll inn navigasjonsmenyen
+       Legg til tre lenker inne i <ul>-en:
+       "Hjem", "Legg til pokémon" og "Om"
+       Bruk riktige HTML-elementer (<li> og <a>)
+       ============================================= -->
+  <nav>
+    <div class="nav-logo">⚡ Pokédex</div>
+    <ul class="nav-lenker">
+
+    </ul>
+  </nav>
+  <!-- Slutt på Oppgave 1 del 1 -->
+
+  <main>
+
+    <section class="statistikk">
+      <div class="statistikk-kort">
+        <span class="etikett">Antall pokémon</span>
+        <span class="verdi" id="antall-pokemon">-</span>
+      </div>
+      <div class="statistikk-kort">
+        <span class="etikett">Level-spenn</span>
+        <span class="verdi" id="spenn">-</span>
+      </div>
+    </section>
+
+    <section class="sortering-seksjon">
+      <button id="sorter-navn">Navn</button>
+      <button id="sorter-type">Type</button>
+      <button id="sorter-level">Level</button>
+    </section>
+
+    <div id="pokemon-liste">
+      <!-- Pokémon-kort settes inn av JavaScript -->
+    </div>
+
+    <section class="legg-til-seksjon">
+      <h2>Legg til pokémon</h2>
+      <div id="legg-til-skjema">
+        <input type="text"   id="input-navn"  placeholder="Navn" required>
+        <input type="text"   id="input-type"  placeholder="Type" required>
+        <input type="number" id="input-level" placeholder="Level (1-100)" min="1" max="100" required>
+        <button id="legg-til">Legg til</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =============================================
+       Oppgave 1 del 2 – Fyll inn footer
+       Legg til ditt eget navn og årstall her
+       ============================================= -->
+  <footer>
+
+  </footer>
+  <!-- Slutt på Oppgave 1 del 2 -->
+
+  <script src="skript.js"></script>
+</body>
+</html>

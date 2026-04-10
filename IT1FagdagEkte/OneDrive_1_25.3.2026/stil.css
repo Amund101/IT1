@@ -1,0 +1,268 @@
+/* ==========================================
+   POKÉDEX – Stilark
+   ========================================== */
+
+/* Grunnleggende reset og body */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0f0f1a;
+  color: #e0e0f0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =============================================
+   #region Oppgave 2 – Stil navigasjonsmenyen
+   Se på design-mal.html og gjenskap utseendet
+   på nav, .nav-logo, .nav-lenker og lenkene.
+
+   Tips du trenger:
+     display: flex
+     justify-content: space-between
+     align-items: center
+     list-style: none
+     gap
+     text-decoration: none
+   ============================================= */
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1a1a2e;
+  border-bottom: 2px solid #212143 ;
+  padding: 1rem 2.5rem;
+  
+}
+
+.nav-logo {
+  font-size: 1rem;
+  font-style: bold;
+  color: #a78bfa;
+}
+
+.nav-lenker { 
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+}
+
+.nav-lenker li {
+
+}
+
+.nav-lenker a {
+  color: #aaaacc;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.nav-lenker a:hover {
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* #endregion */
+
+/* Main */
+main {
+  flex: 1;
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  width: 100%;
+}
+
+
+/* =============================================
+  #region Oppgave 3 – Rett opp statistikk-kortene
+  Nedenfor er tre verdier som er feil.
+  Se på design-mal.html og finn riktige verdier.
+   ============================================= */
+
+.statistikk {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.statistikk-kort {
+  background-color: #1a1a2e;  /* <-- feil farge */
+  border-radius: 2rem;         /* <-- feil avrunding */
+  padding: 1rem 1.5rem;            /* <-- feil padding */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* #endregion */
+
+
+.etikett {
+  font-size: 0.8rem;
+  color: #aaaacc;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.verdi {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #a78bfa;
+}
+
+
+/* Sorteringsknapper */
+.sortering-seksjon {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.sortering-seksjon button {
+  padding: 0.4rem 1rem;
+  background-color: transparent;
+  border: 1px solid #4c4c8a;
+  color: #aaaacc;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.sortering-seksjon button:hover {
+  background-color: #252545;
+  color: #e0e0f0;
+}
+
+.sortering-seksjon button.aktiv {
+  border-color: #a78bfa;
+  color: #a78bfa;
+}
+
+
+/* Pokémon-liste */
+#pokemon-liste {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Pokémon-kort */
+.pokemon-kort {
+  background-color: #1a1a2e;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  width: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.pokemon-kort h3 {
+  color: #c4b5fd;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.pokemon-kort img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.pokemon-kort .type {
+  font-size: 0.75rem;
+  background-color: #252545;
+  color: #e0e0f0;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+}
+
+.pokemon-kort .level {
+  font-size: 0.85rem;
+  color: #aaaacc;
+}
+
+.slett-knapp {
+  background: none;
+  border: 1px solid #7c3aed;
+  color: #c4b5fd;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+}
+
+.slett-knapp:hover {
+  background-color: #7c3aed;
+  color: white;
+}
+
+
+/* Legg-til-skjema */
+.legg-til-seksjon {
+  background-color: #1a1a2e;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.legg-til-seksjon h2 {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #c4b5fd;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+input, select {
+  padding: 0.6rem 0.9rem;
+  background-color: #252545;
+  border: 1px solid #3a3a6a;
+  border-radius: 6px;
+  color: #e0e0f0;
+  font-size: 0.95rem;
+  flex: 1;
+  min-width: 130px;
+}
+
+input::placeholder, select:invalid { color: #6666aa; }
+
+form button[type="submit"] {
+  padding: 0.6rem 1.5rem;
+  background-color: #7c3aed;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+form button[type="submit"]:hover {
+  background-color: #6d28d9;
+}
+
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  color: #444466;
+  font-size: 0.85rem;
+  border-top: 1px solid #252545;
+}

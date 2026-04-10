@@ -1,0 +1,16 @@
+.flex-container {
+  display: flex;
+  justify-content: center;  /* sentrer horisontalt */
+  align-items: center;      /* sentrer vertikalt */
+  gap: 20px;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.boks {
+  background-color: #e74c3c;
+  color: white;
+  padding: 40px 60px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+}

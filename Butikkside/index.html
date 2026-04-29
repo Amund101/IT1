@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA | Minimalist Smart Home</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <!-- Login Seksjon -->
+    <section id="login-screen">
+        <div class="login-card">
+            <h1 class="logo-text">AURA<span>.</span></h1>
+            <p>Vennligst logg inn for å konfigurere ditt hjem</p>
+            <div class="input-group">
+                <input type="text" id="user-input" placeholder="Brukernavn">
+                <input type="password" id="pass-input" placeholder="Passord">
+            </div>
+            <button onclick="loggInn()" class="main-btn">LOGG INN</button>
+        </div>
+    </section>
+
+    <!-- Butikk Seksjon -->
+    <div id="main-store" class="hidden">
+        <header>
+            <div class="logo">AURA.</div>
+            <div class="nav-right">
+                <button onclick="toggleCart()" class="cart-trigger">
+                    <span id="cart-count">0</span> varer
+                </button>
+            </div>
+        </header>
+
+        <section class="hero">
+            <h2>Fremtidens hjem er enkelt, vakkert og smart.</h2>
+        </section>
+
+        <main id="product-list" class="product-grid">
+            <!-- Produkter tegnes her av JS -->
+        </main>
+
+        <!-- Handlekurv Sidebar -->
+        <aside id="cart-sidebar" class="hidden">
+            <div class="cart-header">
+                <h3>Handlekurv</h3>
+                <button onclick="toggleCart()" class="close-btn">&times;</button>
+            </div>
+            <div id="cart-content">
+                <!-- Varer i kurv tegnes her -->
+            </div>
+            <div class="cart-summary">
+                <div class="total-row">
+                    <span>Totalt</span>
+                    <span><span id="total-price">0</span> kr</span>
+                </div>
+                <button class="buy-btn" onclick="checkOut()">FULLFØR KJØP</button>
+            </div>
+        </aside>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

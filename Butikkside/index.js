@@ -1,39 +1,39 @@
 // 1. DATA (Aura Smart Home Produkter)
 const varer = [
-    { 
-        id: 0, 
-        navn: "Aura Speaker Gen 2", 
-        pris: 2490, 
-        bilde: "img/speaker.png", 
-        desc: "Krystallklar lyd i et minimalistisk design som passer inn i ethvert rom." 
+    {
+        id: 0,
+        navn: "Aura Speaker Gen 2",
+        pris: 2490,
+        bilde: "img/speaker.png",
+        desc: "Krystallklar lyd i et minimalistisk design som passer inn i ethvert rom."
     },
-    { 
-        id: 1, 
-        navn: "Aura Ambient Light", 
-        pris: 1290, 
-        bilde: "img/light.png", 
-        desc: "Justerbart lys med varmt treverk og frostet glass for den perfekte atmosfæren." 
+    {
+        id: 1,
+        navn: "Aura Ambient Light",
+        pris: 1290,
+        bilde: "img/light.png",
+        desc: "Justerbart lys med varmt treverk og frostet glass for den perfekte atmosfæren."
     },
-    { 
-        id: 2, 
-        navn: "Aura Smart Hub", 
-        pris: 3990, 
-        bilde: "img/hub.png", 
-        desc: "Hjernen i ditt smarte hjem. Kontroller alt fra en ultra-tynn skjerm." 
+    {
+        id: 2,
+        navn: "Aura Smart Hub",
+        pris: 3990,
+        bilde: "img/hub.png",
+        desc: "Hjernen i ditt smarte hjem. Kontroller alt fra en ultra-tynn skjerm."
     },
-    { 
-        id: 3, 
-        navn: "Aura Thermostat", 
-        pris: 1890, 
-        bilde: "img/thermostat.png", 
-        desc: "Intelligent temperaturstyring i elegant børstet stål og glass." 
+    {
+        id: 3,
+        navn: "Aura Thermostat",
+        pris: 1890,
+        bilde: "img/thermostat.png",
+        desc: "Intelligent temperaturstyring i elegant børstet stål og glass."
     },
-    { 
-        id: 4, 
-        navn: "Aura Vision Cam", 
-        pris: 1590, 
-        bilde: "img/camera.png", 
-        desc: "Diskret sikkerhetskamera med AI-gjenkjenning og 4K-oppløsning." 
+    {
+        id: 4,
+        navn: "Aura Vision Cam",
+        pris: 1590,
+        bilde: "img/camera.png",
+        desc: "Diskret sikkerhetskamera med AI-gjenkjenning og 4K-oppløsning."
     }
 ];
 
@@ -45,6 +45,7 @@ let handlekurv = JSON.parse(localStorage.getItem('auraCart')) || [];
 function loggInn() {
     const bruker = document.getElementById('user-input').value;
     // Enkel sjekk for IT1 nivå, kan utvides
+    sessionStorage.setItem('auraLoggedIn', 'true');
     document.getElementById('login-screen').style.opacity = '0';
     setTimeout(() => {
         document.getElementById('login-screen').classList.add('hidden');
@@ -53,6 +54,16 @@ function loggInn() {
         oppdaterKurvVisning();
     }, 500);
 }
+
+// Sjekk om allerede innlogget
+window.onload = () => {
+    if (sessionStorage.getItem('auraLoggedIn') === 'true' && document.getElementById('main-store')) {
+        document.getElementById('login-screen').classList.add('hidden');
+        document.getElementById('main-store').classList.remove('hidden');
+        tegnProdukter();
+        oppdaterKurvVisning();
+    }
+};
 
 // Tegn alle produkter til grid
 function tegnProdukter() {
@@ -78,7 +89,7 @@ function leggIKurv(id) {
     const vare = varer.find(v => v.id === id);
     handlekurv.push(vare);
     lagreOgOppdater();
-    
+
     // Visuell feedback
     const btn = event.target;
     const originalText = btn.innerText;

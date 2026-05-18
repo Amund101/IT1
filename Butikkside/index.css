@@ -3,7 +3,8 @@
 :root {
     --bg-color: #f8f9fa;
     --card-bg: rgba(255, 255, 255, 0.8);
-    --primary: #007AFF; /* Apple-style Blue */
+    --primary: #007AFF;
+    /* Apple-style Blue */
     --text-main: #1d1d1f;
     --text-sub: #86868b;
     --accent: #007AFF;
@@ -26,7 +27,10 @@ body {
     overflow-x: hidden;
 }
 
-h1, h2, h3, .logo {
+h1,
+h2,
+h3,
+.logo {
     font-family: 'Outfit', sans-serif;
 }
 
@@ -120,7 +124,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .logo {
@@ -139,7 +143,7 @@ header {
     align-items: center;
     gap: 8px;
     transition: 0.3s;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .cart-trigger:hover {
@@ -173,12 +177,12 @@ header {
     overflow: hidden;
     position: relative;
     transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 }
 
 .product-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
 .product-card img {
@@ -251,8 +255,13 @@ header {
 }
 
 @keyframes slideIn {
-    from { transform: translateX(100%); }
-    to { transform: translateX(0); }
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
 }
 
 .cart-header {
@@ -262,7 +271,9 @@ header {
     margin-bottom: 40px;
 }
 
-.cart-header h3 { font-size: 1.5rem; }
+.cart-header h3 {
+    font-size: 1.5rem;
+}
 
 .close-btn {
     background: none;
@@ -285,7 +296,9 @@ header {
     border-bottom: 1px solid #eee;
 }
 
-.cart-item-info { flex-grow: 1; }
+.cart-item-info {
+    flex-grow: 1;
+}
 
 .cart-summary {
     border-top: 1px solid #eee;
@@ -312,12 +325,24 @@ header {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* RESPONSIVE */
 @media (max-width: 600px) {
-    .hero h2 { font-size: 2.5rem; }
-    #cart-sidebar { width: 100%; }
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+
+    #cart-sidebar {
+        width: 100%;
+    }
 }

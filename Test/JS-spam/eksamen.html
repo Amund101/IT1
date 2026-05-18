@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<title>Eksamensheftet Tysk VG1 og VG2 (13 sider)</title>
+<style>
+  @page {
+    size: A4;
+    margin: 1.1cm 1.3cm 1cm 1.3cm;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Georgia', serif;
+    font-size: 9pt;
+    line-height: 1.32;
+    color: #000;
+    background: #fff;
+  }
+
+  /* ===== PAGE STRUCTURE ===== */
+  .page {
+    page-break-after: always;
+    width: 100%;
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* ===== HEADINGS ===== */
+  h1 {
+    font-family: 'Arial', sans-serif;
+    font-size: 10.5pt;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-top: 3px solid #000;
+    border-bottom: 3px solid #000;
+    padding: 3px 0;
+    margin-bottom: 6px;
+  }
+
+  h2 {
+    font-family: 'Arial', sans-serif;
+    font-size: 9.5pt;
+    font-weight: bold;
+    border-left: 4px solid #000;
+    padding-left: 5px;
+    margin-top: 7px;
+    margin-bottom: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+
+  h3 {
+    font-family: 'Arial', sans-serif;
+    font-size: 9pt;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 2px;
+    text-decoration: underline;
+  }
+
+  /* ===== TEXT BLOCKS ===== */
+  p { margin-bottom: 3px; }
+
+  ul {
+    margin-left: 14px;
+    margin-bottom: 3px;
+  }
+  li { margin-bottom: 2px; }
+
+  strong { font-weight: bold; }
+  em { font-style: italic; }
+
+  .de { font-style: italic; }        /* German examples */
+  .no { color: #333; }               /* Norwegian translations */
+  .nb { font-size: 8.2pt; color: #444; } /* small notes */
+
+  /* ===== SPECIAL BOXES ===== */
+  .rule-box {
+    border: 2px solid #000;
+    padding: 4px 7px;
+    margin: 5px 0;
+    background: #f4f4f4;
+  }
+
+  .warning {
+    border: 2px solid #000;
+    border-left: 5px solid #000;
+    padding: 3px 6px;
+    margin: 4px 0;
+    background: #eee;
+    font-weight: bold;
+  }
+
+  .formula {
+    font-family: 'Courier New', monospace;
+    font-size: 8.8pt;
+    background: #e8e8e8;
+    border: 1px solid #aaa;
+    display: block;
+    padding: 3px 7px;
+    margin: 3px 0;
+  }
+
+  .boost-box {
+    border: 1px dashed #555;
+    padding: 4px 7px;
+    margin: 5px 0;
+    background: #fafafa;
+  }
+
+  .boost-box h3 {
+    text-decoration: none;
+    font-size: 8.8pt;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+
+  .ex-block {
+    border-left: 2px solid #999;
+    padding-left: 7px;
+    margin: 3px 0 3px 6px;
+  }
+
+  /* ===== TABLES ===== */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 4px 0;
+    font-size: 8.3pt;
+    font-family: 'Arial', sans-serif;
+  }
+  th {
+    background: #ccc;
+    border: 1px solid #888;
+    padding: 2px 4px;
+    font-weight: bold;
+    text-align: left;
+  }
+  td {
+    border: 1px solid #bbb;
+    padding: 2px 4px;
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: #f2f2f2; }
+
+  /* ===== KASUS TABLE ===== */
+  .kasus-table { font-size: 8pt; }
+  .kasus-table th { text-align: center; }
+  .kasus-table td { text-align: center; }
+  .kasus-table td:first-child { text-align: left; font-weight: bold; }
+
+  /* ===== TWO-COLUMN LAYOUT ===== */
+  .col2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 4px 0;
+  }
+
+  .col3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6px;
+    margin: 4px 0;
+  }
+
+  .col-block {
+    border: 1px solid #ccc;
+    padding: 4px 6px;
+    background: #fdfdfd;
+  }
+
+  /* ===== SECTION SEPARATOR ===== */
+  .sep {
+    border: none;
+    border-top: 1px solid #aaa;
+    margin: 5px 0;
+  }
+
+  /* ===== PAGE FOOTER ===== */
+  .page-footer {
+    font-family: 'Arial', sans-serif;
+    font-size: 7.5pt;
+    color: #666;
+    text-align: right;
+    border-top: 1px solid #bbb;
+    margin-top: 5px;
+    padding-top: 2px;
+  }
+
+  /* ===== PRINT OVERRIDES ===== */
+  @media print {
+    body { font-size: 9pt; }
+    .page { page-break-after: always; }
+    .page:last-child { page-break-after: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- SIDE 1: KASUS-GUIDEN                                        -->
+<!-- ============================================================ -->
+<div class="page">
+<h1>[ SIDE 1 av 10 ] &mdash; DEN STORE KASUS-GUIDEN (DATIV vs. AKKUSATIV)</h1>
+
+<div class="rule-box">
+<strong>GULLREGELEN:</strong> Kasus bestemmer hvilken endelse artikler (<strong>der / die / das / ein / eine</strong>) og eiendomspronomener (<strong>mein, dein&hellip;</strong>) far i setningen. Kasusen bestemmes enten av <strong>verbet</strong> eller av en <strong>preposisjon</strong>.
+</div>
+
+<h2>1. Akkusativ &mdash; det direkte objektet</h2>
+<p>Sporsmal: <em>&laquo;Hvem eller hva + verb + subjekt?&raquo;</em> &nbsp;|&nbsp; <strong>Kun hankjonn (der/ein) endrer seg!</strong> Hunkjonn, intetkjonn og flertall = uendret.</p>
+
+<div class="col2">
+<div>
+<h3>Artikkelendringer i akkusativ</h3>
+<table class="kasus-table">
+  <tr><th>Kjonn</th><th>Nominativ</th><th>Akkusativ</th></tr>
+  <tr><td>Hankjonn</td><td>der / ein</td><td><strong>den / einen</strong></td></tr>
+  <tr><td>Hunkjonn</td><td>die / eine</td><td>die / eine</td></tr>
+  <tr><td>Intetkjonn</td><td>das / ein</td><td>das / ein</td></tr>
+  <tr><td>Flertall</td><td>die / &mdash;</td><td>die / &mdash;</td></tr>
+</table>
+</div>
+<div>
+<h3>Faste akkusativ-preposisjoner: "FUDGO"</h3>
+<ul>
+  <li><strong>F</strong> &ndash; <strong>fur</strong> (for/til) &rarr; <em>fur meinen Bruder</em></li>
+  <li><strong>U</strong> &ndash; <strong>um</strong> (rundt/klokka) &rarr; <em>um den See</em></li>
+  <li><strong>D</strong> &ndash; <strong>durch</strong> (gjennom) &rarr; <em>durch den Wald</em></li>
+  <li><strong>G</strong> &ndash; <strong>gegen</strong> (mot) &rarr; <em>gegen eine Mannschaft</em></li>
+  <li><strong>O</strong> &ndash; <strong>ohne</strong> (uten) &rarr; <em>ohne dich</em></li>
+</ul>
+</div>
+</div>
+
+<hr class="sep">
+
+<h2>2. Dativ &mdash; det indirekte objektet / mottakeren</h2>
+<p>Sporsmal: <em>&laquo;Til hvem? / For hvem?&raquo;</em></p>
+
+<div class="col2">
+<div>
+<h3>Artikkelendringer i dativ</h3>
+<table class="kasus-table">
+  <tr><th>Kjonn</th><th>Nominativ</th><th>Dativ</th></tr>
+  <tr><td>Hankjonn</td><td>der / ein</td><td><strong>dem / einem</strong></td></tr>
+  <tr><td>Hunkjonn</td><td>die / eine</td><td><strong>der / einer</strong></td></tr>
+  <tr><td>Intetkjonn</td><td>das / ein</td><td><strong>dem / einem</strong></td></tr>
+  <tr><td>Flertall</td><td>die / &mdash;</td><td><strong>den + n / &mdash;</strong></td></tr>
+</table>
+</div>
+<div>
+<h3>Faste dativ-preposisjoner: "REGINA"</h3>
+<ul>
+  <li><strong>aus</strong> (fra/ut av) &rarr; <em>aus <strong>dem</strong> Haus</em></li>
+  <li><strong>bei</strong> (hos/ved) &rarr; <em>bei <strong>meiner</strong> Tante</em></li>
+  <li><strong>mit</strong> (med) &rarr; <em>mit <strong>dem</strong> Zug</em></li>
+  <li><strong>nach</strong> (til land/byer, etter) &rarr; <em>nach <strong>dem</strong> Unterricht</em></li>
+  <li><strong>seit</strong> (siden/i) &rarr; <em>seit <strong>einem</strong> Jahr</em></li>
+  <li><strong>von</strong> (fra/av) &rarr; <em>von <strong>meinem</strong> Lehrer</em></li>
+  <li><strong>zu</strong> (til) &rarr; <em>zu <strong>dem</strong> (=zum) Arzt</em></li>
+  <li><strong>gegenuber</strong> (overfor) &rarr; <em>gegenuber <strong>dem</strong> Bahnhof</em></li>
+</ul>
+</div>
+</div>
+
+<hr class="sep">
+
+<h2>3. Vekselpreposisjoner &mdash; dativ ELLER akkusativ</h2>
+<p>Ni preposisjoner: <strong>an, auf, hinter, in, neben, uber, unter, vor, zwischen</strong></p>
+
+<div class="col2">
+<div class="col-block">
+<strong>DATIV &rarr; RO &nbsp;(Wo? / Hvor?)</strong><br>
+<em>Ich bin in <strong>der</strong> Schule.</em><br>
+<span class="no">Jeg er pa skolen (ro).</span>
+</div>
+<div class="col-block">
+<strong>AKKUSATIV &rarr; BEVEGELSE &nbsp;(Wohin? / Hvor hen?)</strong><br>
+<em>Ich gehe in <strong>die</strong> Schule.</em><br>
+<span class="no">Jeg gar pa skolen (beveger meg dit).</span>
+</div>
+</div>
+
+<hr class="sep">
+
+<h2>4. Spesielle dativ-verb &mdash; tar ALDRI akkusativ</h2>
+<table>
+  <tr><th>Verb</th><th>Norsk</th><th>Eksempel (dativ uthevet)</th></tr>
+  <tr><td><strong>helfen</strong></td><td>hjelpe</td><td><em>Bitte hilf <strong>mir</strong>!</em></td></tr>
+  <tr><td><strong>danken</strong></td><td>takke</td><td><em>Ich danke <strong>ihm</strong>.</em></td></tr>
+  <tr><td><strong>antworten</strong></td><td>svare</td><td><em>Er antwortet <strong>den Kindern</strong>.</em></td></tr>
+  <tr><td><strong>gehoren</strong></td><td>tilhore</td><td><em>Das Buch gehort <strong>dem Lehrer</strong>.</em></td></tr>
+  <tr><td><strong>schmecken</strong></td><td>smake (for noen)</td><td><em>Pizza schmeckt <strong>meinem Bruder</strong>.</em></td></tr>
+  <tr><td><strong>passen</strong></td><td>passe (til noen)</td><td><em>Die Hose passt <strong>ihr</strong> nicht.</em></td></tr>
+  <tr><td><strong>gefallen</strong></td><td>behage/like</td><td><em>Das gefallt <strong>uns</strong>.</em></td></tr>
+  <tr><td><strong>folgen</strong></td><td>folge etter</td><td><em>Der Hund folgt <strong>dem Mann</strong>.</em></td></tr>
+  <tr><td><strong>gratulieren</strong></td><td>gratulere</td><td><em>Ich gratuliere <strong>dir</strong> zum Geburtstag.</em></td></tr>
+</table>
+
+<div class="page-footer">Tysk VG1/VG2 &mdash; Eksamenshefte til utskrift &mdash; Side 1 av 10</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SIDE 2: VERBKARTET                                           -->
+<!-- ============================================================ -->
+<div class="page">
+<h1>[ SIDE 2 av 10 ] &mdash; DET STORE VERBKARTET (DE KRITISKE VERBENE)</h1>
+
+<p style="margin-bottom:5px;">Disse 19 verbene dekker over 80&thinsp;% av alt du vil skrive pa eksamen. Leer dem utenat.</p>
+
+<table>
+  <tr>
+    <th style="width:4%">#</th>
+    <th style="width:14%">Infinitiv</th>
+    <th style="width:16%">Norsk</th>
+    <th style="width:15%">Presens (er/sie/es)</th>
+    <th style="width:23%">Perfektum (er/sie/es)</th>
+    <th style="width:28%">Type verb</th>
+  </tr>
+  <tr><td>1</td><td><strong>haben</strong></td><td>a ha</td><td>er <strong>hat</strong></td><td>er <strong>hat gehabt</strong></td><td>Hjelpeverb</td></tr>
+  <tr><td>2</td><td><strong>sein</strong></td><td>a vaere</td><td>er <strong>ist</strong></td><td>er <strong>ist gewesen</strong></td><td>Hjelpeverb (bruker <strong>sein</strong>)</td></tr>
+  <tr><td>3</td><td><strong>werden</strong></td><td>a bli</td><td>er <strong>wird</strong></td><td>er <strong>ist geworden</strong></td><td>Hjelpeverb (bruker <strong>sein</strong>)</td></tr>
+  <tr><td>4</td><td><strong>bleiben</strong></td><td>a bli vaerende</td><td>er <strong>bleibt</strong></td><td>er <strong>ist geblieben</strong></td><td>Sterkt (bruker <strong>sein</strong>)</td></tr>
+  <tr><td>5</td><td><strong>fahren</strong></td><td>a reise/kjore</td><td>er <strong>fahrt</strong></td><td>er <strong>ist gefahren</strong></td><td>Sterkt bevegelsesverb</td></tr>
+  <tr><td>6</td><td><strong>lesen</strong></td><td>a lese</td><td>er <strong>liest</strong></td><td>er <strong>hat gelesen</strong></td><td>Sterkt verb</td></tr>
+  <tr><td>7</td><td><strong>sehen</strong></td><td>a se</td><td>er <strong>sieht</strong></td><td>er <strong>hat gesehen</strong></td><td>Sterkt verb</td></tr>
+  <tr><td>8</td><td><strong>gehen</strong></td><td>a ga</td><td>er <strong>geht</strong></td><td>er <strong>ist gegangen</strong></td><td>Sterkt bevegelsesverb</td></tr>
+  <tr><td>9</td><td><strong>essen</strong></td><td>a spise</td><td>er <strong>isst</strong></td><td>er <strong>hat gegessen</strong></td><td>Sterkt verb</td></tr>
+  <tr><td>10</td><td><strong>trinken</strong></td><td>a drikke</td><td>er <strong>trinkt</strong></td><td>er <strong>hat getrunken</strong></td><td>Sterkt verb</td></tr>
+  <tr><td>11</td><td><strong>kommen</strong></td><td>a komme</td><td>er <strong>kommt</strong></td><td>er <strong>ist gekommen</strong></td><td>Sterkt bevegelsesverb</td></tr>
+  <tr><td>12</td><td><strong>bekommen</strong></td><td>a fa</td><td>er <strong>bekommt</strong></td><td>er <strong>hat bekommen</strong></td><td>Sterkt verb (ingen <strong>ge-</strong>!)</td></tr>
+  <tr><td>13</td><td><strong>nehmen</strong></td><td>a ta</td><td>er <strong>nimmt</strong></td><td>er <strong>hat genommen</strong></td><td>Sterkt (vokalendring!)</td></tr>
+  <tr><td>14</td><td><strong>beginnen</strong></td><td>a begynne</td><td>er <strong>beginnt</strong></td><td>er <strong>hat begonnen</strong></td><td>Sterkt (ingen <strong>ge-</strong>!)</td></tr>
+  <tr><td>15</td><td><strong>schreiben</strong></td><td>a skrive</td><td>er <strong>schreibt</strong></td><td>er <strong>hat geschrieben</strong></td><td>Sterkt verb</td></tr>
+  <tr><td>16</td><td><strong>geben</strong></td><td>a gi</td><td>er <strong>gibt</strong></td><td>er <strong>hat gegeben</strong></td><td>Sterkt verb</td></tr>
+  <tr><td>17</td><td><strong>liegen</strong></td><td>a ligge</td><td>er <strong>liegt</strong></td><td>er <strong>hat gelegen</strong></td><td>Sterkt ro-verb</td></tr>
+  <tr><td>18</td><td><strong>helfen</strong></td><td>a hjelpe</td><td>er <strong>hilft</strong></td><td>er <strong>hat geholfen</strong></td><td>Sterkt dativ-verb</td></tr>
+  <tr><td>19</td><td><strong>laufen</strong></td><td>a lope/ga</td><td>er <strong>lauft</strong></td><td>er <strong>ist gelaufen</strong></td><td>Sterkt bevegelsesverb</td></tr>
+</table>
+
+<div class="rule-box" style="margin-top:6px;">
+<strong>Viktige huskeregler:</strong>
+<div class="col2" style="margin-top:4px;">
+<div>
+<strong>Vokalendring i presens (du/er/sie/es):</strong>
+<ul>
+  <li><strong>a &rarr; a</strong> &nbsp; fahren &rarr; er <strong>fahrt</strong> &nbsp;|&nbsp; laufen &rarr; er <strong>lauft</strong></li>
+  <li><strong>e &rarr; i / ie</strong> &nbsp; sehen &rarr; er <strong>sieht</strong> &nbsp;|&nbsp; geben &rarr; er <strong>gibt</strong> &nbsp;|&nbsp; helfen &rarr; er <strong>hilft</strong></li>
+</ul>
+</div>
+<div>
+<strong>Ingen "ge-" pa useparable verb:</strong><br>
+Forstavelsene <strong>be-, ent-, er-, ver-, zer-, ge-</strong> gir ingen ge- i perfektum.<br>
+&rarr; <em>hat <strong>be</strong>kommen</em>, <em>hat <strong>be</strong>gonnen</em> (ikke &laquo;gebekommen&raquo;!)
+</div>
+</div>
+</div>
+
+<div class="page-footer">Tysk VG1/VG2 &mdash; Eksamenshefte til utskrift &mdash; Side 2 av 10</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SIDE 3: PRESENS PERFEKTUM                                    -->
+<!-- ============================================================ -->
+<div class="page">
+<h1>[ SIDE 3 av 10 ] &mdash; PRESENS PERFEKTUM (FORTID) &mdash; KOMPLETT GUIDE</h1>
+
+<p>Nar du skriver om noe du <em>gjorde</em> i gar, i helgen eller i fjor &rarr; bruk <strong>Presens Perfektum</strong>.</p>
+
+<h2>1. Formelen</h2>
+<div class="formula">Subjekt &nbsp;+&nbsp; Hjelpeverb (haben/sein i presens, plass 2) &nbsp;+&nbsp; andre ledd &nbsp;+&nbsp; Perfektum Partisipp (HELT TIL SLUTT)</div>
+<div class="col2">
+<div class="ex-block">
+<em>Ich <strong>habe</strong> eine Pizza <strong>gegessen</strong>.</em><br>
+<span class="no">Jeg har spist en pizza.</span>
+</div>
+<div class="ex-block">
+<em>Wir <strong>sind</strong> nach Berlin <strong>gereist</strong>.</em><br>
+<span class="no">Vi har reist til Berlin.</span>
+</div>
+</div>
+
+<h2>2. Nar bruker man "SEIN" som hjelpeverb?</h2>
+<p>De fleste verb bruker <strong>haben</strong>, men bruk <strong>sein</strong> ved:</p>
+
+<div class="col3">
+<div class="col-block">
+<strong>Bevegelse fra A til B</strong>
+<ul>
+  <li><em>gehen</em> &rarr; <strong>bin</strong> gegangen</li>
+  <li><em>fahren</em> &rarr; <strong>sind</strong> gefahren</li>
+  <li><em>laufen</em> &rarr; <strong>ist</strong> gelaufen</li>
+  <li><em>fliegen</em> &rarr; <strong>ist</strong> geflogen</li>
+  <li><em>kommen</em> &rarr; <strong>ist</strong> gekommen</li>
+</ul>
+</div>
+<div class="col-block">
+<strong>Tilstandsendring</strong>
+<ul>
+  <li><em>aufwachen</em> &rarr; <strong>bin</strong> aufgewacht</li>
+  <li><em>einschlafen</em> &rarr; <strong>ist</strong> eingeschlafen</li>
+  <li><em>sterben</em> &rarr; <strong>ist</strong> gestorben</li>
+  <li><em>passieren</em> &rarr; <strong>ist</strong> passiert</li>
+</ul>
+</div>
+<div class="col-block">
+<strong>3 unntaksverb</strong>
+<ul>
+  <li><em>sein</em> &rarr; <strong>bin</strong> gewesen</li>
+  <li><em>werden</em> &rarr; <strong>ist</strong> geworden</li>
+  <li><em>bleiben</em> &rarr; <strong>sind</strong> geblieben</li>
+</ul>
+</div>
+</div>
+
+<h2>3. Hvordan lage Perfektum Partisipp? (Tre grupper)</h2>
+
+<div class="col3">
+<div class="col-block">
+<h3>Gruppe A: Svake (regelmessige)</h3>
+<div class="formula" style="font-size:8.5pt;padding:2px 5px;">ge + stamme + t</div>
+<ul>
+  <li><em>machen</em> &rarr; <strong>gemacht</strong></li>
+  <li><em>spielen</em> &rarr; <strong>gespielt</strong></li>
+  <li><em>kaufen</em> &rarr; <strong>gekauft</strong></li>
+  <li><em>kochen</em> &rarr; <strong>gekocht</strong></li>
+</ul>
+</div>
+<div class="col-block">
+<h3>Gruppe B: Sterke (uregelmessige)</h3>
+<div class="formula" style="font-size:8.5pt;padding:2px 5px;">ge + (endret) stamme + en</div>
+<p class="nb">Vokal endres often &mdash; sla opp i tabellen pa Side 2!</p>
+<ul>
+  <li><em>sehen</em> &rarr; <strong>gesehen</strong></li>
+  <li><em>trinken</em> &rarr; <strong>getrunken</strong></li>
+  <li><em>schreiben</em> &rarr; <strong>geschrieben</strong></li>
+</ul>
+</div>
+<div class="col-block">
+<h3>Gruppe C: Losst sammensatte</h3>
+<div class="formula" style="font-size:8.5pt;padding:2px 5px;">forstavelse + ge + stamme + (t/en)</div>
+<p class="nb">ge- presses inn <em>mellom</em> forstavelse og verb.</p>
+<ul>
+  <li><em>einkaufen</em> &rarr; <strong>eingekauft</strong></li>
+  <li><em>aufhoren</em> &rarr; <strong>aufgehort</strong></li>
+  <li><em>mitmachen</em> &rarr; <strong>mitgemacht</strong></li>
+  <li><em>aufraumen</em> &rarr; <strong>aufgeraumt</strong></li>
+</ul>
+</div>
+</div>
+
+<hr class="sep">
+
+<h2>4. Hurtigoversikt: Boyning av haben og sein</h2>
+
+<div class="col2">
+<table>
+  <tr><th>Pronomen</th><th>haben</th><th>sein</th></tr>
+  <tr><td>ich</td><td><strong>habe</strong></td><td><strong>bin</strong></td></tr>
+  <tr><td>du</td><td><strong>hast</strong></td><td><strong>bist</strong></td></tr>
+  <tr><td>er/sie/es</td><td><strong>hat</strong></td><td><strong>ist</strong></td></tr>
+  <tr><td>wir</td><td><strong>haben</strong></td><td><strong>sind</strong></td></tr>
+  <tr><td>ihr</td><td><strong>habt</strong></td><td><strong>seid</strong></td></tr>
+  <tr><td>sie/Sie</td><td><strong>haben</strong></td><td><strong>sind</strong></td></tr>
+</table>
+<div>
+<h3>Eksempler med begge hjelpeverb</h3>
+<ul>
+  <li><em>Ich <strong>habe</strong> das Buch gelesen.</em> &rarr; (haben, ikke bevegelse)</li>
+  <li><em>Er <strong>ist</strong> nach Hause gegangen.</em> &rarr; (sein, bevegelse)</li>
+  <li><em>Sie <strong>hat</strong> das Zimmer aufgeraumt.</em> &rarr; (haben, losst samm.)</li>
+  <li><em>Wir <strong>sind</strong> um 8 Uhr aufgewacht.</em> &rarr; (sein, tilstandsendring)</li>
+</ul>
+</div>
+</div>
+
+<div class="page-footer">Tysk VG1/VG2 &mdash; Eksamenshefte til utskrift &mdash; Side 3 av 10</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SIDE 4: ORDSTILLING HOVEDSETNINGER                          -->
+<!-- ============================================================ -->
+<div class="page">
+<h1>[ SIDE 4 av 10 ] &mdash; SETNINGSOPPBYGGING OG ORDSTILLING (HOVEDSETNINGER)</h1>
+
+<div class="warning">GULLREGEL: Det personboyede verbet skal ALLTID sta pa plass 2 i en fortellende setning!</div>
+
+<h2>1. Normal ordstilling: S &ndash; V &ndash; O</h2>
+<div class="formula">Subjekt (1) &nbsp;&mdash;&nbsp; Verb (2) &nbsp;&mdash;&nbsp; Objekt/resten (3+)</div>
+<div class="ex-block">
+<em>Ich (1) spiele (2) heute Fussball (3).</em>
+</div>
+
+<h2>2. ADUSO-ord: Plass 0 &mdash; teller ikke!</h2>
+<p>Disse binder to <em>hovedsetninger</em> og teller som <strong>Plass 0</strong>. Vanlig ordstilling etter dem:</p>
+
+<table>
+  <tr><th>Bokstav</th><th>Ord</th><th>Norsk</th><th>Eksempel</th></tr>
+  <tr><td><strong>A</strong></td><td>aber</td><td>men</td><td><em>Ich spiele Tennis, aber <strong>ich (1) habe (2)</strong> keine Zeit.</em></td></tr>
+  <tr><td><strong>D</strong></td><td>denn</td><td>for/fordi</td><td><em>Ich lerne Deutsch, denn <strong>es (1) ist (2)</strong> wichtig.</em></td></tr>
+  <tr><td><strong>U</strong></td><td>und</td><td>og</td><td><em>Ich spiele Gitarre, und <strong>Nina (1) singt (2)</strong> ein Lied.</em></td></tr>
+  <tr><td><strong>S</strong></td><td>sondern</td><td>men derimot</td><td><em>Ich trinke keinen Kaffee, sondern <strong>ich (1) trinke (2)</strong> Tee.</em></td></tr>
+  <tr><td><strong>O</strong></td><td>oder</td><td>eller</td><td><em>Spielst du Handball, oder <strong>schwimmst (1) du (2)</strong> lieber?</em></td></tr>
+</table>
+
+<h2>3. DES-ordene (deswegen, deshalb, darum, trotzdem) &mdash; tvinger inversjon!</h2>
+
+<div class="warning">Disse ordene teller som Plass 1. Verbet ma komme PA PLASS 2, og subjektet dyttes til plass 3!</div>
+
+<div class="formula">... , des-ord (1) + VERB (2) + subjekt (3) + ...</div>
+
+<table>
+  <tr><th>Ord</th><th>Norsk</th><th>Eksempel med inversjon</th></tr>
+  <tr><td><strong>deswegen</strong></td><td>derfor</td><td><em>Ich bin mude, deswegen <strong>schlafe (2) ich (3)</strong> jetzt.</em></td></tr>
+  <tr><td><strong>deshalb</strong></td><td>derfor</td><td><em>Er lernt viel, deshalb <strong>bekommt (2) er (3)</strong> gute Noten.</em></td></tr>
+  <tr><td><strong>darum</strong></td><td>derfor</td><td><em>Es regnet, darum <strong>bleiben (2) wir (3)</strong> im Haus.</em></td></tr>
+  <tr><td><strong>trotzdem</strong></td><td>likevel</td><td><em>Es ist kalt, trotzdem <strong>baden (2) sie (3)</strong> im See.</em></td></tr>
+</table>
+
+<h2>4. Inversjon: Tid eller sted forst i setningen</h2>
+
+<p>Starter du med <em>noe annet enn subjektet</em> (tid, sted, leddsetning), MÅ verbet holde plass 2 &mdash; subjektet flyttes til plass 3.</p>
+
+<div class="col2">
+<div class="ex-block">
+<strong>FEIL:</strong> <em>Heute ich esse Pizza.</em> (Verb pa plass 3!)<br>
+<strong>RIKTIG:</strong> <em>Heute (1) esse (2) ich (3) Pizza.</em>
+</div>
+<div class="ex-block">
+<em>In Oslo (1) wohne (2) ich (3) seit zwei Jahren.</em><br>
+<em>Letztes Jahr (1) bin (2) ich (3) nach Berlin gefahren.</em>
+</div>
+</div>
+
+<h2>5. TE-KA-MO-LO &mdash; Tid for sted</h2>
+<p>Hvis du har mange beskrivelser i en setning, skal de komme i denne rekkefolgem:</p>
+<div class="formula"><strong>TE</strong>mporal (nar?) &nbsp;&gt;&nbsp; <strong>KA</strong>usal (hvorfor?) &nbsp;&gt;&nbsp; <strong>MO</strong>dal (hvordan?) &nbsp;&gt;&nbsp; <strong>LO</strong>kal (hvor?)</div>
+<div class="ex-block">
+<em>Ich spiele Tennis <strong>am Donnerstag</strong> (tid) <strong>in Oslo</strong> (sted).</em>
+</div>
+
+<hr class="sep">
+
+<div class="boost-box">
+<h3>Rask oversikt: Kva gjor ordstillingen?</h3>
+<table>
+  <tr><th>Situasjon</th><th>Ordstilling</th><th>Eksempel</th></tr>
+  <tr><td>Normal setning</td><td>S &ndash; V &ndash; rest</td><td><em>Ich esse Pizza.</em></td></tr>
+  <tr><td>Tidsuttrykk forst</td><td>Tid &ndash; V &ndash; S</td><td><em>Heute esse ich Pizza.</em></td></tr>
+  <tr><td>ADUSO-ord</td><td>ADUSO &ndash; S &ndash; V</td><td><em>&hellip; und ich esse Pizza.</em></td></tr>
+  <tr><td>DES-ord (deswegen&hellip;)</td><td>DES-ord &ndash; V &ndash; S</td><td><em>&hellip; deswegen esse ich Pizza.</em></td></tr>
+</table>
+</div>
+
+<div class="page-footer">Tysk VG1/VG2 &mdash; Eksamenshefte til utskrift &mdash; Side 4 av 10</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SIDE 5: LEDDSETNINGER                                        -->
+<!-- ============================================================ -->
+<div class="page">
+<h1>[ SIDE 5 av 10 ] &mdash; LEDDSETNINGER &amp; KONJUNKSJONER (VEIEN TIL 5 OG 6)</h1>
+
+<div class="warning">KATEDRALREGELEN: I en leddsetning kastes det personboyede verbet HELT TIL SLUTT i setningen!</div>
+
+<h2>1. Formelen for leddsetninger</h2>
+<div class="formula">Hovedsetning , + leddsetningsord + subjekt + andre ledd + BOYD VERB (HELT TIL SLUTT!)</div>
+
+<div class="col2">
+<div class="ex-block">
+<strong>Vanlig:</strong> <em>Er spielt Tennis.</em> (verb pa plass 2)<br>
+<strong>Med weil:</strong> <em>Ich weiß, weil er heute Tennis <strong>spielt</strong>.</em>
+</div>
+<div class="ex-block">
+<strong>Med dass:</strong> <em>Ich glaube, dass er heute Tennis <strong>spielt</strong>.</em><br>
+<span class="nb">Verbet er alltid sist!</span>
+</div>
+</div>
+
+<h2>2. Viktigste leddsetningsord (subjunksjoner) &mdash; verb alltid til slutt!</h2>
+
+<table>
+  <tr><th>Ord</th><th>Norsk</th><th>Eksempel &mdash; legg merke til verbet til slutt</th></tr>
+  <tr><td><strong>weil</strong></td><td>fordi</td><td><em>Ich kann nicht kommen, weil ich krank <strong>bin</strong>.</em></td></tr>
+  <tr><td><strong>dass</strong></td><td>at</td><td><em>Ich glaube, dass Deutschland ein schones Land <strong>ist</strong>.</em></td></tr>
+  <tr><td><strong>wenn</strong></td><td>nar/hvis</td><td><em>Ich komme fruher, wenn ich Zeit <strong>habe</strong>.</em></td></tr>
+  <tr><td><strong>ob</strong></td><td>om/hvorvidt</td><td><em>Ich weiß nicht, ob sie morgen <strong>kommt</strong>.</em></td></tr>
+  <tr><td><strong>obwohl</strong></td><td>selv om</td><td><em>Wir gehen spazieren, obwohl es regnet und kalt <strong>ist</strong>.</em></td></tr>
+  <tr><td><strong>da</strong></td><td>siden/fordi</td><td><em>Da ich kein Geld <strong>habe</strong>, bleibe ich zu Hause.</em></td></tr>
+  <tr><td><strong>seitdem</strong></td><td>siden (om tid)</td><td><em>Seitdem ich in Norwegen <strong>wohne</strong>, spreche ich Norwegisch.</em></td></tr>
+  <tr><td><strong>als</strong></td><td>da (engangshandling i fortid)</td><td><em>Ich ging spazieren, als ich die Tasche <strong>fand</strong>.</em></td></tr>
+</table>
+
+<h2>3. Kommaregelen &mdash; ALLTID komma foran leddsetningsordet!</h2>
+
+<div class="col2">
+<div class="ex-block">
+<strong>Riktig:</strong> <em>Ich lerne viel<strong>,</strong> weil ich eine gute Note bekommen <strong>will</strong>.</em>
+</div>
+<div class="ex-block">
+<strong>Riktig:</strong> <em>Ich weiß<strong>,</strong> dass er mude <strong>ist</strong>.</em>
+</div>
+</div>
+
+<h2>4. Leddsetning forst i setningen &mdash; avansert struktur!</h2>
+
+<div class="warning">Hele leddsetningen teller som Plass 1. Hovedsetningen MA starte med verb pa Plass 2. "Verbene motes rundt kommaet!"</div>
+
+<div class="formula">[Leddsetning med verb til slutt] , Bøyd verb (2) + Subjekt (3) + ...</div>
+
+<div class="col2">
+<div class="ex-block">
+<em>Weil ich krank <strong>bin</strong> (1) , <strong>bleibe</strong> (2) ich (3) im Bett.</em><br>
+<span class="nb">"bin" og "bleibe" motes ved kommaet.</span>
+</div>
+<div class="ex-block">
+<em>Wenn das Wetter schon <strong>ist</strong> (1) , <strong>gehen</strong> (2) wir (3) im See baden.</em><br>
+<span class="nb">"ist" og "gehen" motes ved kommaet.</span>
+</div>
+</div>
+
+<h2>5. Leddsetning + Perfektum (verbet til slutt = hjelpeverb sist)</h2>
+
+<p>I perfektum i leddsetning: <strong>partisippet forst</strong>, sa hjelpeverbet <strong>aller sist</strong>:</p>
+
+<div class="formula">..., weil ich keine Zeit gehabt <strong>habe</strong>.</div>
+<div class="formula">..., weil er nach Hause gegangen <strong>ist</strong>.</div>
+
+<hr class="sep">
+
+<div class="boost-box">
+<h3>Sjekkliste: Har du husket alt i leddsetningen?</h3>
+<ul>
+  <li>Komma <strong>for</strong> leddsetningsordet?</li>
+  <li>Verbet (bade partisipp og hjelpeverb) <strong>til slutt</strong>?</li>
+  <li>Hvis leddsetningen er <strong>forst</strong>: verb i hovedsetningen rett etter komma?</li>
+</ul>
+</div>
+
+<div class="page-footer">Tysk VG1/VG2 &mdash; Eksamenshefte til utskrift &mdash; Side 5 av 10</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SIDE 6: MODALE HJELPEVERB                                   -->
+<!-- ============================================================ -->
+<div class="page">
+<h1>[ SIDE 6 av 10 ] &mdash; MODALE HJELPEVERB OG VILJESUTTRYKK</h1>
+
+<p>Modale hjelpeverb forteller om man <em>ma, kan, vil, skal, har lov til</em> eller <em>liker</em> noe. Bruk dem aktivt pa eksamen for a uttrykke meninger!</p>
+
+<h2>1. Bøyningstabell (1. og 3. person entall: ingen endelse og vokalendring!)</h2>
+
+<table>
+  <tr>
+    <th>Infinitiv</th>
+    <th>Norsk</th>
+    <th>ich</th>
+    <th>du</th>
+    <th>er/sie/es</th>
+    <th>wir</th>
+    <th>ihr</th>
+    <th>sie/Sie</th>
+  </tr>
+  <tr>
+    <td><strong>mussen</strong></td><td>a matte</td>
+    <td>ich <strong>muss</strong></td><td>du <strong>musst</strong></td><td>er <strong>muss</strong></td>
+    <td>wir <strong>mussen</strong></td><td>ihr <strong>musst</strong></td><td>sie <strong>mussen</strong></td>
+  </tr>
+  <tr>
+    <td><strong>konnen</strong></td><td>a kunne</td>
+    <td>ich <strong>kann</strong></td><td>du <strong>kannst</strong></td><td>er <strong>kann</strong></td>
+    <td>wir <strong>konnen</strong></td><td>ihr <strong>konnt</strong></td><td>sie <strong>konnen</strong></td>
+  </tr>
+  <tr>
+    <td><strong>wollen</strong></td><td>a ville</td>
+    <td>ich <strong>will</strong></td><td>du <strong>willst</strong></td><td>er <strong>will</strong></td>
+    <td>wir <strong>wollen</strong></td><td>ihr <strong>wollt</strong></td><td>sie <strong>wollen</strong></td>
+  </tr>
+  <tr>
+    <td><strong>sollen</strong></td><td>a skulle</td>
+    <td>ich <strong>soll</strong></td><td>du <strong>sollst</strong></td><td>er <strong>soll</strong></td>
+    <td>wir <strong>sollen</strong></td><td>ihr <strong>sollt</strong></td><td>sie <strong>sollen</strong></td>
+  </tr>
+  <tr>
+    <td><strong>durfen</strong></td><td>a fa lov</td>
+    <td>ich <strong>darf</strong></td><td>du <strong>darfst</strong></td><td>er <strong>darf</strong></td>
+    <td>wir <strong>durfen</strong></td><td>ihr <strong>durft</strong></td><td>sie <strong>durfen</strong></td>
+  </tr>
+  <tr>
+    <td><strong>mogen</strong></td><td>a like</td>
+    <td>ich <strong>mag</strong></td><td>du <strong>magst</strong></td><td>er <strong>mag</strong></td>
+    <td>wir <strong>mogen</strong></td><td>ihr <strong>mogt</strong></td><td>sie <strong>mogen</strong></td>
+  </tr>
+  <tr>
+    <td><strong>wissen*</strong></td><td>a vite</td>
+    <td>ich <strong>weiß</strong></td><td>du <strong>weißt</strong></td><td>er <strong>weiß</strong></td>
+    <td>wir <strong>wissen</strong></td><td>ihr <strong>wisst</strong></td><td>sie <strong>wissen</strong></td>
+  </tr>
+</table>
+<p class="nb">* <em>wissen</em> er ikke et modalt verb, men boydes pa samme mate.</p>
+
+<h2>2. Ordstilling med modale hjelpeverb</h2>
+
+<div class="warning">Modalverbet = plass 2 (boydes). Hovedverbet (infinitiv) = KASTES TIL SLUTT!</div>
+
+<div class="formula">Subjekt &nbsp;+&nbsp; Modalverb BØYD (plass 2) &nbsp;+&nbsp; andre ledd &nbsp;+&nbsp; Hovedverb INFINITIV (sist!)</div>
+
+<table>
+  <tr><th>Norsk</th><th>Tysk</th></tr>
+  <tr><td>Jeg ma gjore leksene mine.</td><td><em>Ich <strong>muss</strong> meine Hausaufgaben <strong>machen</strong>.</em></td></tr>
+  <tr><td>Her far man ikke lov til a parkere.</td><td><em>Hier <strong>darf</strong> man nicht <strong>parken</strong>.</em></td></tr>
+  <tr><td>Vi vil gjerne reise til Tyskland.</td><td><em>Wir <strong>wollen</strong> nach Deutschland <strong>reisen</strong>.</em></td></tr>
+  <tr><td>Han kan ikke komme, fordi han er syk.</td><td><em>Er <strong>kann</strong> nicht <strong>kommen</strong>, weil er krank <strong>ist</strong>.</em></td></tr>
+  <tr><td>Jeg vet ikke om hun vil komme.</td><td><em>Ich <strong>weiß</strong> nicht, ob sie <strong>kommen</strong> <strong>will</strong>.</em></td></tr>
+</table>
+
+<div class="rule-box" style="margin-top:6px;">
+<strong>I leddsetning med modal:</strong> Partisippet/infinitiven kommer forst, sa modalverbet aller sist.<br>
+<em>..., weil er nicht <strong>kommen</strong> <strong>konnte</strong>.</em> &nbsp;&mdash;&nbsp; <em>..., weil sie nicht <strong>schlafen</strong> <strong>kann</strong>.</em>
+</div>
+
+<h2>3. Nyttige uttrykk med modalverb pa eksamen</h2>
+
+<table>
+  <tr><th>Uttrykk</th><th>Norsk</th></tr>
+  <tr><td><em>Ich <strong>mochte</strong> gerne&hellip;</em></td><td>Jeg skulle gjerne like a&hellip; (hoflig)</td></tr>
+  <tr><td><em>Man <strong>sollte</strong>&hellip;</em></td><td>Man bor&hellip; (anbefaling)</td></tr>
+  <tr><td><em>Ich <strong>konnte</strong> mir vorstellen, dass&hellip;</em></td><td>Jeg kan forestille meg at&hellip;</td></tr>
+  <tr><td><em>Das <strong>muss</strong> sehr interessant sein.</em></td><td>Det ma vaere veldig interessant.</td></tr>
+  <tr><td><em>Ich <strong>will</strong> spater&hellip; werden.</em></td><td>Jeg vil bli&hellip; senere.</td></tr>
+</table>
+
+<div class="page-footer">Tysk VG1/VG2 &mdash; Eksamenshefte til utskrift &mdash; Side 6 av 10</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SIDE 7: EKSAMENSOPPGAVE 5 KORTSVAR                         -->
+<!-- ============================================================ -->
+<div class="page">
+<h1>[ SIDE 7 av 10 ] &mdash; EKSAMENSOPPGAVE 5: KORTSVAR (60&ndash;80 ORD)</h1>
+
+<p>Svar direkte pa alle kulepunkter. Bruk presens (natid) og bind setningene godt sammen.</p>
+
+<h2>Eksempel A: Vennskap og fritid</h2>
+<p><em>Schreib einen Text von 60&ndash;80 Wortern.</em> &mdash; Hvem er du mest med? Hvorfor? Hva gjor dere?</p>
+
+<div class="col2">
+<div class="col-block">
+<strong>Tysk modellsvar:</strong><br>
+<em>Ich bin am meisten zusammen mit meinem besten Freund Lukas und meiner Schwester Ida. Ich bin sehr gerne mit ihnen zusammen, weil sie lustig und immer nett sind. Wenn wir zusammen sind, spielen Lukas und ich oft Computerspiele oder wir horen Musik. Manchmal gehen Ida und ich im Park spazieren oder wir kochen Pizza. Wir haben immer viel Spaß zusammen, obwohl wir manchmal auch streiten.</em>
+</div>
+<div class="col-block">
+<strong>Norsk ord-for-ord:</strong><br>
+Jeg er mest sammen med min beste venn Lukas og min soster Ida. Jeg er veldig gjerne sammen med dem, fordi de er morsomme og alltid hyggelige. Nar vi er sammen, spiller Lukas og jeg ofte dataspill, eller vi horer pa musikk. Noen ganger gar Ida og jeg tur i parken, eller vi lager pizza. Vi har det alltid veldig goy sammen, selv om vi noen ganger ogsa krangler.
+</div>
+</div>
+
+<div class="boost-box">
+<h3>Karakter-boostere i Eksempel A</h3>
+<ul>
+  <li><strong>Dativ etter mit:</strong> <em>mit <strong>meinem</strong> besten Freund</em> (hankjonn dativ) &amp; <em>mit <strong>meiner</strong> Schwester</em> (hunkjonn dativ)</li>
+  <li><strong>weil-leddsetning:</strong> <em>weil sie&hellip; <strong>sind</strong></em> &mdash; verbet sist</li>
+  <li><strong>wenn forst &rarr; inversjon:</strong> <em>Wenn wir zusammen <strong>sind</strong>, <strong>spielen</strong> Lukas und ich&hellip;</em> &mdash; verbene motes ved kommaet</li>
+  <li><strong>obwohl:</strong> <em>obwohl wir manchmal auch <strong>streiten</strong></em> &mdash; verbet sist</li>
+</ul>
+</div>
+
+<hr class="sep">
+
+<h2>Eksempel B: Hjemsted og skole</h2>
+<p><em>Schreib einen Text von 60&ndash;80 Wortern.</em> &mdash; Hvor bor du? Hva liker du med skolen din?</p>
+
+<div class="col2">
+<div class="col-block">
+<strong>Tysk modellsvar:</strong><br>
+<em>Ich wohne in einer kleinen Stadt in der Nahe von Oslo. Es ist hier sehr schon, weil es viele Parks und einen großen See gibt. Ich besuche eine Schule in Lillestrom. Ich mag meine Schule sehr, weil die Lehrer sehr hilfsbereit sind. Außerdem treffe ich dort jeden Tag meine Freunde. Mein Lieblingsfach ist Deutsch, obwohl die Grammatik manchmal ein bisschen schwierig ist.</em>
+</div>
+<div class="col-block">
+<strong>Norsk ord-for-ord:</strong><br>
+Jeg bor i en liten by i naerheten av Oslo. Det er veldig pent her, fordi det finnes mange parker og en stor innsjoe. Jeg gar pa en skole i Lillestrom. Jeg liker skolen min veldig godt, fordi laererne er veldig hjelpsomme. Dessuten moter jeg vennene mine der hver dag. Mitt yndlingsfag er tysk, selv om grammatikken noen ganger er litt vanskelig.
+</div>
+</div>
+
+<div class="boost-box">
+<h3>Karakter-boostere i Eksempel B</h3>
+<ul>
+  <li><strong>Dativ etter in (ro):</strong> <em>in <strong>einer</strong> kleinen Stadt</em> (hunkjonn dativ &rarr; einer)</li>
+  <li><strong>Akkusativ etter ohne/fur:</strong> <em>einen großen See</em> (hankjonn akkusativ)</li>
+  <li><strong>weil</strong> to ganger med verb sist: <em>weil es&hellip; <strong>gibt</strong></em> og <em>weil die Lehrer&hellip; <strong>sind</strong></em></li>
+  <li><strong>obwohl</strong> til slutt: <em>obwohl die Grammatik&hellip; schwierig <strong>ist</strong></em></li>
+</ul>
+</div>
+
+<div class="page-footer">Tysk VG1/VG2 &mdash; Eksamenshefte til utskrift &mdash; Side 7 av 10</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SIDE 8: EKSAMENSOPPGAVE 6 MELDING OG FORTID                -->
+<!-- ============================================================ -->
+<div class="page">
+<h1>[ SIDE 8 av 10 ] &mdash; EKSAMENSOPPGAVE 6: MELDING OG FORTID (100&ndash;120 ORD)</h1>
+
+<p>Praktisk situasjon &mdash; uformell melding/e-post. Tester evnen til a skrive i <strong>fortid (presens perfektum)</strong>. Skill tydelig mellom hva du har gjort og ikke gjort!</p>
+
+<h2>Eksempel: Hjelpe til hjemme</h2>
+<p><em>Gjoremalsliste:</em> Einkaufen &bull; Zimmer aufraumen &bull; Geschirr spulen &bull; Schwester bei Hausaufgaben helfen</p>
+
+<div class="col2">
+<div class="col-block">
+<strong>Tysk modellsvar:</strong><br>
+<em>Hallo Mama! Ich weiß, dass du heute eine stressige Woche hast, deshalb habe ich dir geholfen. Ich habe schon das Zimmer aufgeraumt und die Katze gefuttert. Danach bin ich im Supermarkt einkaufen gegangen. Ich habe Brot, Milch und Obst gekauft.<br>
+Leider habe ich das Geschirr nicht gespult, weil ich keine Zeit hatte. Ich habe auch meiner Schwester nicht bei den Hausaufgaben geholfen, weil sie heute keine Hausaufgaben bekommen hat. Ich werde das Geschirr aber heute Abend spulen, wenn du nach Hause kommst. Mach dir keine Sorgen! Bis spater, dein Thomas.</em>
+</div>
+<div class="col-block">
+<strong>Norsk ord-for-ord:</strong><br>
+Hallo mamma! Jeg vet at du har en stressende uke i dag, derfor har jeg hjulpet deg. Jeg har allerede ryddet rommet og matet katten. Deretter har jeg gatt og handlet pa supermarkedet. Jeg kjopte brod, melk og frukt.<br>
+Dessverre har jeg ikke vasket opp, fordi jeg ikke hadde tid. Jeg har heller ikke hjulpet sosteren min med leksene, fordi hun ikke fikk noen lekser i dag. Men jeg skal vaske opp i kveld nar du kommer hjem. Ikke bekymre deg! Ses senere, din Thomas.
+</div>
+</div>
+
+<div class="boost-box">
+<h3>Karakter-boostere i Eksempel 6</h3>
+<ul>
+  <li>
+    <strong>Dativ-verb helfen i perfektum:</strong>
+    <em>habe ich <strong>dir</strong> geholfen</em> &amp; <em>habe ich <strong>meiner Schwester</strong> geholfen</em><br>
+    <span class="nb">&rarr; helfen krever ALLTID dativ, ogsa i perfektum! <em>dir</em> = dativ, <em>meiner Schwester</em> = dativ hunkjonn</span>
+  </li>
+  <li>
+    <strong>Perfektum ordstilling &mdash; svakt verb:</strong>
+    <em>Ich <strong>habe</strong> schon das Zimmer <strong>aufgeraumt</strong>.</em>
+    <span class="nb">&rarr; hjelpeverb plass 2, losst sammensatt partisipp sist</span>
+  </li>
+  <li>
+    <strong>Perfektum med sein &mdash; bevegelse:</strong>
+    <em><strong>bin</strong> ich einkaufen <strong>gegangen</strong>.</em>
+    <span class="nb">&rarr; gehen = bevegelse &rarr; bruker <em>sein</em>!</span>
+  </li>
+  <li>
+    <strong>Inversjon etter deshalb:</strong>
+    <em>deshalb <strong>habe</strong> (2) <strong>ich</strong> (3) dir geholfen</em>
+    <span class="nb">&rarr; verb for subjekt etter DES-ord</span>
+  </li>
+  <li>
+    <strong>weil-leddsetning:</strong>
+    <em>weil ich keine Zeit <strong>hatte</strong></em>
+    <span class="nb">&rarr; hadde (preteritum av haben) helt til slutt</span>
+  </li>
+  <li>
+    <strong>Framtid med werden:</strong>
+    <em>Ich <strong>werde</strong> das Geschirr&hellip; <strong>spulen</strong></em>
+    <span class="nb">&rarr; werden bøyd plass 2, infinitiv til slutt</span>
+  </li>
+</ul>
+</div>
+
+<div class="page-footer">Tysk VG1/VG2 &mdash; Eksamenshefte til utskrift &mdash; Side 8 av 10</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SIDE 9: EKSAMENSOPPGAVE 7 KREATIVT LANGSVAR                -->
+<!-- ============================================================ -->
+<div class="page">
+<h1>[ SIDE 9 av 10 ] &mdash; EKSAMENSOPPGAVE 7: KREATIVT LANGSVAR (160&ndash;180 ORD)</h1>
+
+<p>Storre oppgave &mdash; bruk <strong>fantasi</strong> og <strong>avansert tysk</strong>. Bland fortid (perfektum/preteritum) med natid for a fa tekstflyt.</p>
+
+<h2>Eksempel: Den mystiske vesken</h2>
+<p>Finn en veske &mdash; beskriv stedet, innholdet, hva det forteller om eieren, og hva du gjor.</p>
+
+<div class="col2">
+<div class="col-block" style="font-size:8.3pt;">
+<strong>Tysk modellsvar:</strong><br>
+<em>Gestern war ein sehr merkwurdiger Tag. Ich ging im Park spazieren, als ich plotzlich eine alte, braune Ledertasche auf einer Bank fand. Sie lag einfach da, ganz einsam. Ich war neugierig und habe die Tasche sofort geoffnet.<br>
+In der Tasche gab es ein Buch, ein altes Smartphone und eine Flasche Wasser. Aber das war nicht alles. Unter dem Buch fand ich ein Ticket fur eine Reise um die Welt und ein kleines Tagebuch. Das hat mich wirklich sehr uberrascht! Das Reiseticket zeigt, dass der Besitzer sehr abenteuerlustig sein muss. Im Tagebuch habe ich gelesen, dass er plant, alle Kontinente zu besuchen. Ich glaube, dass der Besitzer ein junger Student ist, der große Traume hat.<br>
+Ich wollte die Tasche naturlich nicht behalten. Deswegen bin ich sofort zur Polizeistation gegangen und habe die Tasche dort abgegeben. Die Polizisten waren sehr nett und haben mir herzlich gedankt. Ich hoffe sehr, dass der Besitzer seine Tasche wiederfindet, weil das Ticket bestimmt sehr teuer war. Das war ein echtes Abenteuer!</em>
+</div>
+<div class="col-block" style="font-size:8.3pt;">
+<strong>Norsk ord-for-ord:</strong><br>
+I gar var en veldig merkelig dag. Jeg gikk tur i parken, da jeg plutselig fant en gammel, brun skinnveske pa en benk. Den la bare der, helt ensom. Jeg var nysgjerrig og apnet vesken med en gang.<br>
+I vesken var det en bok, en gammel smarttelefon og en flaske vann. Men det var ikke alt. Under boken fant jeg en billett til en reise verden rundt og en liten dagbok. Det overrasket meg virkelig veldig mye! Reisebilletten viser at eieren ma vaere veldig eventyrlysten. I dagboken leste jeg at han planlegger a besoke alle kontinenter. Jeg tror at eieren er en ung student som har store drommer.<br>
+Jeg ville naturligvis ikke beholde vesken. Derfor gikk jeg rett til politistasjonen og leverte vesken der. Politifolkene var veldig hyggelige og takket meg hjertelig. Jeg haper virkelig at eieren finner igjen vesken sin, fordi billetten sikkert var veldig dyr. Det var et ekte eventyr!
+</div>
+</div>
+
+<div class="boost-box">
+<h3>Karakter-boostere i Eksempel 7</h3>
+<ul>
+  <li>
+    <strong>Preteritum av sterke verb (kjempehøyt niva!):</strong>
+    <em>ich <strong>ging</strong></em> (preteritum av gehen), <em>ich <strong>fand</strong></em> (finden), <em>er <strong>lag</strong></em> (liegen), <em>ich <strong>wollte</strong></em> (wollen)
+  </li>
+  <li>
+    <strong>Dativ etter preposisjon i ro (auf + Dativ):</strong>
+    <em>auf <strong>einer</strong> Bank</em> (hunkjonn dativ &rarr; <strong>einer</strong>, ikke "eine")
+  </li>
+  <li>
+    <strong>Dativ-sammentrekning:</strong>
+    <em><strong>zur</strong> Polizeistation</em> = zu + der (dativ hunkjonn)
+  </li>
+  <li>
+    <strong>Dativ-verb danken:</strong>
+    <em>haben <strong>mir</strong> gedankt</em> (danken krever dativ &rarr; mir, ikke mich)
+  </li>
+  <li>
+    <strong>dass-leddsetning med verb sist:</strong>
+    <em>dass der Besitzer seine Tasche <strong>wiederfindet</strong></em>
+  </li>
+  <li>
+    <strong>Inversjon etter deswegen:</strong>
+    <em>Deswegen <strong>bin</strong> (2) <strong>ich</strong> (3)&hellip; gegangen</em> (sein fordi gehen = bevegelse!)
+  </li>
+</ul>
+</div>
+
+<div class="page-footer">Tysk VG1/VG2 &mdash; Eksamenshefte til utskrift &mdash; Side 9 av 10</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SIDE 10: NYTTIGE FRASER                                     -->
+<!-- ============================================================ -->
+<div class="page">
+<h1>[ SIDE 10 av 10 ] &mdash; NYTTIGE FRASER DU KAN "STJELE" DIREKTE TIL EKSAMEN</h1>
+
+<p>Tilpass disse frasene til din oppgave. De er grammatisk riktige og kan brukes uansett tema.</p>
+
+<h2>1. Fraser for melding/e-post &mdash; hva du har gjort (Oppgave 6)</h2>
+
+<table>
+  <tr><th>Tysk</th><th>Norsk</th></tr>
+  <tr><td><em>Ich habe heute viel <strong>erledigt</strong>.</em></td><td>Jeg har utrettet mye i dag.</td></tr>
+  <tr><td><em>Zuerst habe ich&hellip; und danach habe ich&hellip;</em></td><td>Forst har jeg&hellip; og deretter har jeg&hellip;</td></tr>
+  <tr><td><em>Leider konnte ich nicht&hellip; <strong>weil</strong> ich keine Zeit <strong>hatte</strong>.</em></td><td>Dessverre kunne jeg ikke&hellip; fordi jeg ikke hadde tid.</td></tr>
+  <tr><td><em>Ich habe <strong>vergessen</strong>,&hellip; zu machen.</em></td><td>Jeg har glemt a gjore&hellip;</td></tr>
+  <tr><td><em>Es tut mir leid, aber ich habe keine Zeit <strong>gehabt</strong>.</em></td><td>Jeg beklager, men jeg har ikke hatt tid.</td></tr>
+  <tr><td><em>Ich werde das <strong>morgen</strong> erledigen, <strong>wenn</strong> ich Zeit <strong>habe</strong>.</em></td><td>Jeg skal ordne det i morgen, nar jeg har tid.</td></tr>
+  <tr><td><em>Mach dir keine Sorgen!</em></td><td>Ikke bekymre deg!</td></tr>
+</table>
+
+<h2>2. Fraser for reiser, steder og fremtid</h2>
+
+<table>
+  <tr><th>Tysk</th><th>Norsk</th></tr>
+  <tr><td><em>Letzten Sommer bin ich nach&hellip; <strong>gereist</strong>.</em></td><td>Forrige sommer reiste jeg til&hellip;</td></tr>
+  <tr><td><em>Wir sind dort zwei Wochen <strong>geblieben</strong> und es war fantastisch.</em></td><td>Vi ble der i to uker og det var fantastisk.</td></tr>
+  <tr><td><em>In der Zukunft werde ich wahrscheinlich&hellip; <strong>studieren</strong>.</em></td><td>I framtiden skal jeg sannsynligvis studere&hellip;</td></tr>
+  <tr><td><em>Ich traume davon, ein Jahr im Ausland zu <strong>leben</strong>.</em></td><td>Jeg drommer om a bo et ar i utlandet.</td></tr>
+  <tr><td><em>Es gibt dort so viele historische Sehenswurdigkeiten.</em></td><td>Det finnes sa mange historiske severdigheter der.</td></tr>
+  <tr><td><em>Das Wetter war sehr schon, <strong>obwohl</strong> es manchmal regnete.</em></td><td>Vaeret var veldig pent, selv om det noen ganger regnet.</td></tr>
+</table>
+
+<h2>3. Fraser for kreative fortellinger (Oppgave 7)</h2>
+
+<table>
+  <tr><th>Tysk</th><th>Norsk</th></tr>
+  <tr><td><em>Es war ein ganz normaler Tag, als plotzlich etwas Unerwartetes <strong>passierte</strong>.</em></td><td>Det var en helt vanlig dag, da det plutselig skjedde noe uventet.</td></tr>
+  <tr><td><em>Ich war sehr uberrascht, als ich&hellip; <strong>sah</strong> / <strong>fand</strong>.</em></td><td>Jeg ble veldig overrasket da jeg sa/fant&hellip;</td></tr>
+  <tr><td><em>Meiner Meinung nach zeigt dieses Ding, <strong>dass</strong>&hellip;</em></td><td>Etter min mening viser denne tingen at&hellip;</td></tr>
+  <tr><td><em>Ich wusste nicht, was ich tun <strong>sollte</strong>.</em></td><td>Jeg visste ikke hva jeg skulle gjore.</td></tr>
+  <tr><td><em>Am Ende war alles wieder gut.</em></td><td>Til slutt var alt bra igjen.</td></tr>
+  <tr><td><em>Ich glaube, <strong>dass</strong> der Besitzer&hellip; sein <strong>muss</strong>.</em></td><td>Jeg tror at eieren ma vaere&hellip;</td></tr>
+  <tr><td><em>Zum Gluck hatte ich mein Handy dabei.</em></td><td>Heldigvis hadde jeg mobiltelefonen min med meg.</td></tr>
+</table>
+
+<hr class="sep">
+
+<div class="rule-box">
+<strong>HURTIGHUSKE: De viktigste reglene</strong>
+<div class="col3" style="margin-top:4px; font-size:8.3pt;">
+<div>
+<strong>KASUS:</strong><br>
+FUDGO &rarr; Akkusativ<br>
+REGINA + aus/bei &rarr; Dativ<br>
+an/auf/in/&hellip; + Wo? &rarr; Dativ<br>
+an/auf/in/&hellip; + Wohin? &rarr; Akk.
+</div>
+<div>
+<strong>ORDSTILLING:</strong><br>
+Verb alltid plass 2<br>
+ADUSO = plass 0 (vanlig ord.)<br>
+DES-ord = inversjon<br>
+Leddsetning = verb sist
+</div>
+<div>
+<strong>PERFEKTUM:</strong><br>
+Bevegelse A&rarr;B = sein<br>
+Tilstandsendring = sein<br>
+sein/werden/bleiben = sein<br>
+Alt annet = haben
+</div>
+</div>
+</div>
+
+<div class="page-footer">Tysk VG1/VG2 &mdash; Eksamenshefte til utskrift &mdash; Side 10 av 13</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SIDE 11: SLIK VURDERES EKSAMEN                              -->
+<!-- ============================================================ -->
+<div class="page">
+<h1>[ SIDE 11 av 13 ] &mdash; SLIK VURDERES SKRIFTLIG EKSAMEN (TYSK 1)</h1>
+
+<div class="rule-box">
+<strong>DEL 1 Lesing = 67 % av totalkarakteren &nbsp;&mdash;&nbsp; DEL 2 Skriving = 33 % av totalkarakteren</strong><br>
+Du MA beste begge deler (minst karakter 2 pa bade lesing og skriving) for a besta eksamen.
+</div>
+
+<div class="col2">
+
+<div>
+<h2>Del 1: Lesing &mdash; Tabell A</h2>
+<table>
+  <tr><th>Poengsum (maks 34)</th><th>Karakter</th></tr>
+  <tr><td>29&ndash;34</td><td><strong>6</strong></td></tr>
+  <tr><td>23&ndash;28</td><td><strong>5</strong></td></tr>
+  <tr><td>18&ndash;22</td><td><strong>4</strong></td></tr>
+  <tr><td>12&ndash;17</td><td><strong>3</strong></td></tr>
+  <tr><td>8&ndash;11</td><td><strong>2</strong></td></tr>
+  <tr><td>0&ndash;7</td><td><strong>1</strong></td></tr>
+</table>
+
+<h2 style="margin-top:7px;">Del 2: Skriving &mdash; Tabell I</h2>
+<table>
+  <tr><th>Poengsum (maks 22)</th><th>Karakter</th></tr>
+  <tr><td>21&ndash;22</td><td><strong>6</strong></td></tr>
+  <tr><td>17&ndash;20</td><td><strong>5</strong></td></tr>
+  <tr><td>14&ndash;16</td><td><strong>4</strong></td></tr>
+  <tr><td>10&ndash;13</td><td><strong>3</strong></td></tr>
+  <tr><td>7&ndash;9</td><td><strong>2</strong></td></tr>
+  <tr><td>0&ndash;5</td><td><strong>1</strong></td></tr>
+</table>
+
+<h2 style="margin-top:7px;">Samla karakter &mdash; Tabell J</h2>
+<p class="nb">Regnestykke: <strong>Del 1 karakter + Del 1 karakter + Del 2 karakter = totalsum</strong><br>(Lesing teller dobbelt!)</p>
+<table>
+  <tr><th>Totalsum</th><th>Karakter</th></tr>
+  <tr><td>17&ndash;18</td><td><strong>6</strong></td></tr>
+  <tr><td>14&ndash;16</td><td><strong>5</strong></td></tr>
+  <tr><td>11&ndash;13</td><td><strong>4</strong></td></tr>
+  <tr><td>8&ndash;10</td><td><strong>3</strong></td></tr>
+  <tr><td>6&ndash;7</td><td><strong>2</strong></td></tr>
+  <tr><td>0&ndash;5</td><td><strong>1</strong></td></tr>
+</table>
+<p class="nb" style="margin-top:3px;"><em>Eks: Lesing = 4 &rarr; 4 + 4 + Skriving-karakter = totalsum</em></p>
+</div>
+
+<div>
+<h2>Del 2: Vurderingskriterier (maks 22 poeng)</h2>
+<table>
+  <tr><th>Kriterium</th><th>Maks</th><th>Hva sensor ser etter</th></tr>
+  <tr>
+    <td><strong>Formidling</strong></td><td><strong>4</strong></td>
+    <td>Forstar sensor hva du mener? Flyt og tydelighet.<br>
+    <span class="nb">4p = tydelig og lett a forsta &bull; 3p = noen feil men forstaelig &bull; 2p = feil hindrer forstaelse &bull; 1p = oppstykket</span></td>
+  </tr>
+  <tr>
+    <td><strong>Relevans</strong></td><td><strong>2</strong></td>
+    <td>Har du svart pa <em>alle</em> kulepunktene i oppgaven og skrevet nok ord?<br>
+    <span class="nb">2p = alt besvart + riktig antall ord &bull; 1p = ikke alt besvart &bull; 0p = mangler tekst</span></td>
+  </tr>
+  <tr>
+    <td><strong>Grammatikk</strong></td><td><strong>3</strong></td>
+    <td>Kasus, verbboyning, tider.<br>
+    <span class="nb">3p = nesten ingen feil &bull; 2p = en del smaafeil &bull; 1p = mange store og sma feil</span></td>
+  </tr>
+  <tr>
+    <td><strong>Setningsstruktur</strong></td><td><strong>3</strong></td>
+    <td>Riktig ordstilling (verb plass 2, verb sist i leddsetning).<br>
+    <span class="nb">3p = korrekt &bull; 2p = stort sett korrekt &bull; 1p = feil i mange setninger</span></td>
+  </tr>
+  <tr>
+    <td><strong>Vokabular</strong></td><td><strong>4</strong></td>
+    <td>Variert og passende ordforrad &mdash; ikke de samme 10 ordene hele tiden!<br>
+    <span class="nb">4p = variert og passer godt &bull; 3p = noe variert &bull; 2p = lite variert</span></td>
+  </tr>
+  <tr>
+    <td><strong>Rettskriving</strong></td><td><strong>2</strong></td>
+    <td>Store forbokstaver pa <em>alle</em> substantiv! Riktig tegnsetting.<br>
+    <span class="nb">2p = gjennomgaende korrekt &bull; 1p = noen fa feil &bull; 0p = mange feil</span></td>
+  </tr>
+  <tr>
+    <td><strong>Sprakhandlinger</strong></td><td><strong>4</strong></td>
+    <td>Klarer du a informere, fortelle, beskrive og begrunne pa tysk?<br>
+    <span class="nb">4p = meget god &bull; 3p = god &bull; 2p = enkel &bull; 1p = svaert enkel</span></td>
+  </tr>
+  <tr style="background:#ddd;">
+    <td><strong>TOTALT</strong></td><td><strong>22</strong></td>
+    <td><strong>Karakter 3 = 10&ndash;13 poeng &nbsp;&bull;&nbsp; Karakter 4 = 14&ndash;16 p &nbsp;&bull;&nbsp; Karakter 5 = 17&ndash;20 p</strong></td>
+  </tr>
+</table>
+
+<div class="warning" style="margin-top:6px; font-size:8.3pt;">
+VIKTIG: Hvis du far 0 poeng for Formidling, far du automatisk 0 for Relevans &mdash; og omvendt!<br>
+Skriv alltid minst noe fornuftig pa alle kulepunkter i oppgaven.
+</div>
+</div>
+</div>
+
+<div class="page-footer">Tysk VG1/VG2 &mdash; Eksamenshefte til utskrift &mdash; Side 11 av 13</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SIDE 12: STRATEGI NORSK TIL TYSK                            -->
+<!-- ============================================================ -->
+<div class="page">
+<h1>[ SIDE 12 av 13 ] &mdash; DIN STRATEGI: NORSK &rarr; TYSK &rarr; RETTE</h1>
+
+<p>Slik gjor du det steg for steg nar du ikke husker reglene godt, men skjonner litt av spraket:</p>
+
+<div class="col2">
+
+<div>
+<h2>Steg 1 &mdash; Skriv pa norsk forst</h2>
+<p>Skriv hele svaret ditt pa norsk. Tenk ikke pa tysk enna. Fokuser pa:</p>
+<ul>
+  <li>Har jeg svart pa <strong>alle kulepunktene</strong>?</li>
+  <li>Er teksten lang nok? (Tell norske ord som pekepinn)</li>
+  <li>Er setningene enkle nok til at jeg kan oversette dem?</li>
+</ul>
+<div class="rule-box" style="font-size:8.3pt;">
+<strong>Tips:</strong> Unnga kompliserte norske setninger du ikke klarer a oversette. Skriv heller tre enkle setninger enn en vanskelig en. <em>&laquo;Jeg liker musikk. Det er morsomt. Jeg spiller gitar.&raquo;</em> er bedre enn a forsoke noe du bommer pa.
+</div>
+
+<h2 style="margin-top:7px;">Steg 2 &mdash; Oversett til tysk</h2>
+<p>Oversett setning for setning. Bruk eksamensheftet ditt aktivt:</p>
+<ul>
+  <li>Sla opp verb i <strong>Side 2</strong> for riktig boyning</li>
+  <li>Husk: Alle <strong>substantiv</strong> pa tysk skrives med <strong>stor forbokstav</strong>!</li>
+  <li>Bruk modellsvarene pa <strong>Side 7, 8, 9</strong> som maler</li>
+  <li>Bruk frasene pa <strong>Side 10</strong> direkte</li>
+</ul>
+
+<h2 style="margin-top:7px;">Steg 3 &mdash; Sjekk ordstilling</h2>
+<p>Les gjennom og sjekk at:</p>
+<ul>
+  <li>Verbet star pa <strong>plass 2</strong> i alle setninger</li>
+  <li>Etter <strong>weil / dass / wenn / obwohl</strong>: verbet sist</li>
+  <li>Etter <strong>deshalb / deswegen</strong>: verb for subjekt</li>
+</ul>
+<div class="formula" style="font-size:8pt;">
+Heute (1) esse (2) ich (3) Pizza. [ikke: Heute ich esse]<br>
+..., weil ich mude <strong>bin</strong>. [verb sist]<br>
+Deshalb <strong>gehe</strong> ich jetzt. [verb for subjekt]
+</div>
+
+<h2 style="margin-top:7px;">Steg 4 &mdash; Sjekk kasus etter preposisjoner</h2>
+<p>Ga gjennom alle preposisjoner og sjekk artikkelendelsen:</p>
+<ul>
+  <li><strong>mit / aus / bei / nach / seit / von / zu</strong> &rarr; alltid <strong>Dativ</strong></li>
+  <li><strong>fur / um / durch / gegen / ohne</strong> &rarr; alltid <strong>Akkusativ</strong></li>
+  <li><strong>in / auf / an / uber</strong> + ro &rarr; <strong>Dativ</strong> &nbsp;|&nbsp; + bevegelse &rarr; <strong>Akkusativ</strong></li>
+</ul>
+</div>
+
+<div>
+<h2>Steg 5 &mdash; Rettskrivingsjekk (Sensor trekker lett her!)</h2>
+<div class="warning" style="font-size:8.3pt;">
+STORE FORBOKSTAVER pa ALLE substantiv (ting, steder, personer)!<br>
+<em>der <strong>H</strong>und, die <strong>S</strong>chule, das <strong>B</strong>uch, ein <strong>F</strong>reund</em>
+</div>
+<ul>
+  <li>Alle navneord stor forbokstav &mdash; ga gjennom <em>hele</em> teksten</li>
+  <li>Komma <strong>for</strong> leddsetningsord: <em>..., <strong>weil</strong></em> / <em>..., <strong>dass</strong></em></li>
+  <li>Spesielle tyske bokstaver: <strong>a</strong> (ae), <strong>o</strong> (oe), <strong>u</strong> (ue), <strong>ss</strong> = akseptable erstatninger</li>
+</ul>
+
+<h2 style="margin-top:7px;">Steg 6 &mdash; Varier vokabularet (4 poeng lett a tape!)</h2>
+<p>Sensor gir bort 4 poeng for variert ordforrad. Ikke bruk samme ord hele tiden:</p>
+<table style="font-size:8pt;">
+  <tr><th>I stedet for</th><th>Bruk ogsa</th></tr>
+  <tr><td><em>gut</em> (bra)</td><td><em>toll, super, wunderbar, fantastisch, großartig</em></td></tr>
+  <tr><td><em>sagen</em> (si)</td><td><em>erklaren, berichten, beschreiben, erkennen</em></td></tr>
+  <tr><td><em>gehen</em> (ga)</td><td><em>laufen, fahren, reisen, spazieren gehen</em></td></tr>
+  <tr><td><em>machen</em> (gjore)</td><td><em>erledigen, schaffen, durchfuhren, vorbereiten</em></td></tr>
+  <tr><td><em>schon</em> (pen/allerede)</td><td><em>wunderschon, beeindruckend, hübsch, malerisch</em></td></tr>
+  <tr><td><em>ich denke</em></td><td><em>ich glaube, ich meine, meiner Meinung nach, ich finde</em></td></tr>
+</table>
+
+<h2 style="margin-top:7px;">Vanlige norsk-til-tysk-feller</h2>
+<table style="font-size:8pt;">
+  <tr><th>Norsk</th><th>FEIL tysk</th><th>RIKTIG tysk</th></tr>
+  <tr><td>fordi</td><td><em>~~weil~~ + normal ord.</em></td><td><em><strong>weil</strong> + verb sist!</em></td></tr>
+  <tr><td>Jeg liker ...</td><td><em>~~Ich like~~</em></td><td><em>Ich mag / Ich finde ... gut</em></td></tr>
+  <tr><td>Jeg er glad</td><td><em>~~Ich bin froh~~</em></td><td><em>Ich bin froh / Ich freue mich</em></td></tr>
+  <tr><td>hjemme</td><td><em>~~im Haus~~</em></td><td><em>zu Hause (ro) / nach Hause (bevegelse)</em></td></tr>
+  <tr><td>I dag morges</td><td><em>~~heute Morgen~~ (ok!)</em></td><td><em>heute Morgen</em> ✓</td></tr>
+  <tr><td>til skolen</td><td><em>~~zu der Schule~~</em></td><td><em>in die Schule (bevegelse, Akk.)</em></td></tr>
+  <tr><td>pa skolen</td><td><em>~~auf der Schule~~</em></td><td><em>in der Schule (ro, Dat.)</em></td></tr>
+  <tr><td>med bilen</td><td><em>~~mit den Auto~~</em></td><td><em>mit <strong>dem</strong> Auto (Dat. intetkjonn)</em></td></tr>
+  <tr><td>for en venn</td><td><em>~~fur einen Freund~~</em> (ok!)</td><td><em>fur <strong>einen</strong> Freund</em> ✓ (Akk. hankjonn)</td></tr>
+</table>
+</div>
+</div>
+
+<div class="boost-box" style="margin-top:5px;">
+<h3>Hva gir flest raske poeng? (Prioriter slik under tidspress)</h3>
+<div class="col3" style="font-size:8.2pt;">
+<div class="col-block"><strong>1. Relevans (2p) &mdash; LETTEST</strong><br>Svar pa ALLE kulepunkter. Skriv nok ord. Dette er gratis poeng!</div>
+<div class="col-block"><strong>2. Rettskriving (2p) &mdash; ENKELT</strong><br>Store forbokstaver pa substantiv. Komma for weil/dass. Gje ett minutt til dette til slutt.</div>
+<div class="col-block"><strong>3. Setningsstruktur (3p) &mdash; VIKTIG</strong><br>Verb pa plass 2. Verb sist etter weil/dass. Se Side 4 og 5 for maler.</div>
+</div>
+</div>
+
+<div class="page-footer">Tysk VG1/VG2 &mdash; Eksamenshefte til utskrift &mdash; Side 12 av 13</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SIDE 13: EKSAMENSORDLISTE NORSK TIL TYSK                    -->
+<!-- ============================================================ -->
+<div class="page">
+<h1>[ SIDE 13 av 13 ] &mdash; EKSAMENSORDLISTE: NORSK &rarr; TYSK (VIKTIGSTE TEMA)</h1>
+
+<div class="col3">
+
+<div>
+<h2>Hverdagsliv og familie</h2>
+<table style="font-size:8pt;">
+  <tr><th>Norsk</th><th>Tysk</th></tr>
+  <tr><td>venn (m)</td><td><em>der Freund (-e)</em></td></tr>
+  <tr><td>venninne (f)</td><td><em>die Freundin (-nen)</em></td></tr>
+  <tr><td>forelder</td><td><em>der Elternteil / die Eltern (fl.)</em></td></tr>
+  <tr><td>far</td><td><em>der Vater (-)</em></td></tr>
+  <tr><td>mor</td><td><em>die Mutter (-)</em></td></tr>
+  <tr><td>bror</td><td><em>der Bruder (-)</em></td></tr>
+  <tr><td>soster</td><td><em>die Schwester (-n)</em></td></tr>
+  <tr><td>lekser</td><td><em>die Hausaufgaben (fl.)</em></td></tr>
+  <tr><td>time / klasse</td><td><em>die Stunde / die Klasse</em></td></tr>
+  <tr><td>laerer (m/f)</td><td><em>der Lehrer / die Lehrerin</em></td></tr>
+  <tr><td>fag</td><td><em>das Fach (-er)</em></td></tr>
+  <tr><td>yndlingsfag</td><td><em>das Lieblingsfach</em></td></tr>
+  <tr><td>fritid</td><td><em>die Freizeit</em></td></tr>
+  <tr><td>hobbyer</td><td><em>die Hobbys</em></td></tr>
+</table>
+
+<h2 style="margin-top:6px;">Steder og transport</h2>
+<table style="font-size:8pt;">
+  <tr><th>Norsk</th><th>Tysk</th></tr>
+  <tr><td>by (liten)</td><td><em>die Stadt / die Kleinstadt</em></td></tr>
+  <tr><td>land (bygd)</td><td><em>das Dorf / auf dem Land</em></td></tr>
+  <tr><td>nabolag</td><td><em>die Nachbarschaft / die Gegend</em></td></tr>
+  <tr><td>butikk</td><td><em>das Geschaft / der Laden</em></td></tr>
+  <tr><td>supermarked</td><td><em>der Supermarkt</em></td></tr>
+  <tr><td>stasjon</td><td><em>der Bahnhof</em></td></tr>
+  <tr><td>buss</td><td><em>der Bus</em></td></tr>
+  <tr><td>tog</td><td><em>der Zug</em></td></tr>
+  <tr><td>med toget</td><td><em>mit dem Zug</em></td></tr>
+  <tr><td>til fots / ga</td><td><em>zu Fuss gehen</em></td></tr>
+  <tr><td>hjemme</td><td><em>zu Hause</em></td></tr>
+  <tr><td>hjem (bevegelse)</td><td><em>nach Hause</em></td></tr>
+</table>
+</div>
+
+<div>
+<h2>Tidsuttrykk (Tid for sted!)</h2>
+<table style="font-size:8pt;">
+  <tr><th>Norsk</th><th>Tysk</th></tr>
+  <tr><td>i dag</td><td><em>heute</em></td></tr>
+  <tr><td>i gar</td><td><em>gestern</em></td></tr>
+  <tr><td>i morgen</td><td><em>morgen</em></td></tr>
+  <tr><td>forrige uke</td><td><em>letzte Woche</em></td></tr>
+  <tr><td>forrige sommer</td><td><em>letzten Sommer</em></td></tr>
+  <tr><td>neste ar</td><td><em>nachstes Jahr</em></td></tr>
+  <tr><td>alltid</td><td><em>immer</em></td></tr>
+  <tr><td>noen ganger</td><td><em>manchmal</em></td></tr>
+  <tr><td>ofte</td><td><em>oft</em></td></tr>
+  <tr><td>sjelden</td><td><em>selten</em></td></tr>
+  <tr><td>aldri</td><td><em>nie / niemals</em></td></tr>
+  <tr><td>forst / deretter</td><td><em>zuerst / danach</em></td></tr>
+  <tr><td>til slutt</td><td><em>schließlich / am Ende</em></td></tr>
+  <tr><td>plutselig</td><td><em>plotzlich</em></td></tr>
+  <tr><td>dessverre</td><td><em>leider</em></td></tr>
+  <tr><td>heldigvis</td><td><em>zum Gluck</em></td></tr>
+</table>
+
+<h2 style="margin-top:6px;">Meninger og begrunnelser</h2>
+<table style="font-size:8pt;">
+  <tr><th>Norsk</th><th>Tysk</th></tr>
+  <tr><td>Etter min mening</td><td><em>Meiner Meinung nach</em></td></tr>
+  <tr><td>Jeg synes at</td><td><em>Ich finde, dass&hellip;</em></td></tr>
+  <tr><td>Jeg tror at</td><td><em>Ich glaube, dass&hellip;</em></td></tr>
+  <tr><td>Det er sant at</td><td><em>Es stimmt, dass&hellip;</em></td></tr>
+  <tr><td>Pa den ene siden</td><td><em>Einerseits&hellip;</em></td></tr>
+  <tr><td>Pa den andre siden</td><td><em>Andererseits&hellip;</em></td></tr>
+  <tr><td>Dessuten / i tillegg</td><td><em>Außerdem / Zusatzlich</em></td></tr>
+  <tr><td>Imidlertid / men</td><td><em>Jedoch / Allerdings</em></td></tr>
+</table>
+</div>
+
+<div>
+<h2>Folelser og egenskaper</h2>
+<table style="font-size:8pt;">
+  <tr><th>Norsk</th><th>Tysk</th></tr>
+  <tr><td>glad / lykkelig</td><td><em>froh / glucklich</em></td></tr>
+  <tr><td>trist / lei seg</td><td><em>traurig / niedergeschlagen</em></td></tr>
+  <tr><td>nervos</td><td><em>nerves</em></td></tr>
+  <tr><td>overrasket</td><td><em>uberrascht</em></td></tr>
+  <tr><td>nysgjerrig</td><td><em>neugierig</em></td></tr>
+  <tr><td>morsom</td><td><em>lustig / witzig</em></td></tr>
+  <tr><td>hyggelig / snill</td><td><em>nett / freundlich</em></td></tr>
+  <tr><td>eventyrlysten</td><td><em>abenteuerlustig</em></td></tr>
+  <tr><td>stresset</td><td><em>gestresst</em></td></tr>
+  <tr><td>trett / sliten</td><td><em>mude</em></td></tr>
+  <tr><td>interessant</td><td><em>interessant</em></td></tr>
+  <tr><td>vanskelig</td><td><em>schwierig / schwer</em></td></tr>
+  <tr><td>enkel / lett</td><td><em>einfach / leicht</em></td></tr>
+</table>
+
+<h2 style="margin-top:6px;">Bindingsord (forst inn i teksten!)</h2>
+<table style="font-size:8pt;">
+  <tr><th>Funksjon</th><th>Tysk</th></tr>
+  <tr><td>Forst</td><td><em>Zuerst / Als Erstes</em></td></tr>
+  <tr><td>Deretter</td><td><em>Danach / Dann / Anschließend</em></td></tr>
+  <tr><td>Dessuten</td><td><em>Außerdem</em></td></tr>
+  <tr><td>Likevel</td><td><em>Trotzdem</em></td></tr>
+  <tr><td>Selv om</td><td><em>Obwohl + verb sist</em></td></tr>
+  <tr><td>Derfor</td><td><em>Deshalb / Deswegen + inversjon</em></td></tr>
+  <tr><td>For eksempel</td><td><em>Zum Beispiel (z.B.)</em></td></tr>
+  <tr><td>Til slutt</td><td><em>Schließlich / Am Ende</em></td></tr>
+  <tr><td>Nar alt kom til alt</td><td><em>Insgesamt</em></td></tr>
+</table>
+</div>
+</div>
+
+<hr class="sep">
+<div class="rule-box" style="font-size:8.2pt;">
+<strong>SISTE MINUTT-SJEKKLISTE (ga gjennom dette for innlevering):</strong>
+<div class="col3" style="margin-top:3px;">
+<div>
+<strong>Innhold:</strong>
+<ul>
+  <li>Svart pa ALLE kulepunkter?</li>
+  <li>Nok ord? (tell)</li>
+  <li>Noe pa hvert punkt?</li>
+</ul>
+</div>
+<div>
+<strong>Grammatikk:</strong>
+<ul>
+  <li>Verb pa plass 2?</li>
+  <li>Verb sist etter weil/dass?</li>
+  <li>Dativ etter mit/aus/bei/von/zu?</li>
+</ul>
+</div>
+<div>
+<strong>Rettskriving:</strong>
+<ul>
+  <li>Alle substantiv med STOR forbokstav?</li>
+  <li>Komma for weil/dass/wenn?</li>
+  <li>Navn pa steder/personer korrekte?</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="page-footer">Tysk VG1/VG2 &mdash; Eksamenshefte til utskrift &mdash; Side 13 av 13</div>
+</div>
+
+</body>
+</html>

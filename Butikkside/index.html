@@ -3,64 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AURA | Premium Store</title>
-    <!-- google fonts -->
+    <title>LUMOS - Lampe-Arkivet</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
 
-    <!-- bakgrunnsglød -->
-    <div class="ambient-glow"></div>
+    <div id="loginPopup" class="popup" style="display: none;">
+        <div class="popup-innhold">
+            <button class="lukk-knapp" data-close>×</button>
 
-    <!-- innlogging -->
-    <div id="innlogging" class="auth-wrapper" >
-        <div class="glass-card login-boks">
-            <h1 class="brand-title">AURA<span>.</span></h1>
-            <p class="subtitle">Logg inn for å oppleve fremtiden.</p>
-            
-            <div class="input-group">
-                <input type="email" id="epost" placeholder="E-post">
+            <div id="loginSection">
+                <h2>TILGANG</h2>
+                <input type="text" id="signInEmailInput" placeholder="E-POST / BRUKERNAVN">
+                <input type="password" id="signInPasswordInput" placeholder="PASSORD">
+                <p class="error-msg" id="loginFeilMsg"></p>
+                <button id="signInButton" class="btn">VERIFISER</button>
+                <p class="bytte-tekst">Ingen bruker? <a href="#" id="linkToRegister">Registrer deg her</a></p>
             </div>
-            <div class="input-group">
-                <input type="password" id="passord" placeholder="Passord">
+
+            <div id="registerSection" style="display: none;">
+                <h2>NY BRUKER</h2>
+                <input type="text" id="registerEmailInput" placeholder="E-POST / BRUKERNAVN">
+                <input type="text" id="registerPasswordInput" placeholder="VELG ET PASSORD">
+                <div class="popup-knapper">
+                    <button id="generatePasswordBtn" class="ghost">Generer tilfeldig passord</button>
+                    <button id="registerButton" class="btn">REGISTRER</button>
+                </div>
+                <p class="bytte-tekst">Har du allerede bruker? <a href="#" id="linkToLogin">Logg inn her</a></p>
             </div>
-            
-            <button id="logg-inn-knapp" class="btn-primary">Logg inn</button>
-            <button id="registrer-knapp" class="btn-secondary">Opprett konto</button>
-            
-            <p id="feilmelding" class="error-msg"></p>
         </div>
     </div>
 
-    <!-- butikk-layout (skjult først) -->
-    <div id="butikk" class="skjult layout">
-        <header class="glass-header">
-            <div class="logo">AURA<span>.</span></div>
-            <nav>
-                <a href="#">Butikk</a>
-                <a href="#">Kolleksjoner</a>
-            </nav>
-            <button id="logg-ut-knapp" class="btn-outline">Logg ut</button>
-        </header>
-
-        <main>
-            <section class="hero">
-                <h1 class="hero-title">Elevate your<br>everyday.</h1>
-                <p class="hero-subtitle">Oppdag vår eksklusive kolleksjon. Hentet direkte fra din Firebase-database.</p>
-            </section>
-
-            <section class="product-section">
-                <div class="produkter">
-                    <!-- her havner produktene -->
-                </div>
-            </section>
-        </main>
+    <div id="cartPopup" class="popup" style="display: none;">
+        <div class="popup-innhold">
+            <button class="lukk-knapp" data-close>×</button>
+            <h2>HANDLEKURV</h2>
+            <ul id="cart-list"></ul>
+            <div class="cart-footer">
+                <span>TOTALT</span>
+                <span id="total">0 NOK</span>
+            </div>
+            <div class="popup-knapper cart-actions">
+                <button id="checkoutBtn" class="btn">BESTILL</button>
+                <button id="clearCartBtn" class="ghost">TØM KURV</button>
+            </div>
+        </div>
     </div>
+    <header class="topp-bar">
+        <div class="logo">LUMOS</div>
+        <div class="nav-knapper">
+            <span id="userDisplay">ANONYM</span>
+            <button id="btShowLogin" class="ghost">LOGG INN</button>
+            <button id="btLogout" class="ghost" style="display: none;">LOGG UT</button>
+            <button id="btShowCart" class="ghost">KURV&thinsp;(<span id="count">0</span>)</button>
+        </div>
+    </header>
+    <main>
+        <section id="arkivView" class="view">
+            <div class="intro">
+                <h1>LAMPE-ARKIVET</h1>
+                <p>Belysning smidd i kosmiske feilgrep. Begrenset opplag.</p>
+                <button class="ghost" id="sortBtn">SORTER: STANDARD</button>
+            </div>
+            <div id="collection" class="grid"></div>
+        </section>
+        <section id="detaljView" class="view" hidden>
+            <div class="back-row">
+                <button class="ghost" id="backBtn">← ARKIVET</button>
+            </div>
+            <article class="detail">
+                <figure class="detail-fig">
+                    <img id="detail-img" src="" alt="">
+                </figure>
+                <div class="detail-info">
+                    <p class="serie">BEGRENSET OPPLAG</p>
+                    <h1 id="detail-name"></h1>
+                    <p class="price" id="detail-price"></p>
+                    <p class="desc" id="detail-desc"></p>
+                    <button class="btn" id="add-to-cart">LEGG I HANDLEKURV</button>
+                </div>
+            </article>
+        </section>
+        </main>
 
-    <!-- må ha type="module" pga firebase -->
     <script type="module" src="index.js"></script>
 </body>
 </html>
